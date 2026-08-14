@@ -1,0 +1,118 @@
+body {
+            background-image: 
+                linear-gradient(rgba(20, 20, 20, 0.9) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(20, 20, 20, 0.9) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center top;
+        }
+        
+        .brutalist-panel {
+            background-color: var(--tw-colors-surface-metal);
+            border: 2px solid var(--tw-colors-outline-variant);
+            box-shadow: 4px 4px 0px var(--tw-colors-surface-container-highest);
+            position: relative;
+        }
+        
+        .brutalist-panel::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            width: 12px;
+            height: 12px;
+            background-color: var(--tw-colors-cyber-yellow);
+            clip-path: polygon(100% 0, 0 100%, 100% 100%);
+        }
+
+        .brutalist-panel-active {
+            border-color: var(--tw-colors-cyber-yellow);
+            box-shadow: 6px 6px 0px rgba(252, 238, 10, 0.2);
+        }
+        
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: var(--tw-colors-dark-void);
+            border-left: 1px solid var(--tw-colors-outline-variant);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--tw-colors-cyber-yellow); 
+            border: 2px solid var(--tw-colors-dark-void);
+        }
+
+        .cyber-text {
+            text-shadow: 2px 2px 0px var(--tw-colors-glitch-red), -2px -2px 0px var(--tw-colors-neon-cyan);
+        }
+        
+        .scanline {
+            position: relative;
+            overflow: hidden;
+        }
+        .scanline::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2;
+            background-size: 100% 4px, 6px 100%;
+            pointer-events: none;
+        }
+
+        .gauge-track {
+            stroke: var(--tw-colors-surface-container-high);
+        }
+        
+        .gauge-active {
+            stroke: var(--tw-colors-cyber-yellow);
+            filter: drop-shadow(0 0 8px rgba(252, 238, 10, 0.5));
+        }
+
+        .chart-grid {
+            stroke: var(--tw-colors-outline-variant);
+            stroke-dasharray: 4;
+        }
+
+        .chart-line {
+            stroke: var(--tw-colors-neon-cyan);
+            stroke-width: 2;
+            fill: none;
+            filter: drop-shadow(0 0 5px rgba(0, 240, 255, 0.6));
+        }
+        
+        .chart-area {
+            fill: url(#chartGradient);
+        }
+        
+        .btn-cyber {
+            background: transparent;
+            border: 2px solid var(--tw-colors-cyber-yellow);
+            color: var(--tw-colors-cyber-yellow);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+        }
+        
+        .btn-cyber:hover {
+            background: var(--tw-colors-cyber-yellow);
+            color: var(--tw-colors-dark-void);
+            box-shadow: 0 0 15px rgba(252, 238, 10, 0.4);
+        }
+        
+        .btn-cyber::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.5s ease;
+        }
+        
+        .btn-cyber:hover::before {
+            left: 100%;
+        }

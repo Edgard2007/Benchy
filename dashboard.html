@@ -1,0 +1,569 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>BenchMetrics</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-error": "#690005",
+              "on-primary-fixed": "#1f1c00",
+              "on-secondary": "#00363a",
+              "on-secondary-fixed": "#002022",
+              secondary: "#d3fbff",
+              "tertiary-fixed": "#ffdad8",
+              "surface-container-lowest": "#0e0e0e",
+              "error-container": "#93000a",
+              "surface-variant": "#353534",
+              primary: "#ffffff",
+              "surface-metal": "#121212",
+              "on-secondary-container": "#00686f",
+              "on-primary-container": "#6d6600",
+              "surface-container": "#201f1f",
+              "on-background": "#e5e2e1",
+              "glitch-red": "#FF003C",
+              "on-surface": "#e5e2e1",
+              "secondary-container": "#00eefc",
+              "surface-dim": "#131313",
+              surface: "#131313",
+              "surface-container-high": "#2a2a2a",
+              "on-tertiary": "#680012",
+              "primary-fixed-dim": "#d6ca00",
+              outline: "#959177",
+              error: "#ffb4ab",
+              "dark-void": "#050505",
+              "cyber-yellow": "#FCEE0A",
+              "primary-fixed": "#f4e700",
+              tertiary: "#ffffff",
+              "on-tertiary-fixed": "#410008",
+              "inverse-surface": "#e5e2e1",
+              "on-surface-variant": "#ccc7ab",
+              "neon-cyan": "#00F0FF",
+              "surface-tint": "#d6ca00",
+              "on-tertiary-container": "#ca002d",
+              "on-error-container": "#ffdad6",
+              "on-primary": "#353100",
+              "surface-bright": "#3a3939",
+              "tertiary-container": "#ffdad8",
+              "on-tertiary-fixed-variant": "#92001e",
+              "tertiary-fixed-dim": "#ffb3b2",
+              background: "#131313",
+              "on-secondary-fixed-variant": "#004f54",
+              "secondary-fixed": "#7df4ff",
+              "secondary-fixed-dim": "#00dbe9",
+              "inverse-on-surface": "#313030",
+              "surface-container-low": "#1c1b1b",
+              "outline-variant": "#4a4732",
+              "surface-container-highest": "#353534",
+              "inverse-primary": "#666000",
+              "primary-container": "#f4e700",
+              "on-primary-fixed-variant": "#4d4800",
+            },
+            borderRadius: {
+              DEFAULT: "0px",
+              lg: "0px",
+              xl: "0px",
+              full: "9999px",
+            },
+            spacing: {
+              "margin-mobile": "16px",
+              "border-thin": "1px",
+              "margin-desktop": "40px",
+              unit: "4px",
+              "border-thick": "3px",
+              gutter: "16px",
+              "container-max": "1440px",
+            },
+            fontFamily: {
+              "body-md": ["Archivo Narrow"],
+              "code-glitch": ["Space Mono"],
+              "headline-lg": ["Anton"],
+              "headline-lg-mobile": ["Anton"],
+              "label-technical": ["Space Mono"],
+              "display-xl": ["Anton"],
+              "headline-xl": ["Anton"],
+              "code-sm": ["Space Mono"],
+              "label-caps": ["Space Mono"],
+            },
+            fontSize: {
+              "body-md": [
+                "16px",
+                {
+                  lineHeight: "24px",
+                  fontWeight: "400",
+                },
+              ],
+              "code-glitch": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  fontWeight: "400",
+                },
+              ],
+              "headline-lg": [
+                "48px",
+                {
+                  lineHeight: "48px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "400",
+                },
+              ],
+              "headline-lg-mobile": [
+                "36px",
+                {
+                  lineHeight: "36px",
+                  fontWeight: "400",
+                },
+              ],
+              "label-technical": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.1em",
+                  fontWeight: "700",
+                },
+              ],
+              "display-xl": [
+                "84px",
+                {
+                  lineHeight: "80px",
+                  letterSpacing: "0.02em",
+                  fontWeight: "400",
+                },
+              ],
+              "headline-xl": [
+                "48px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "0.02em",
+                  fontWeight: "400",
+                },
+              ],
+              "code-sm": [
+                "12px",
+                {
+                  lineHeight: "1.4",
+                  letterSpacing: "0.1em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-caps": [
+                "12px",
+                {
+                  lineHeight: "1.2",
+                  letterSpacing: "0.1em",
+                  fontWeight: "700",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col relative overflow-x-hidden pt-16 scanline"
+  >
+    <!-- TopNavBar Component -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-surface-metal border-b-2 border-outline-variant transition-all duration-300 ease-out"
+    >
+      <div
+        class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full mx-auto max-w-container-max"
+      >
+        <!-- Brand -->
+        <div
+          class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-cyber-yellow tracking-widest uppercase"
+        >
+          BenchMetrics
+        </div>
+        <!-- Navigation Links (Hidden on mobile for this specific layout to focus on content, usually would be a hamburger) -->
+        <div
+          class="hidden md:flex items-center gap-8 font-label-technical text-label-technical"
+        >
+          <a
+            class="text-on-surface-variant hover:text-cyber-yellow transition-colors hover:bg-surface-container-high px-3 py-2 border border-transparent hover:border-outline-variant"
+            href="home.html"
+            >Home</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-cyber-yellow transition-colors hover:bg-surface-container-high px-3 py-2 border border-transparent hover:border-outline-variant"
+            href="catalogo.html"
+            >Catálogo</a
+          >
+          <a
+            class="text-neon-cyan border-b-2 border-neon-cyan pb-1 px-3 py-2 bg-surface-container-high"
+            href="dashboard.html"
+            >Testes</a
+          >
+        </div>
+        <!-- Trailing Action -->
+        <button
+          class="btn-cyber px-4 py-2 font-label-technical text-label-technical transition-all active:scale-95 flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[16px]">terminal</span>
+          EXECUTE
+        </button>
+      </div>
+    </nav>
+    <!-- Main Content Canvas -->
+    <main
+      class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 grid grid-cols-1 md:grid-cols-12 gap-gutter relative z-10"
+    >
+      <!-- Left Panel: CPU Details (3 cols on desktop) -->
+      <aside class="md:col-span-3 space-y-6">
+        <div
+          class="brutalist-panel p-6 group hover:brutalist-panel-active transition-colors"
+        >
+          <div class="absolute top-4 right-4 flex items-center gap-2">
+            <span class="w-3 h-3 bg-cyber-yellow animate-pulse"></span>
+            <span class="font-code-glitch text-code-glitch text-cyber-yellow"
+              >SYS.ON</span
+            >
+          </div>
+          <h3
+            class="font-label-technical text-label-technical text-on-surface mb-4 border-b-2 border-outline-variant pb-2 uppercase tracking-widest"
+          >
+            CPU_DIAGNOSTICS
+          </h3>
+          <div class="mb-6">
+            <div
+              class="font-code-glitch text-code-glitch text-on-surface-variant mb-1"
+            >
+              HW.ID
+            </div>
+            <div
+              class="font-body-md text-body-md text-neon-cyan truncate bg-surface-container-high px-2 py-1 border border-outline-variant"
+            >
+              Intel Core i9-13900K
+            </div>
+          </div>
+          <div class="space-y-6">
+            <!-- Utilization Bar -->
+            <div>
+              <div
+                class="flex justify-between font-code-glitch text-code-glitch mb-1"
+              >
+                <span class="text-on-surface-variant">LOAD</span>
+                <span class="text-glitch-red font-bold">92%</span>
+              </div>
+              <div
+                class="h-4 w-full bg-surface-container-highest border border-outline-variant overflow-hidden flex"
+              >
+                <div class="h-full w-[92%] bg-glitch-red"></div>
+              </div>
+            </div>
+            <!-- Core Clock -->
+            <div class="pt-2 border-t border-outline-variant border-dashed">
+              <div
+                class="font-code-glitch text-code-glitch text-on-surface-variant mb-1"
+              >
+                FREQ.MAX
+              </div>
+              <div class="flex items-baseline gap-2">
+                <span
+                  class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface"
+                  >5.8</span
+                >
+                <span
+                  class="font-code-glitch text-code-glitch text-cyber-yellow"
+                  >GHz</span
+                >
+              </div>
+            </div>
+            <!-- Temp -->
+            <div class="pt-2 border-t border-outline-variant border-dashed">
+              <div
+                class="font-code-glitch text-code-glitch text-on-surface-variant mb-1"
+              >
+                THERMAL
+              </div>
+              <div class="flex items-baseline gap-2">
+                <span
+                  class="font-headline-lg-mobile text-headline-lg-mobile text-glitch-red"
+                  >84</span
+                >
+                <span class="font-code-glitch text-code-glitch text-glitch-red"
+                  >°C</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <!-- Center Panel: Primary Gauge (6 cols on desktop) -->
+      <section
+        class="md:col-span-6 flex flex-col items-center justify-center p-8 bg-surface-container-low border-2 border-outline-variant relative overflow-hidden"
+      >
+        <!-- Corner accents -->
+        <div
+          class="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-cyber-yellow"
+        ></div>
+        <div
+          class="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-cyber-yellow"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-cyber-yellow"
+        ></div>
+        <div
+          class="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-cyber-yellow"
+        ></div>
+        <div
+          class="text-center mb-8 w-full border-b-2 border-outline-variant pb-4"
+        >
+          <h1
+            class="font-display-xl text-display-xl text-on-surface mb-2 uppercase tracking-widest cyber-text"
+          >
+            COMPILE_OK
+          </h1>
+          <p
+            class="font-code-glitch text-code-glitch text-cyber-yellow bg-dark-void inline-block px-4 py-1 border border-cyber-yellow"
+          >
+            SEQ: NEURAL_PATHWAY_04_ULTRA
+          </p>
+        </div>
+        <!-- Huge Gauge Container -->
+        <div
+          class="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center my-8"
+        >
+          <!-- SVG Gauge -->
+          <svg
+            class="absolute inset-0 w-full h-full -rotate-90"
+            viewbox="0 0 200 200"
+          >
+            <!-- Background Track -->
+            <circle
+              class="gauge-track"
+              cx="100"
+              cy="100"
+              fill="none"
+              r="90"
+              stroke-width="12"
+            ></circle>
+            <!-- Tick marks -->
+            <circle
+              cx="100"
+              cy="100"
+              fill="none"
+              r="75"
+              stroke="var(--tw-colors-outline-variant)"
+              stroke-dasharray="2 8"
+              stroke-width="6"
+            ></circle>
+            <!-- Active Track -->
+            <circle
+              class="gauge-active"
+              cx="100"
+              cy="100"
+              fill="none"
+              r="90"
+              stroke-dasharray="565.48"
+              stroke-dashoffset="113"
+              stroke-linecap="butt"
+              stroke-width="12"
+            ></circle>
+          </svg>
+          <!-- Center Score -->
+          <div
+            class="text-center z-10 flex flex-col items-center bg-surface-metal p-6 border-2 border-neon-cyan rounded-full w-48 h-48 justify-center shadow-[0_0_20px_rgba(0,240,255,0.2)]"
+          >
+            <span
+              class="font-label-technical text-label-technical text-on-surface-variant tracking-[0.2em] mb-2 uppercase"
+              >OUTPUT_VAL</span
+            >
+            <span
+              class="font-headline-xl text-[56px] text-neon-cyan leading-none"
+              >14,289</span
+            >
+            <span
+              class="font-code-glitch text-code-glitch text-dark-void mt-2 border border-cyber-yellow px-3 py-1 bg-cyber-yellow font-bold uppercase"
+              >Rank 01</span
+            >
+          </div>
+        </div>
+        <!-- Action Buttons -->
+        <div class="mt-8 flex gap-6 w-full justify-center">
+          <button
+            class="bg-surface-metal border-2 border-outline-variant px-6 py-3 font-label-technical text-label-technical text-on-surface hover:border-neon-cyan hover:text-neon-cyan transition-all flex items-center gap-2 uppercase"
+          >
+            <span class="material-symbols-outlined text-[18px]">share</span>
+            EXPORT.LOG
+          </button>
+          <button
+            class="btn-cyber px-8 py-3 font-label-technical text-label-technical shadow-[4px_4px_0px_var(--tw-colors-outline-variant)] hover:shadow-[2px_2px_0px_var(--tw-colors-outline-variant)] hover:translate-y-[2px] hover:translate-x-[2px] transition-all flex items-center gap-2"
+          >
+            <span class="material-symbols-outlined text-[18px]">refresh</span>
+            RE-INIT
+          </button>
+        </div>
+      </section>
+      <!-- Right Panel: GPU & Charts (3 cols on desktop) -->
+      <aside class="md:col-span-3 space-y-6 flex flex-col">
+        <!-- GPU Info -->
+        <div
+          class="brutalist-panel p-6 group hover:border-neon-cyan transition-colors"
+        >
+          <div class="absolute top-4 right-4 flex items-center gap-2">
+            <span class="w-3 h-3 bg-neon-cyan animate-pulse"></span>
+            <span class="font-code-glitch text-code-glitch text-neon-cyan"
+              >SYS.ON</span
+            >
+          </div>
+          <h3
+            class="font-label-technical text-label-technical text-on-surface mb-4 border-b-2 border-outline-variant pb-2 uppercase tracking-widest"
+          >
+            GPU_DIAGNOSTICS
+          </h3>
+          <div class="mb-6">
+            <div
+              class="font-code-glitch text-code-glitch text-on-surface-variant mb-1"
+            >
+              HW.ID
+            </div>
+            <div
+              class="font-body-md text-body-md text-cyber-yellow truncate bg-surface-container-high px-2 py-1 border border-outline-variant"
+            >
+              NVIDIA RTX 4090
+            </div>
+          </div>
+          <div class="space-y-6">
+            <!-- VRAM -->
+            <div>
+              <div
+                class="flex justify-between font-code-glitch text-code-glitch mb-1"
+              >
+                <span class="text-on-surface-variant">MEM.ALLOC</span>
+                <span class="text-neon-cyan font-bold">18.4 GB</span>
+              </div>
+              <div
+                class="h-4 w-full bg-surface-container-highest border border-outline-variant overflow-hidden flex"
+              >
+                <div class="h-full w-[76%] bg-neon-cyan"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- FPS Chart -->
+        <div
+          class="brutalist-panel p-4 flex-grow flex flex-col relative border-2 border-outline-variant"
+        >
+          <h3
+            class="font-label-technical text-label-technical text-on-surface-variant mb-2 uppercase border-b border-outline-variant pb-2"
+          >
+            FPS_TELEMETRY
+          </h3>
+          <div
+            class="flex-grow w-full relative min-h-[120px] bg-dark-void mt-2 border border-outline-variant"
+          >
+            <!-- Simple SVG Chart -->
+            <svg
+              class="absolute inset-0 w-full h-full preserve-aspect-ratio-none"
+              preserveaspectratio="none"
+              viewbox="0 0 100 40"
+            >
+              <defs>
+                <lineargradient
+                  id="chartGradient"
+                  x1="0%"
+                  x2="0%"
+                  y1="0%"
+                  y2="100%"
+                >
+                  <stop
+                    offset="0%"
+                    stop-color="#00F0FF"
+                    stop-opacity="0.3"
+                  ></stop>
+                  <stop
+                    offset="100%"
+                    stop-color="#00F0FF"
+                    stop-opacity="0"
+                  ></stop>
+                </lineargradient>
+              </defs>
+              <!-- Grid Lines -->
+              <line class="chart-grid" x1="0" x2="100" y1="10" y2="10"></line>
+              <line class="chart-grid" x1="0" x2="100" y1="20" y2="20"></line>
+              <line class="chart-grid" x1="0" x2="100" y1="30" y2="30"></line>
+              <line class="chart-grid" x1="25" x2="25" y1="0" y2="40"></line>
+              <line class="chart-grid" x1="50" x2="50" y1="0" y2="40"></line>
+              <line class="chart-grid" x1="75" x2="75" y1="0" y2="40"></line>
+              <!-- Area -->
+              <polygon
+                class="chart-area"
+                points="0,40 0,25 20,15 40,22 60,10 80,18 100,8 100,40"
+              ></polygon>
+              <!-- Line -->
+              <polyline
+                class="chart-line"
+                points="0,25 20,15 40,22 60,10 80,18 100,8"
+              ></polyline>
+            </svg>
+          </div>
+          <div
+            class="flex justify-between mt-4 font-code-glitch text-code-glitch text-on-surface-variant bg-surface-container-high px-2 py-1 border border-outline-variant"
+          >
+            <span>MIN:112</span>
+            <span class="text-cyber-yellow font-bold">AVG:144</span>
+            <span>MAX:180</span>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <!-- Footer Component -->
+    <footer
+      class="bg-surface-metal w-full mt-auto border-t-4 border-cyber-yellow grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-margin-desktop py-8 mx-auto max-w-container-max relative z-10"
+    >
+      <div
+        class="font-headline-lg-mobile text-headline-lg-mobile text-cyber-yellow flex items-center h-full uppercase tracking-widest"
+      >
+        NEURAL_BENCH
+      </div>
+      <div
+        class="flex flex-col md:flex-row items-start md:items-center justify-center gap-6 font-label-technical text-label-technical"
+      >
+        <a
+          class="text-on-surface-variant hover:text-neon-cyan transition-colors"
+          href="#"
+          >[ DISCORD ]</a
+        >
+        <a
+          class="text-on-surface-variant hover:text-neon-cyan transition-colors"
+          href="#"
+          >[ DOCS ]</a
+        >
+        <a
+          class="text-on-surface-variant hover:text-neon-cyan transition-colors"
+          href="#"
+          >[ API ]</a
+        >
+        <a
+          class="text-on-surface-variant hover:text-neon-cyan transition-colors"
+          href="#"
+          >[ STATUS ]</a
+        >
+      </div>
+      <div
+        class="font-code-glitch text-code-glitch text-on-surface-variant flex flex-col justify-center text-right h-full"
+      >
+        <div>SYS.VER // 2.0.4</div>
+        <div class="text-outline-variant">© 2024 NEURAL_BENCH CORP.</div>
+      </div>
+    </footer>
+  </body>
+</html>

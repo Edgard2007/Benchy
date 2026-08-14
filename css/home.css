@@ -1,0 +1,69 @@
+
+        body {
+            background-color: #050505;
+            color: #e5e2e1;
+        }
+        
+        .glass-panel {
+            background-color: #121212;
+            border: 3px solid #353534;
+            position: relative;
+        }
+        
+        .glass-panel::after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            width: 20px;
+            height: 20px;
+            background: #FCEE0A;
+            clip-path: polygon(100% 0, 0 0, 100% 100%);
+        }
+        
+        .glass-panel:hover {
+            border-color: #00F0FF;
+        }
+        
+        .btn-primary {
+            background-color: #FCEE0A;
+            color: #050505;
+            border: 2px solid transparent;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+        }
+        
+        .btn-primary:hover {
+            background-color: #050505;
+            color: #FCEE0A;
+            border-color: #FCEE0A;
+        }
+        
+        .btn-primary:active {
+            background-color: #FF003C;
+            color: #050505;
+            border-color: #FF003C;
+        }
+        
+        /* Grid background pattern */
+        .bg-grid-pattern {
+            background-image: 
+                linear-gradient(to right, rgba(252,238,10,0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(252,238,10,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        .glitch-border {
+            position: relative;
+        }
+        .glitch-border::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: #FF003C;
+            z-index: -1;
+            clip-path: polygon(0 10%, 10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
+        }
