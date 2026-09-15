@@ -1,602 +1,208 @@
 <!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Catálogo de Cenários — BenchMetrics</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/catalogo.css" />
+</head>
+<body class="inline-style-1">
 
-<html class="dark" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Catálogo</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./css/catalogo.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;family=Hanken+Grotesk:wght@400;500&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;display=swap"
-      rel="stylesheet"
-    />
-    <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "on-error": "#690005",
-              "on-primary-fixed": "#1f1c00",
-              "on-secondary": "#00363a",
-              "on-secondary-fixed": "#002022",
-              secondary: "#d3fbff",
-              "tertiary-fixed": "#ffdad8",
-              "surface-container-lowest": "#0e0e0e",
-              "error-container": "#93000a",
-              "surface-variant": "#353534",
-              primary: "#ffffff",
-              "surface-metal": "#121212",
-              "on-secondary-container": "#00686f",
-              "on-primary-container": "#6d6600",
-              "surface-container": "#201f1f",
-              "on-background": "#e5e2e1",
-              "glitch-red": "#FF003C",
-              "on-surface": "#e5e2e1",
-              "secondary-container": "#00eefc",
-              "surface-dim": "#131313",
-              surface: "#131313",
-              "surface-container-high": "#2a2a2a",
-              "on-tertiary": "#680012",
-              "primary-fixed-dim": "#d6ca00",
-              outline: "#959177",
-              error: "#ffb4ab",
-              "dark-void": "#050505",
-              "cyber-yellow": "#FCEE0A",
-              "primary-fixed": "#f4e700",
-              tertiary: "#ffffff",
-              "on-tertiary-fixed": "#410008",
-              "inverse-surface": "#e5e2e1",
-              "on-surface-variant": "#ccc7ab",
-              "neon-cyan": "#00F0FF",
-              "surface-tint": "#d6ca00",
-              "on-tertiary-container": "#ca002d",
-              "on-error-container": "#ffdad6",
-              "on-primary": "#353100",
-              "surface-bright": "#3a3939",
-              "tertiary-container": "#ffdad8",
-              "on-tertiary-fixed-variant": "#92001e",
-              "tertiary-fixed-dim": "#ffb3b2",
-              background: "#131313",
-              "on-secondary-fixed-variant": "#004f54",
-              "secondary-fixed": "#7df4ff",
-              "secondary-fixed-dim": "#00dbe9",
-              "inverse-on-surface": "#313030",
-              "surface-container-low": "#1c1b1b",
-              "outline-variant": "#4a4732",
-              "surface-container-highest": "#353534",
-              "inverse-primary": "#666000",
-              "primary-container": "#f4e700",
-              "on-primary-fixed-variant": "#4d4800",
-            },
-            borderRadius: {
-              DEFAULT: "0.25rem",
-              lg: "0.5rem",
-              xl: "0.75rem",
-              full: "9999px",
-            },
-            spacing: {
-              "margin-mobile": "16px",
-              "border-thin": "1px",
-              "margin-desktop": "40px",
-              unit: "4px",
-              "border-thick": "3px",
-              gutter: "16px",
-            },
-            fontFamily: {
-              "body-md": ["Archivo Narrow"],
-              "code-glitch": ["Space Mono"],
-              "headline-lg": ["Anton"],
-              "headline-lg-mobile": ["Anton"],
-              "label-technical": ["Space Mono"],
-              "display-xl": ["Anton"],
-            },
-            fontSize: {
-              "body-md": [
-                "16px",
-                {
-                  lineHeight: "24px",
-                  fontWeight: "400",
-                },
-              ],
-              "code-glitch": [
-                "14px",
-                {
-                  lineHeight: "20px",
-                  fontWeight: "400",
-                },
-              ],
-              "headline-lg": [
-                "48px",
-                {
-                  lineHeight: "48px",
-                  letterSpacing: "0.01em",
-                  fontWeight: "400",
-                },
-              ],
-              "headline-lg-mobile": [
-                "36px",
-                {
-                  lineHeight: "36px",
-                  fontWeight: "400",
-                },
-              ],
-              "label-technical": [
-                "12px",
-                {
-                  lineHeight: "16px",
-                  letterSpacing: "0.1em",
-                  fontWeight: "700",
-                },
-              ],
-              "display-xl": [
-                "84px",
-                {
-                  lineHeight: "80px",
-                  letterSpacing: "0.02em",
-                  fontWeight: "400",
-                },
-              ],
-            },
-          },
-        },
-      };
-    </script>
-  </head>
-  <body
-    class="text-on-surface font-body-md min-h-screen flex flex-col selection:bg-cyber-yellow selection:text-dark-void"
-  >
-    <!-- TopNavBar -->
-    <header
-      class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 border-b-2 border-cyber-yellow shadow-[0_4px_0_rgba(252,238,10,0.2)] transition-all duration-300 ease-out"
-    >
-      <div
-        class="flex justify-between items-center px-margin-desktop h-16 w-full mx-auto max-w-container-max relative"
-      >
-        <!-- Scanline overlay for header -->
-        <div
-          class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjIiIGZpbGw9InJnYmEoMCwwLDAsMC4yKSIvPjwvc3ZnPg==')] opacity-50 pointer-events-none"
-        ></div>
-        <!-- Brand -->
-        <div
-          class="font-headline-lg text-headline-lg font-bold text-cyber-yellow tracking-tighter cursor-pointer relative z-10 glitch-effect"
-          data-text="NEURAL_BENCH"
-        >
-          BenchMetrics
-        </div>
-        <!-- Navigation Links (Desktop) -->
-        <nav class="hidden md:flex space-x-8 relative z-10">
-          <a
-            class="font-label-technical text-label-technical text-on-surface-variant hover:text-cyber-yellow transition-colors py-5 border-b-2 border-transparent hover:border-cyber-yellow uppercase"
-            href="home.html"
-            >Home</a
-          >
-          <a
-            class="font-label-technical text-label-technical text-on-surface-variant hover:text-cyber-yellow transition-colors py-5 border-b-2 border-transparent hover:border-cyber-yellow uppercase"
-            href="catalogo.html"
-            >Catálogo</a
-          >
-          <a
-            class="font-label-technical text-label-technical text-on-surface-variant hover:text-cyber-yellow transition-colors py-5 border-b-2 border-transparent hover:border-cyber-yellow uppercase"
-            href="dashboard.html"
-            >Testes</a
-          >
+<!-- Camada de fundo Aura (grade neon) - envolve toda a página -->
+<div class="inline-style-2">
+
+  <div class="inline-style-3"></div>
+  <div class="inline-style-4"></div>
+  <div class="inline-style-5"></div>
+
+  <div class="inline-style-6">
+
+    <!-- Cabeçalho / navegação -->
+    <header class="inline-style-7">
+      <div class="inline-style-8">
+        <a href="home.html" class="inline-style-9">BenchMetrics</a>
+        <nav class="inline-style-10">
+          <a href="home.html" class="inline-style-11">Home</a>
+          <a href="catalogo.html" class="inline-style-12">Catálogo</a>
+          <a href="dashboard.html" class="inline-style-13">Testes</a>
         </nav>
-        <!-- Search & Actions -->
-        <div class="flex items-center space-x-4 relative z-10">
-          <div class="relative hidden md:block">
-            <span
-              class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-cyber-yellow"
-              style="font-size: 18px"
-              >terminal</span
-            >
-            <input
-              class="bg-surface-metal border border-outline-variant text-code-glitch font-code-glitch text-on-surface placeholder:text-on-surface-variant/50 pl-9 pr-4 py-1.5 focus:border-cyber-yellow focus:ring-0 focus:outline-none w-48 transition-all"
-              placeholder="Query SYS..."
-              type="text"
-            />
-          </div>
-          <button
-            class="font-label-technical text-label-technical bg-transparent text-cyber-yellow border border-cyber-yellow px-4 py-2 hover:bg-cyber-yellow hover:text-dark-void transition-all active:scale-95 flex items-center space-x-2 uppercase"
-          >
-            <span class="material-symbols-outlined" style="font-size: 16px"
-              >build</span
-            >
-            <span class="hidden sm:inline">Config</span>
-          </button>
-        </div>
+        <!-- Busca rápida de cenários -->
+        <form action="catalogo.html" method="get" class="inline-style-14">
+          <label for="busca-cenario" class="inline-style-15">Buscar cenário</label>
+          <input id="busca-cenario" name="q" type="text" placeholder="Buscar cenário..." class="inline-style-16" />
+          <button type="submit" class="inline-style-17">Ir</button>
+        </form>
       </div>
     </header>
-    <!-- Main Content Canvas -->
-    <main
-      class="flex-grow pt-24 pb-12 px-margin-desktop max-w-container-max mx-auto w-full flex flex-col relative z-10"
-    >
-      <!-- Header Section -->
-      <div class="text-center mb-8 relative z-20">
-        <h1
-          class="font-headline-lg text-display-xl text-on-surface mb-2 tracking-tighter uppercase glitch-effect"
-          data-text="SELECT SCENARIO"
-        >
-          SELECT <span class="text-cyber-yellow glow-text">SCENARIO</span>
+
+    <main class="inline-style-18">
+
+      <div class="inline-style-19">
+        <h1 class="inline-style-20">
+          Selecione o <span class="inline-style-21">Cenário</span>
         </h1>
-        <p
-          class="font-code-glitch text-code-glitch text-cyber-yellow tracking-widest uppercase bg-cyber-yellow/10 inline-block px-4 py-1 border border-cyber-yellow/30"
-        >
-          Initialize rendering environment for stress testing
+        <p class="inline-style-22">
+          Ambiente de renderização para testes de estresse
         </p>
       </div>
-      <!-- Cover Flow Carousel -->
-      <div
-        class="cover-flow-container relative h-[400px] w-full flex items-center justify-center my-8 z-30 overflow-hidden"
-        id="carousel"
-      >
-        <!-- Items will be positioned by JS class toggles based on structure above -->
-        <div
-          class="cover-item far-prev absolute w-[240px] h-[320px] overflow-hidden bg-surface-metal group"
-          data-index="0"
-        >
-          <img
-            class="w-full h-full object-cover opacity-80 mix-blend-luminosity"
-            data-alt="A highly detailed cinematic poster for a futuristic sci-fi game set in a dystopian megacity at night. Neon signs reflect off rain-slicked streets. A lone figure stands looking at towering skyscrapers. Cyan and magenta color palette. Dark, atmospheric, high-contrast lighting."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDulJoJiOHwpf7BjwGTtlJ-zKt_8rX4Lbhgo3V4KVMhm_UMIxlGR06vx5ZyifE5ylTtFg2rrcjA8m9l4mKYeT9397XDq7qVcrbwTdDggRN9ukmX3P0RiWBzJRRsq_fgTnNal0S70DvPeCNOTNA0oxBKTdgt6eeden7_nM6VfQTWJcs7VOpAbCP2uV52Y2_tJUdho1d0CWlYD9wqMyFNjTYlRAKAo80QJzAvdi86LIpdIJjBpr5MYw"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-dark-void to-transparent opacity-90"
-          ></div>
-          <div class="absolute bottom-4 left-4 right-4 z-10">
-            <h3
-              class="font-label-technical text-label-technical text-on-surface group-hover:text-cyber-yellow transition-colors uppercase"
-            >
-              NEO TOKYO 2077
-            </h3>
-          </div>
+
+      <!-- Galeria de imagens dos cenários -->
+      <div class="cover-flow-container" id="galeria-container">
+        <button class="carousel-btn carousel-btn-left" type="button" data-dir="-1" aria-label="Anterior">‹</button>
+
+        <div id="galeria" class="cover-flow">
+          <figure data-index="0" data-titulo="Neo Tokyo 2077" data-engine="RedEngine 4" data-otimizacao="40%" data-status="Moderado" class="cover-item" onclick="selecionarCenario(this)">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDulJoJiOHwpf7BjwGTtlJ-zKt_8rX4Lbhgo3V4KVMhm_UMIxlGR06vx5ZyifE5ylTtFg2rrcjA8m9l4mKYeT9397XDq7qVcrbwTdDggRN9ukmX3P0RiWBzJRRsq_fgTnNal0S70DvPeCNOTNA0oxBKTdgt6eeden7_nM6VfQTWJcs7VOpAbCP2uV52Y2_tJUdho1d0CWlYD9wqMyFNjTYlRAKAo80QJzAvdi86LIpdIJjBpr5MYw" alt="Cartaz de cidade futurista noturna sob luzes neon" />
+            <figcaption>Neo Tokyo 2077</figcaption>
+          </figure>
+
+          <figure data-index="1" data-titulo="Eldritch Ring" data-engine="Soul Engine" data-otimizacao="60%" data-status="Bom" class="cover-item" onclick="selecionarCenario(this)">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW0zZjzm8VCJ_c5Qi_Hyq15MZhEB71CYAUGjUEAlW3PSJfva3riBHj_ipXqcw_84QpJfFUMNGdY2Hsub_BnArMEbhqbw9iSkupdTT5bz0AvqCDCyAlp8jrWA3hhyJMXtodlkBK1hVjf9C6tHhcYs4qg4JRI2ajAMOuz-g1KXnIGnHzxhb-zSfEXqZAX-E8K5AK5_hbMxQE8aOpUxOY362JXTxl97mEk36RtV7UoblwbogVO49f8pM" alt="Cartaz de fantasia sombria com árvore dourada e cavaleiro" />
+            <figcaption>Eldritch Ring</figcaption>
+          </figure>
+
+          <figure data-index="2" data-titulo="Stellar Field" data-engine="Creation Engine 2.0" data-otimizacao="75%" data-status="Alto" class="cover-item active" onclick="selecionarCenario(this)">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMsGdmHr3rZUPuuVh0P3tkkYeAz7LrlYaMPHilfCM5KRY1ItFViNFrcGrhZ0WiBTgtcd-uPAOk98piqDNnSLgiKWKwtmWigkIoEJR9TXsK2eVSCKTJZGEj6i6PTh4nNb9-_e-tn1l4zM2eXmxb6gBQba9GpUcQGulGx-VqnDJuI3yMKsAA8CQuVEOx9u5SPPt-Y989697XYgquLQTkqqDeCh8-EnVFCP2kzX8B32W0AUO9C64kafU" alt="Cartaz de exploração espacial com planeta anelado" />
+            <figcaption>Stellar Field</figcaption>
+          </figure>
+
+          <figure data-index="3" data-titulo="Crimson Dawn" data-engine="Rage" data-otimizacao="90%" data-status="Excelente" class="cover-item" onclick="selecionarCenario(this)">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWYowU1M1NZ7t-bCsG0WCoAJd69ncQWpS3MI18lKSeqWQgOSVLZI75EZqzpTCAd0d-f44n2OSme-lMOrY1D1HdVFUe13ZLN8mgMLwKqHmL4LSWmhRClLe1NCmQKGyMu6hZPi5zuOI2bVXp-3ELU-zsaNcvio8xq8K9o7ev1M0B1snfyMflnbNgF8CcYsLym1EETGWa6b4ApyAxUT_w4WX_rZlA3xJ5KJ27EZiYnqRnSUHufLkoacM" alt="Cartaz de faroeste nevado com cavaleiro ao entardecer" />
+            <figcaption>Crimson Dawn</figcaption>
+          </figure>
+
+          <figure data-index="4" data-titulo="Velocity Apex" data-engine="Frostbite" data-otimizacao="85%" data-status="Muito Alto" class="cover-item" onclick="selecionarCenario(this)">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrYkrGaYTYiMv4dPA9iEHeBx8oQuCv67_sMCBH1klcElt2SUG0LHDl57j8n4xbPTI_TUt1A0-WZ0Btnig98lQ6kzA_WW09S4GeMwbQkHwQgkjh_fq9WgqGiBTqV-lvtJAJgtiw4Lem0_FIRPBr5eJHmQiow6L96FnEO0WRKjPHrAJZBzxCjVkxmqByEBZekRqaVkCSQo0WMnW3MD_bgWZPEFNwTtNifCl74iSwvx9OWDitWwOnemE" alt="Cartaz de corrida noturna com carro neon sob chuva" />
+            <figcaption>Velocity Apex</figcaption>
+          </figure>
         </div>
-        <div
-          class="cover-item prev absolute w-[240px] h-[320px] overflow-hidden bg-surface-metal group"
-          data-index="1"
-        >
-          <img
-            class="w-full h-full object-cover opacity-80 mix-blend-luminosity"
-            data-alt="Epic dark fantasy game cover art featuring a towering, gnarled golden tree against a stormy, brooding sky. In the foreground, a knight in tarnished armor holds a glowing sword. Epic scale, highly detailed, dramatic lighting, rich gold and deep charcoal color palette."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW0zZjzm8VCJ_c5Qi_Hyq15MZhEB71CYAUGjUEAlW3PSJfva3riBHj_ipXqcw_84QpJfFUMNGdY2Hsub_BnArMEbhqbw9iSkupdTT5bz0AvqCDCyAlp8jrWA3hhyJMXtodlkBK1hVjf9C6tHhcYs4qg4JRI2ajAMOuz-g1KXnIGnHzxhb-zSfEXqZAX-E8K5AK5_hbMxQE8aOpUxOY362JXTxl97mEk36RtV7UoblwbogVO49f8pM"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-dark-void to-transparent opacity-90"
-          ></div>
-          <div class="absolute bottom-4 left-4 right-4 z-10">
-            <h3
-              class="font-label-technical text-label-technical text-on-surface group-hover:text-cyber-yellow transition-colors uppercase"
-            >
-              ELDRITCH RING
-            </h3>
-          </div>
-        </div>
-        <div
-          class="cover-item active absolute w-[240px] h-[320px] overflow-hidden bg-surface-metal group"
-          data-index="2"
-        >
-          <img
-            class="w-full h-full object-cover opacity-90 mix-blend-screen"
-            data-alt="Breathtaking deep space exploration game cover. A massive, detailed spaceship hovers above a vibrant, ringed alien planet. Starlight glints off the metallic hull. Cosmic dust clouds in the background. High-tech, pristine, awe-inspiring mood. Deep blues and bright white accents."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMsGdmHr3rZUPuuVh0P3tkkYeAz7LrlYaMPHilfCM5KRY1ItFViNFrcGrhZ0WiBTgtcd-uPAOk98piqDNnSLgiKWKwtmWigkIoEJR9TXsK2eVSCKTJZGEj6i6PTh4nNb9-_e-tn1l4zM2eXmxb6gBQba9GpUcQGulGx-VqnDJuI3yMKsAA8CQuVEOx9u5SPPt-Y989697XYgquLQTkqqDeCh8-EnVFCP2kzX8B32W0AUO9C64kafU"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-dark-void via-dark-void/50 to-transparent opacity-80"
-          ></div>
-          <div
-            class="absolute bottom-4 left-4 right-4 z-10 border-l-2 border-cyber-yellow pl-2"
-          >
-            <h3
-              class="font-label-technical text-label-technical text-cyber-yellow uppercase"
-            >
-              STELLAR FIELD
-            </h3>
-          </div>
-        </div>
-        <div
-          class="cover-item next absolute w-[240px] h-[320px] overflow-hidden bg-surface-metal group"
-          data-index="3"
-        >
-          <img
-            class="w-full h-full object-cover opacity-80 mix-blend-luminosity"
-            data-alt="Gritty western game cover art featuring an outlaw riding a horse through a snowy mountain pass at dusk. The lighting is cinematic, casting long shadows. Highly detailed, realistic textures. Warm oranges of the sunset contrasting with cold blue shadows."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWYowU1M1NZ7t-bCsG0WCoAJd69ncQWpS3MI18lKSeqWQgOSVLZI75EZqzpTCAd0d-f44n2OSme-lMOrY1D1HdVFUe13ZLN8mgMLwKqHmL4LSWmhRClLe1NCmQKGyMu6hZPi5zuOI2bVXp-3ELU-zsaNcvio8xq8K9o7ev1M0B1snfyMflnbNgF8CcYsLym1EETGWa6b4ApyAxUT_w4WX_rZlA3xJ5KJ27EZiYnqRnSUHufLkoacM"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-dark-void to-transparent opacity-90"
-          ></div>
-          <div class="absolute bottom-4 left-4 right-4 z-10">
-            <h3
-              class="font-label-technical text-label-technical text-on-surface group-hover:text-cyber-yellow transition-colors uppercase"
-            >
-              CRIMSON DAWN
-            </h3>
-          </div>
-        </div>
-        <div
-          class="cover-item far-next absolute w-[240px] h-[320px] overflow-hidden bg-surface-metal group"
-          data-index="4"
-        >
-          <img
-            class="w-full h-full object-cover opacity-80 mix-blend-luminosity"
-            data-alt="Intense racing simulator game cover. A sleek, neon-lit hypercar drifting through a rain-soaked night track in a modern metropolis. Motion blur conveys extreme speed. Highly detailed reflections on wet asphalt. Aggressive, high-energy mood with cyan and purple lighting."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrYkrGaYTYiMv4dPA9iEHeBx8oQuCv67_sMCBH1klcElt2SUG0LHDl57j8n4xbPTI_TUt1A0-WZ0Btnig98lQ6kzA_WW09S4GeMwbQkHwQgkjh_fq9WgqGiBTqV-lvtJAJgtiw4Lem0_FIRPBr5eJHmQiow6L96FnEO0WRKjPHrAJZBzxCjVkxmqByEBZekRqaVkCSQo0WMnW3MD_bgWZPEFNwTtNifCl74iSwvx9OWDitWwOnemE"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-dark-void to-transparent opacity-90"
-          ></div>
-          <div class="absolute bottom-4 left-4 right-4 z-10">
-            <h3
-              class="font-label-technical text-label-technical text-on-surface group-hover:text-cyber-yellow transition-colors uppercase"
-            >
-              VELOCITY APEX
-            </h3>
-          </div>
-        </div>
-        <!-- Carousel Controls -->
-        <button
-          class="absolute left-0 md:left-12 top-1/2 -translate-y-1/2 z-40 bg-dark-void hover:bg-cyber-yellow border border-cyber-yellow w-12 h-12 flex items-center justify-center text-cyber-yellow hover:text-dark-void transition-all clip-path-polygon-[0_0,100%_0,100%_calc(100%-10px),calc(100%-10px)_100%,0_100%]"
-          onclick="moveCarousel(-1)"
-        >
-          <span class="material-symbols-outlined">chevron_left</span>
-        </button>
-        <button
-          class="absolute right-0 md:right-12 top-1/2 -translate-y-1/2 z-40 bg-dark-void hover:bg-cyber-yellow border border-cyber-yellow w-12 h-12 flex items-center justify-center text-cyber-yellow hover:text-dark-void transition-all clip-path-polygon-[0_0,100%_0,100%_calc(100%-10px),calc(100%-10px)_100%,0_100%]"
-          onclick="moveCarousel(1)"
-        >
-          <span class="material-symbols-outlined">chevron_right</span>
-        </button>
+
+        <button class="carousel-btn carousel-btn-right" type="button" data-dir="1" aria-label="Próximo">›</button>
       </div>
-      <!-- Details Panel (Glassmorphism) -->
-      <div
-        class="glass-panel p-8 max-w-4xl mx-auto w-full mt-4 flex flex-col md:flex-row gap-8 items-start md:items-center relative z-20"
-      >
-        <div
-          class="absolute top-0 right-0 p-2 text-cyber-yellow/50 font-label-technical text-[10px]"
-        >
-          ID: NB-77-X
+
+      <!-- Painel de detalhes do cenário selecionado -->
+      <section class="inline-style-39">
+        <h2 id="detalhe-titulo" class="inline-style-40">Stellar Field</h2>
+        <p class="inline-style-41">
+          <span class="inline-style-42">DirectX 12</span>
+          <span class="inline-style-43">Ray Tracing</span>
+        </p>
+        <table class="inline-style-44">
+          <tbody>
+            <tr>
+              <th class="inline-style-45">Engine</th>
+              <td id="detalhe-engine" class="inline-style-46">Creation Engine 2.0</td>
+            </tr>
+            <tr>
+              <th class="inline-style-47">Otimização</th>
+              <td id="detalhe-otimizacao" class="inline-style-48">75%</td>
+            </tr>
+            <tr>
+              <th class="inline-style-49">Status</th>
+              <td id="detalhe-status" class="inline-style-50">Alto</td>
+            </tr>
+          </tbody>
+        </table>
+        <a href="dashboard.html" class="inline-style-51">Iniciar Sequência →</a>
+      </section>
+
+      <!-- Tabela completa do catálogo -->
+      <section>
+        <h2 class="inline-style-52">Tabela de Cenários</h2>
+        <div class="inline-style-53">
+          <table class="inline-style-54">
+            <thead>
+              <tr>
+                <th class="inline-style-55">Cenário</th>
+                <th class="inline-style-56">Engine</th>
+                <th class="inline-style-57">Otimização</th>
+                <th class="inline-style-58">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="inline-style-59">Neo Tokyo 2077</td><td class="inline-style-60">RedEngine 4</td><td class="inline-style-61">40%</td><td class="inline-style-62">Moderado</td></tr>
+              <tr><td class="inline-style-63">Eldritch Ring</td><td class="inline-style-64">Soul Engine</td><td class="inline-style-65">60%</td><td class="inline-style-66">Bom</td></tr>
+              <tr><td class="inline-style-67">Stellar Field</td><td class="inline-style-68">Creation Engine 2.0</td><td class="inline-style-69">75%</td><td class="inline-style-70">Alto</td></tr>
+              <tr><td class="inline-style-71">Crimson Dawn</td><td class="inline-style-72">Rage</td><td class="inline-style-73">90%</td><td class="inline-style-74">Excelente</td></tr>
+              <tr><td class="inline-style-75">Velocity Apex</td><td class="inline-style-76">Frostbite</td><td class="inline-style-77">85%</td><td class="inline-style-78">Muito Alto</td></tr>
+            </tbody>
+          </table>
         </div>
-        <div class="flex-grow space-y-4 w-full">
-          <div>
-            <h2
-              class="font-headline-lg text-headline-lg text-cyber-yellow tracking-tight uppercase"
-              id="active-title"
-            >
-              STELLAR FIELD
-            </h2>
-            <div class="flex items-center space-x-3 mt-1">
-              <span
-                class="px-2 py-0.5 bg-dark-void border border-outline-variant text-[10px] font-label-technical tracking-widest text-cyber-yellow uppercase"
-                >DIRECTX 12</span
-              >
-              <span
-                class="px-2 py-0.5 bg-dark-void border border-outline-variant text-[10px] font-label-technical tracking-widest text-cyber-yellow uppercase"
-                >RAY TRACING</span
-              >
-            </div>
-          </div>
-          <div
-            class="grid grid-cols-2 gap-4 pt-4 border-t-2 border-dashed border-outline-variant/30"
-          >
-            <div>
-              <p
-                class="font-code-glitch text-code-glitch text-on-surface-variant mb-1 uppercase"
-              >
-                Engine
-              </p>
-              <p
-                class="font-label-technical text-label-technical text-neon-cyan"
-                id="active-engine"
-              >
-                CREATION ENGINE 2.0
-              </p>
-            </div>
-            <div>
-              <p
-                class="font-code-glitch text-code-glitch text-on-surface-variant mb-1 uppercase"
-              >
-                Optimization
-              </p>
-              <div class="flex items-center space-x-2">
-                <div
-                  class="h-2 w-24 bg-dark-void border border-outline-variant overflow-hidden flex"
-                >
-                  <div
-                    class="h-full bg-cyber-yellow w-3/4"
-                    id="active-opt-bar"
-                  ></div>
-                  <div
-                    class="h-full bg-transparent w-1/4 repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(252,238,10,0.5) 2px, rgba(252,238,10,0.5) 4px)"
-                  ></div>
-                </div>
-                <span
-                  class="font-label-technical text-label-technical text-on-surface uppercase"
-                  id="active-opt-text"
-                  >HIGH</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Action Button -->
-        <div
-          class="w-full md:w-auto flex-shrink-0 flex justify-center md:justify-end mt-4 md:mt-0"
-        >
-          <button
-            class="btn-primary font-label-technical text-label-technical px-8 py-4 flex items-center space-x-3 group relative overflow-hidden uppercase border-2 border-cyber-yellow"
-          >
-            <span
-              class="material-symbols-outlined relative z-10"
-              data-weight="fill"
-              >play_arrow</span
-            >
-            <span class="relative z-10 tracking-widest font-bold"
-              >INIT SEQUENCE</span
-            >
-          </button>
-        </div>
-      </div>
+      </section>
+
     </main>
-    <!-- Footer -->
-    <footer
-      class="bg-surface-metal border-t-2 border-cyber-yellow w-full mt-auto relative z-20"
-    >
-      <div
-        class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPjxwYXRoIGQ9Ik0wLDRMODw0TTQsMEw0PDgiIHN0cm9rZT0icmdiYSgyNTIsMjM4LDEwLDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==')] opacity-30 pointer-events-none"
-      ></div>
-      <div
-        class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-desktop py-8 w-full mx-auto max-w-container-max relative z-10"
-      >
-        <div
-          class="font-headline-lg-mobile text-headline-lg-mobile text-cyber-yellow uppercase"
-        >
-          NEURAL_BENCH
-        </div>
-        <div class="flex flex-wrap gap-6 md:justify-center items-center">
-          <a
-            class="font-code-glitch text-code-glitch text-on-surface hover:text-glitch-red transition-colors uppercase"
-            href="#"
-            >[ Discord ]</a
-          >
-          <a
-            class="font-code-glitch text-code-glitch text-on-surface hover:text-glitch-red transition-colors uppercase"
-            href="#"
-            >[ Docs ]</a
-          >
-          <a
-            class="font-code-glitch text-code-glitch text-on-surface hover:text-glitch-red transition-colors uppercase"
-            href="#"
-            >[ API ]</a
-          >
-          <a
-            class="font-code-glitch text-code-glitch text-on-surface hover:text-glitch-red transition-colors uppercase"
-            href="#"
-            >[ Status ]</a
-          >
-        </div>
-        <div
-          class="font-label-technical text-label-technical text-on-surface-variant md:text-right mt-6 md:mt-0 flex flex-col justify-center"
-        >
-          <span>SYS.VER: 2.0.4.C</span>
-          <span>© 2024 N-B CORP.</span>
-        </div>
+
+    <!-- Rodapé -->
+    <footer class="inline-style-79">
+      <div class="inline-style-80">
+        <div class="inline-style-81">Neural_Bench</div>
+        <div class="inline-style-82">Sys.Ver 2.0.4.C — © 2026 N-B Corp.</div>
       </div>
     </footer>
-    <!-- Minimal JS for Carousel Interaction -->
-    <script>
-      const items = document.querySelectorAll(".cover-item");
-      let currentIndex = 2; // Start with Stellar Field
 
-      const gameData = [
-        {
-          title: "NEO TOKYO 2077",
-          engine: "REDENGINE 4",
-          optBar: "40%",
-          optText: "MODERATE",
-        },
-        {
-          title: "ELDRITCH RING",
-          engine: "SOUL ENGINE",
-          optBar: "60%",
-          optText: "GOOD",
-        },
-        {
-          title: "STELLAR FIELD",
-          engine: "CREATION ENGINE 2.0",
-          optBar: "75%",
-          optText: "HIGH",
-        },
-        {
-          title: "CRIMSON DAWN",
-          engine: "RAGE",
-          optBar: "90%",
-          optText: "EXCELLENT",
-        },
-        {
-          title: "VELOCITY APEX",
-          engine: "FROSTBITE",
-          optBar: "85%",
-          optText: "VERY HIGH",
-        },
-      ];
+  </div>
+</div>
 
-      function updateClasses() {
-        items.forEach((item, index) => {
-          item.className =
-            "cover-item absolute w-[240px] h-[320px] overflow-hidden bg-surface-metal group";
-          const h3 = item.querySelector("h3");
-          h3.className =
-            "font-label-technical text-label-technical uppercase transition-colors";
+<!-- Atualiza o painel de detalhes e controla a seleção da galeria -->
+<script>
+  const figuras = document.querySelectorAll("#galeria .cover-item");
+  let indiceSelecionado = 2;
 
-          const img = item.querySelector("img");
+  function selecionarCenario(elemento) {
+    indiceSelecionado = Number(elemento.dataset.index);
+    atualizarGaleria();
+  }
 
-          if (index === currentIndex) {
-            item.classList.add("active");
-            h3.classList.add("text-cyber-yellow");
-            img.className =
-              "w-full h-full object-cover opacity-90 mix-blend-screen";
-            item
-              .querySelector("div.absolute.bottom-4")
-              .classList.add("border-l-2", "border-cyber-yellow", "pl-2");
-          } else {
-            h3.classList.add(
-              "text-on-surface",
-              "group-hover:text-cyber-yellow",
-            );
-            img.className =
-              "w-full h-full object-cover opacity-80 mix-blend-luminosity";
-            item
-              .querySelector("div.absolute.bottom-4")
-              .classList.remove("border-l-2", "border-cyber-yellow", "pl-2");
+  function atualizarGaleria() {
+    figuras.forEach((figura, index) => {
+      figura.className = "cover-item";
 
-            if (index === currentIndex - 1) {
-              item.classList.add("prev");
-            } else if (index === currentIndex + 1) {
-              item.classList.add("next");
-            } else if (index < currentIndex - 1) {
-              item.classList.add("far-prev");
-            } else if (index > currentIndex + 1) {
-              item.classList.add("far-next");
-            }
-          }
-        });
+      const distancia = index - indiceSelecionado;
 
-        // Update Details Panel
-        const data = gameData[currentIndex];
-        if (data) {
-          document.getElementById("active-title").innerText = data.title;
-          document.getElementById("active-engine").innerText = data.engine;
-          document.getElementById("active-opt-bar").style.width = data.optBar;
-          document.getElementById("active-opt-text").innerText = data.optText;
-        }
+      if (distancia === 0) {
+        figura.classList.add("active");
+      } else if (distancia === -1) {
+        figura.classList.add("prev");
+      } else if (distancia === 1) {
+        figura.classList.add("next");
+      } else if (distancia < -1) {
+        figura.classList.add("far-prev");
+      } else {
+        figura.classList.add("far-next");
       }
+    });
 
-      function moveCarousel(direction) {
-        currentIndex += direction;
+    const selecionado = figuras[indiceSelecionado];
+    if (!selecionado) return;
 
-        // Keep within bounds
-        if (currentIndex < 0) currentIndex = 0;
-        if (currentIndex >= items.length) currentIndex = items.length - 1;
+    document.getElementById("detalhe-titulo").textContent = selecionado.dataset.titulo;
+    document.getElementById("detalhe-engine").textContent = selecionado.dataset.engine;
+    document.getElementById("detalhe-otimizacao").textContent = selecionado.dataset.otimizacao;
+    document.getElementById("detalhe-status").textContent = selecionado.dataset.status;
+  }
 
-        updateClasses();
-      }
+  function moverCenario(direcao) {
+    indiceSelecionado += direcao;
 
-      // Allow clicking on items to make them active
-      items.forEach((item, index) => {
-        item.addEventListener("click", () => {
-          currentIndex = index;
-          updateClasses();
-        });
-      });
-    </script>
-  </body>
+    if (indiceSelecionado < 0) {
+      indiceSelecionado = 0;
+    }
+
+    if (indiceSelecionado >= figuras.length) {
+      indiceSelecionado = figuras.length - 1;
+    }
+
+    atualizarGaleria();
+  }
+
+  document.querySelectorAll(".carousel-btn").forEach((botao) => {
+    botao.addEventListener("click", () => {
+      moverCenario(Number(botao.dataset.dir));
+    });
+  });
+
+  atualizarGaleria();
+</script>
+</body>
 </html>

@@ -1,573 +1,179 @@
 <!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BenchMetrics — Diagnóstico de Hardware</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/home.css" />
+</head>
+<body class="inline-style-1">
 
-<html class="dark" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>BenchMetrics</title>
-    <link rel="stylesheet" href="./css/home.css" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
-      rel="stylesheet"
-    />
-    <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "on-error": "#690005",
-              "on-primary-fixed": "#1f1c00",
-              "on-secondary": "#00363a",
-              "on-secondary-fixed": "#002022",
-              secondary: "#d3fbff",
-              "tertiary-fixed": "#ffdad8",
-              "surface-container-lowest": "#0e0e0e",
-              "error-container": "#93000a",
-              "surface-variant": "#353534",
-              primary: "#ffffff",
-              "surface-metal": "#121212",
-              "on-secondary-container": "#00686f",
-              "on-primary-container": "#6d6600",
-              "surface-container": "#201f1f",
-              "on-background": "#e5e2e1",
-              "glitch-red": "#FF003C",
-              "on-surface": "#e5e2e1",
-              "secondary-container": "#00eefc",
-              "surface-dim": "#131313",
-              surface: "#131313",
-              "surface-container-high": "#2a2a2a",
-              "on-tertiary": "#680012",
-              "primary-fixed-dim": "#d6ca00",
-              outline: "#959177",
-              error: "#ffb4ab",
-              "dark-void": "#050505",
-              "cyber-yellow": "#FCEE0A",
-              "primary-fixed": "#f4e700",
-              tertiary: "#ffffff",
-              "on-tertiary-fixed": "#410008",
-              "inverse-surface": "#e5e2e1",
-              "on-surface-variant": "#ccc7ab",
-              "neon-cyan": "#00F0FF",
-              "surface-tint": "#d6ca00",
-              "on-tertiary-container": "#ca002d",
-              "on-error-container": "#ffdad6",
-              "on-primary": "#353100",
-              "surface-bright": "#3a3939",
-              "tertiary-container": "#ffdad8",
-              "on-tertiary-fixed-variant": "#92001e",
-              "tertiary-fixed-dim": "#ffb3b2",
-              background: "#131313",
-              "on-secondary-fixed-variant": "#004f54",
-              "secondary-fixed": "#7df4ff",
-              "secondary-fixed-dim": "#00dbe9",
-              "inverse-on-surface": "#313030",
-              "surface-container-low": "#1c1b1b",
-              "outline-variant": "#4a4732",
-              "surface-container-highest": "#353534",
-              "inverse-primary": "#666000",
-              "primary-container": "#f4e700",
-              "on-primary-fixed-variant": "#4d4800",
-            },
-            borderRadius: {
-              DEFAULT: "0.25rem",
-              lg: "0.5rem",
-              xl: "0.75rem",
-              full: "9999px",
-            },
-            spacing: {
-              "margin-mobile": "16px",
-              "border-thin": "1px",
-              "margin-desktop": "40px",
-              unit: "4px",
-              "border-thick": "3px",
-              gutter: "16px",
-            },
-            fontFamily: {
-              "body-md": ["Archivo Narrow"],
-              "code-glitch": ["Space Mono"],
-              "headline-lg": ["Anton"],
-              "headline-lg-mobile": ["Anton"],
-              "label-technical": ["Space Mono"],
-              "display-xl": ["Anton"],
-            },
-            fontSize: {
-              "body-md": [
-                "16px",
-                {
-                  lineHeight: "24px",
-                  fontWeight: "400",
-                },
-              ],
-              "code-glitch": [
-                "14px",
-                {
-                  lineHeight: "20px",
-                  fontWeight: "400",
-                },
-              ],
-              "headline-lg": [
-                "48px",
-                {
-                  lineHeight: "48px",
-                  letterSpacing: "0.01em",
-                  fontWeight: "400",
-                },
-              ],
-              "headline-lg-mobile": [
-                "36px",
-                {
-                  lineHeight: "36px",
-                  fontWeight: "400",
-                },
-              ],
-              "label-technical": [
-                "12px",
-                {
-                  lineHeight: "16px",
-                  letterSpacing: "0.1em",
-                  fontWeight: "700",
-                },
-              ],
-              "display-xl": [
-                "84px",
-                {
-                  lineHeight: "80px",
-                  letterSpacing: "0.02em",
-                  fontWeight: "400",
-                },
-              ],
-            },
-          },
-        },
-      };
-    </script>
-  </head>
-  <body
-    class="font-body-md bg-dark-void text-on-surface min-h-screen flex flex-col relative overflow-x-hidden"
-  >
-    <!-- Ambient Background Lighting -->
-    <div class="fixed inset-0 z-0 pointer-events-none opacity-20">
-      <div
-        class="absolute top-[10%] left-[-10%] w-[30%] h-[30%] bg-cyber-yellow rounded-full blur-[200px]"
-      ></div>
-      <div
-        class="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] bg-glitch-red rounded-full blur-[250px]"
-      ></div>
-    </div>
-    <div class="fixed inset-0 z-0 bg-grid-pattern pointer-events-none"></div>
-    <!-- TopNavBar -->
-    <header
-      class="bg-surface-metal border-b-4 border-cyber-yellow text-on-surface font-label-technical fixed top-0 w-full z-50 transition-all duration-300 ease-out active:scale-95"
-    >
-      <div
-        class="flex justify-between items-center px-margin-desktop h-16 w-full mx-auto max-w-container-max md:px-margin-desktop px-margin-mobile"
-      >
-        <!-- Brand -->
-        <div
-          class="font-headline-lg text-headline-lg-mobile font-bold text-cyber-yellow tracking-tighter cursor-pointer hover:text-white transition-colors uppercase"
-        >
-          BenchMetrics
-        </div>
-        <!-- Navigation Links (Hidden on Mobile) -->
-        <nav class="hidden md:flex items-center space-x-8">
-          <a
-            class="text-on-surface hover:text-cyber-yellow transition-colors py-1 hover:bg-surface-container px-2 border-b-2 border-transparent hover:border-cyber-yellow uppercase tracking-widest"
-            href="home.html"
-            >Home</a
-          >
-          <a
-            class="text-on-surface hover:text-cyber-yellow transition-colors py-1 hover:bg-surface-container px-2 border-b-2 border-transparent hover:border-cyber-yellow uppercase tracking-widest"
-            href="catalogo.html"
-            >Catálogo</a
-          >
-          <a
-            class="text-on-surface hover:text-cyber-yellow transition-colors py-1 hover:bg-surface-container px-2 border-b-2 border-transparent hover:border-cyber-yellow uppercase tracking-widest"
-            href="dashboard.html"
-            >Teste</a
-          >
+<!-- Camada de fundo Aura (grade neon) - envolve toda a página -->
+<div class="inline-style-2">
+
+  <div class="inline-style-3"></div>
+  <div class="inline-style-4"></div>
+  <div class="inline-style-5"></div>
+
+  <div class="inline-style-6">
+
+    <!-- Cabeçalho / navegação -->
+    <header class="inline-style-7">
+      <div class="inline-style-8">
+        <a href="home.html" class="inline-style-9">BenchMetrics</a>
+        <nav class="inline-style-10">
+          <a href="home.html" class="inline-style-11">Home</a>
+          <a href="catalogo.html" class="inline-style-12">Catálogo</a>
+          <a href="dashboard.html" class="inline-style-13">Testes</a>
         </nav>
-        <!-- Trailing Action -->
-        <div class="flex items-center gap-4">
-          <button
-            class="hidden md:flex items-center gap-2 bg-surface-container text-cyber-yellow border-2 border-cyber-yellow px-4 py-1 hover:bg-cyber-yellow hover:text-dark-void transition-all font-label-technical uppercase"
-          >
-            <span class="material-symbols-outlined text-[16px]">search</span>
-            <span>SEARCH</span>
-          </button>
-          <button
-            class="btn-primary px-6 py-2 font-label-technical tracking-widest uppercase"
-          >
-            Run Test
-          </button>
-          <!-- Mobile Menu Toggle -->
-          <button class="md:hidden text-cyber-yellow hover:text-white">
-            <span class="material-symbols-outlined text-2xl">menu</span>
-          </button>
-        </div>
       </div>
     </header>
-    <!-- Main Content -->
-    <main
-      class="flex-grow relative z-10 pt-24 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full flex flex-col gap-16 md:gap-32"
-    >
-      <!-- Hero Section -->
-      <section
-        class="relative min-h-[716px] flex flex-col lg:flex-row items-center justify-center gap-12 pt-10"
-      >
-        <!-- Hero Text Content -->
-        <div
-          class="flex-1 flex flex-col gap-6 z-10 max-w-2xl text-center lg:text-left"
-        >
-          <div
-            class="inline-flex items-center gap-2 px-3 py-1 border-2 border-cyber-yellow bg-cyber-yellow/10 self-center lg:self-start mb-4"
-          >
-            <span class="w-3 h-3 bg-glitch-red animate-pulse"></span>
-            <span
-              class="font-label-technical text-cyber-yellow uppercase tracking-wider"
-              >SYSTEM v2.0.4 ONLINE</span
-            >
+
+    <!-- Conteúdo principal -->
+    <main class="inline-style-14">
+
+      <!-- Seção Hero -->
+      <section class="inline-style-15">
+        <div class="inline-style-16">
+          <div class="inline-style-17">
+            <span class="inline-style-18"></span>
+            <span class="inline-style-19">Sistema v2.0.4 online</span>
           </div>
-          <h1
-            class="font-display-xl text-headline-lg-mobile md:text-display-xl text-white uppercase leading-tight"
-          >
-            PUSH YOUR HARDWARE <br class="hidden lg:block" />
-            <span class="text-cyber-yellow drop-shadow-[4px_4px_0_#FF003C]"
-              >TO THE LIMIT</span
-            >
+          <h1 class="inline-style-20">
+            Leve seu hardware<br />
+            <span class="inline-style-21">ao limite</span>
           </h1>
-          <p
-            class="font-body-md text-body-md text-on-surface max-w-xl mx-auto lg:mx-0 bg-surface-metal/80 p-4 border-l-4 border-cyber-yellow"
-          >
-            Precision Benchmarking for the Next Generation of PC Enthusiasts.
-            Run comprehensive diagnostics, compare against global metrics, and
-            optimize your machine's true potential.
+          <p class="inline-style-22">
+            Benchmarking de precisão para a próxima geração de entusiastas de PC. Execute diagnósticos completos,
+            compare com métricas globais e descubra o verdadeiro potencial da sua máquina.
           </p>
-          <div
-            class="flex flex-col sm:flex-row items-center gap-4 mt-6 justify-center lg:justify-start"
-          >
-            <button
-              class="btn-primary w-full sm:w-auto px-10 py-4 font-label-technical text-label-technical tracking-widest uppercase flex items-center justify-center gap-2"
-            >
-              <span class="material-symbols-outlined">rocket_launch</span>
-              START SCAN
-            </button>
-            <button
-              class="glass-panel w-full sm:w-auto px-8 py-4 font-label-technical text-label-technical tracking-widest text-white hover:text-neon-cyan transition-colors uppercase flex items-center justify-center gap-2 rounded-none"
-            >
-              <span class="material-symbols-outlined">terminal</span>
-              VIEW DOCS
-            </button>
-          </div>
-          <div
-            class="flex items-center gap-6 mt-8 justify-center lg:justify-start opacity-80"
-          >
-            <div
-              class="flex items-center gap-2 bg-surface-container px-3 py-1 border border-outline-variant"
-            >
-              <span class="material-symbols-outlined text-sm text-neon-cyan"
-                >memory</span
-              >
-              <span class="font-code-glitch text-xs text-neon-cyan">CPU</span>
-            </div>
-            <div
-              class="flex items-center gap-2 bg-surface-container px-3 py-1 border border-outline-variant"
-            >
-              <span class="material-symbols-outlined text-sm text-glitch-red"
-                >developer_board</span
-              >
-              <span class="font-code-glitch text-xs text-glitch-red">GPU</span>
-            </div>
-            <div
-              class="flex items-center gap-2 bg-surface-container px-3 py-1 border border-outline-variant"
-            >
-              <span class="material-symbols-outlined text-sm text-cyber-yellow"
-                >storage</span
-              >
-              <span class="font-code-glitch text-xs text-cyber-yellow"
-                >RAM</span
-              >
-            </div>
+          <div class="inline-style-23">
+            <a href="dashboard.html" class="inline-style-24">Iniciar Teste</a>
+            <a href="catalogo.html" class="inline-style-25">Ver Catálogo</a>
           </div>
         </div>
-        <!-- Hero 3D Graphic Area -->
-        <div
-          class="flex-1 relative w-full aspect-square max-w-[600px] flex items-center justify-center"
-        >
-          <!-- Brutalist abstract tech representation -->
-          <div class="absolute inset-0 bg-cyber-yellow/5 animate-pulse"></div>
-          <div
-            class="relative w-64 h-64 md:w-80 md:h-80 border-4 border-surface-variant flex items-center justify-center transform rotate-12"
-          >
-            <div
-              class="absolute w-full h-full border-4 border-dashed border-glitch-red/50 animate-[spin_10s_linear_infinite]"
-            ></div>
-            <div
-              class="absolute w-5/6 h-5/6 border-4 border-neon-cyan/40 animate-[spin_8s_linear_infinite_reverse]"
-            ></div>
-            <div
-              class="w-32 h-32 md:w-40 md:h-40 bg-surface-metal border-4 border-cyber-yellow flex items-center justify-center group hover:bg-cyber-yellow transition-colors cursor-crosshair transform -rotate-12"
-            >
-              <div class="flex flex-col items-center gap-2">
-                <span
-                  class="material-symbols-outlined text-5xl text-cyber-yellow group-hover:text-dark-void transition-colors"
-                  style="font-variation-settings: &quot;FILL&quot; 1"
-                  >memory</span
-                >
-                <span
-                  class="font-code-glitch text-[10px] text-cyber-yellow group-hover:text-dark-void uppercase font-bold"
-                  >CORE_ACTIVE</span
-                >
-              </div>
-            </div>
-            <!-- Floating Data Nodes -->
-            <div
-              class="absolute top-0 right-10 w-4 h-4 bg-glitch-red animate-ping"
-            ></div>
-            <div class="absolute bottom-10 left-0 w-6 h-6 bg-neon-cyan"></div>
-            <div
-              class="absolute bottom-2 right-20 w-8 h-8 border-4 border-cyber-yellow"
-            ></div>
-          </div>
+
+        <!-- Imagem do Hero -->
+        <div class="inline-style-26">
+          <img
+            src="assets/banner.png"
+            alt="Ilustração de um ambiente de testes de hardware em estilo cyberpunk, com tons de ciano e amarelo neon"
+           class="inline-style-27"
+          />
         </div>
       </section>
-      <!-- Features Bento Grid -->
-      <section class="flex flex-col gap-8">
-        <div class="flex items-center gap-4 mb-4">
-          <div class="h-1 bg-cyber-yellow flex-grow"></div>
-          <h2
-            class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white uppercase tracking-wider text-center px-4 bg-surface-metal border-2 border-cyber-yellow"
-          >
-            Core Systems
-          </h2>
-          <div class="h-1 bg-cyber-yellow flex-grow"></div>
+
+      <!-- Seção de recursos -->
+      <section class="inline-style-28">
+        <div class="inline-style-29">
+          <span class="inline-style-30"></span>
+          <h2 class="inline-style-31">Recursos Principais</h2>
+          <span class="inline-style-32"></span>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[250px]">
-          <!-- Feature 1: Real-time Monitoring (Span 8) -->
-          <div
-            class="glass-panel p-8 col-span-1 md:col-span-8 flex flex-col justify-between group overflow-hidden relative"
-          >
-            <div
-              class="absolute top-0 right-0 w-32 h-32 bg-cyber-yellow/10 group-hover:bg-cyber-yellow/20 transition-colors"
-              style="clip-path: polygon(100% 0, 0 0, 100% 100%)"
-            ></div>
-            <div class="flex justify-between items-start z-10">
-              <div
-                class="w-12 h-12 bg-surface-metal border-2 border-neon-cyan flex items-center justify-center group-hover:bg-neon-cyan transition-colors"
-              >
-                <span
-                  class="material-symbols-outlined text-neon-cyan group-hover:text-dark-void"
-                  >speed</span
-                >
-              </div>
-              <div class="flex gap-2">
-                <span class="w-3 h-3 bg-glitch-red animate-pulse"></span>
-                <span class="w-3 h-3 bg-surface-variant"></span>
-                <span class="w-3 h-3 bg-surface-variant"></span>
-              </div>
+
+        <div class="inline-style-33">
+
+          <article class="inline-style-34">
+            <div class="inline-style-35">
+              <span class="inline-style-36">M</span>
             </div>
-            <div
-              class="z-10 mt-auto bg-dark-void/80 p-4 border-l-4 border-neon-cyan"
-            >
-              <h3
-                class="font-headline-lg-mobile text-white mb-2 group-hover:text-neon-cyan transition-colors uppercase"
-              >
-                Real-time Monitoring
-              </h3>
-              <p class="font-code-glitch text-on-surface-variant text-sm">
-                Track telemetry data with millisecond precision. CPU
-                frequencies, thermal dynamics, and power draw visualized in
-                high-fidelity HUD elements.
-              </p>
+            <h3 class="inline-style-37">Monitoramento em tempo real</h3>
+            <p class="inline-style-38">
+              Acompanhe telemetria com precisão de milissegundos: frequência de CPU, dinâmica térmica e consumo de energia.
+            </p>
+          </article>
+
+          <article class="inline-style-39">
+            <div class="inline-style-40">
+              <span class="inline-style-41">G</span>
             </div>
-            <!-- Decorative Graph element -->
-            <div
-              class="absolute bottom-0 right-0 w-1/2 h-1/2 opacity-30 pointer-events-none"
-            >
-              <svg
-                class="w-full h-full"
-                preserveaspectratio="none"
-                viewbox="0 0 100 50"
-              >
-                <path
-                  d="M0,50 L0,30 L10,25 L20,35 L30,15 L40,20 L50,5 L60,15 L70,10 L80,25 L90,15 L100,5 L100,50 Z"
-                  fill="rgba(0,240,255,0.1)"
-                ></path>
-                <path
-                  d="M0,30 L10,25 L20,35 L30,15 L40,20 L50,5 L60,15 L70,10 L80,25 L90,15 L100,5"
-                  fill="none"
-                  stroke="#00F0FF"
-                  stroke-width="2"
-                ></path>
-              </svg>
+            <h3 class="inline-style-42">Comparações globais</h3>
+            <p class="inline-style-43">
+              Compare sua máquina com milhões de resultados de testes sintéticos ao redor do mundo.
+            </p>
+          </article>
+
+          <article class="inline-style-44">
+            <div class="inline-style-45">
+              <span class="inline-style-46">A</span>
             </div>
-          </div>
-          <!-- Feature 2: Global Comparisons (Span 4) -->
-          <div
-            class="glass-panel p-8 col-span-1 md:col-span-4 flex flex-col justify-between group overflow-hidden relative"
-          >
-            <div class="flex justify-between items-start z-10">
-              <div
-                class="w-12 h-12 bg-surface-metal border-2 border-glitch-red flex items-center justify-center group-hover:bg-glitch-red transition-colors"
-              >
-                <span
-                  class="material-symbols-outlined text-glitch-red group-hover:text-dark-void"
-                  >language</span
-                >
-              </div>
-            </div>
-            <div
-              class="z-10 mt-auto bg-dark-void/80 p-4 border-l-4 border-glitch-red"
-            >
-              <h3
-                class="font-headline-lg-mobile text-white mb-2 group-hover:text-glitch-red transition-colors uppercase"
-              >
-                Global Comparisons
-              </h3>
-              <p class="font-code-glitch text-on-surface-variant text-sm">
-                Rank your build against millions of synthetic test results
-                worldwide.
-              </p>
-            </div>
-          </div>
-          <!-- Feature 3: Deep Hardware Analysis (Span 12) -->
-          <div
-            class="glass-panel p-8 col-span-1 md:col-span-12 flex flex-col md:flex-row justify-between items-center group overflow-hidden relative border-t-8 border-t-cyber-yellow"
-          >
-            <div class="flex-1 z-10 mb-6 md:mb-0">
-              <div
-                class="w-12 h-12 bg-surface-metal border-2 border-cyber-yellow flex items-center justify-center mb-6 group-hover:bg-cyber-yellow transition-colors"
-              >
-                <span
-                  class="material-symbols-outlined text-cyber-yellow group-hover:text-dark-void"
-                  >analytics</span
-                >
-              </div>
-              <h3
-                class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white mb-2 uppercase drop-shadow-[2px_2px_0_#FF003C]"
-              >
-                Deep Hardware Analysis
-              </h3>
-              <p
-                class="font-code-glitch text-on-surface-variant text-sm max-w-lg bg-dark-void/50 p-2"
-              >
-                Identify bottlenecks in your memory timings, PCIe bandwidth, and
-                storage I/O with our proprietary low-level scanning engine.
-              </p>
-              <button
-                class="mt-6 font-label-technical text-cyber-yellow text-xs tracking-widest uppercase hover:text-white hover:bg-glitch-red px-4 py-2 border-2 border-cyber-yellow transition-colors flex items-center gap-2"
-              >
-                Initiate Diagnostic
-                <span class="material-symbols-outlined text-sm"
-                  >arrow_forward</span
-                >
-              </button>
-            </div>
-            <div class="flex-1 w-full flex justify-end z-10">
-              <!-- Simulated Data Widget -->
-              <div
-                class="w-full max-w-sm bg-surface-metal border-4 border-surface-variant p-6 font-code-glitch relative"
-              >
-                <div
-                  class="absolute top-0 right-0 w-8 h-8 bg-cyber-yellow flex items-center justify-center"
-                >
-                  <span class="material-symbols-outlined text-dark-void text-sm"
-                    >warning</span
-                  >
-                </div>
-                <div
-                  class="flex justify-between border-b-2 border-surface-variant pb-2 mb-4 text-xs text-cyber-yellow uppercase font-bold"
-                >
-                  <span>COMPONENT</span>
-                  <span>STATUS</span>
-                </div>
-                <div
-                  class="flex justify-between py-2 border-b border-surface-variant/50"
-                >
-                  <span class="text-white">L1 Cache Latency</span>
-                  <span class="text-neon-cyan font-bold">0.9ns</span>
-                </div>
-                <div
-                  class="flex justify-between py-2 border-b border-surface-variant/50"
-                >
-                  <span class="text-white">PCIe Bus Load</span>
-                  <span class="text-glitch-red font-bold">42%</span>
-                </div>
-                <div class="flex justify-between py-2">
-                  <span class="text-white">VRAM Allocation</span>
-                  <span class="text-cyber-yellow font-bold">6.2/12 GB</span>
-                </div>
-                <div
-                  class="w-full h-2 bg-dark-void mt-4 border border-surface-variant overflow-hidden"
-                >
-                  <div class="w-[52%] h-full bg-cyber-yellow"></div>
-                </div>
-              </div>
-            </div>
-          </div>
+            <h3 class="inline-style-47">Análise profunda</h3>
+            <p class="inline-style-48">
+              Identifique gargalos em memória, banda PCIe e I/O de armazenamento com nosso motor de varredura.
+            </p>
+          </article>
+
         </div>
       </section>
+
+      <!-- Tabela resumo dos testes suportados -->
+      <section class="inline-style-49">
+        <h2 class="inline-style-50">Testes Suportados</h2>
+        <div class="inline-style-51">
+          <table class="inline-style-52">
+            <thead>
+              <tr>
+                <th class="inline-style-53">Módulo</th>
+                <th class="inline-style-54">Componente</th>
+                <th class="inline-style-55">Duração média</th>
+                <th class="inline-style-56">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="inline-style-57">Stress Sintético</td>
+                <td class="inline-style-58">CPU</td>
+                <td class="inline-style-59">08 min</td>
+                <td class="inline-style-60">Ativo</td>
+              </tr>
+              <tr>
+                <td class="inline-style-61">Renderização 3D</td>
+                <td class="inline-style-62">GPU</td>
+                <td class="inline-style-63">12 min</td>
+                <td class="inline-style-64">Ativo</td>
+              </tr>
+              <tr>
+                <td class="inline-style-65">Leitura/Escrita</td>
+                <td class="inline-style-66">Armazenamento</td>
+                <td class="inline-style-67">05 min</td>
+                <td class="inline-style-68">Beta</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
     </main>
-    <!-- Footer -->
-    <footer
-      class="bg-surface-metal text-on-surface font-code-glitch text-code-glitch w-full mt-auto border-t-4 border-cyber-yellow"
-    >
-      <div
-        class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-desktop py-12 w-full mx-auto max-w-container-max md:px-margin-desktop px-margin-mobile"
-      >
-        <!-- Brand / Logo area -->
-        <div class="flex flex-col gap-4">
-          <div
-            class="font-headline-lg-mobile text-headline-lg-mobile text-cyber-yellow uppercase tracking-tighter"
-          >
-            NEURAL_BENCH
-          </div>
-          <div class="text-on-surface-variant max-w-xs uppercase text-xs">
-            Industrial grade hardware diagnostics and performance metrics for
-            serious professionals.
-          </div>
+
+    <!-- Rodapé -->
+    <section class="equipe-site"><div class="equipe-cabecalho">
+      <p class="eyebrow">EQUIPE RESPONSÁVEL</p>
+      <h2>Quem fez o <span>BenchMetrics</span></h2>
+      </div><div class="equipe-grid">
+        <figure class="membro-equipe"><img src="assets/davi.jpeg" alt="Foto do integrante 1"><figcaption>Davi Lopes</figcaption></figure>
+        <figure class="membro-equipe"><img src="assets/edgard.jpeg" alt="Foto do integrante 2"><figcaption>Edgard Costa</figcaption></figure>
+        <figure class="membro-equipe"><img src="assets/joao.jpeg" alt="Foto do integrante 3"><figcaption>João Victor</figcaption></figure>
+        <figure class="membro-equipe"><img src="assets/luis.jpeg" alt="Foto do integrante 4"><figcaption>Luiz Felipe</figcaption></figure>
+        <figure class="membro-equipe"><img src="assets/rafael.jpeg" alt="Foto do integrante 5"><figcaption>Rafael Arão</figcaption></figure></div></section>
+<footer class="inline-style-69">
+      <div class="inline-style-70">
+        <div>
+          <div class="inline-style-71">Neural_Bench</div>
+          <p class="inline-style-72">
+            Diagnósticos de hardware de nível industrial para profissionais exigentes.
+          </p>
         </div>
-        <!-- Links Area -->
-        <div
-          class="flex flex-col gap-2 md:col-span-1 justify-center md:items-center"
-        >
-          <nav
-            class="flex flex-col sm:flex-row gap-4 sm:gap-6 font-label-technical uppercase"
-          >
-            <a
-              class="text-on-surface hover:text-neon-cyan hover:underline transition-colors"
-              href="#"
-              >Discord</a
-            >
-            <a
-              class="text-on-surface hover:text-neon-cyan hover:underline transition-colors"
-              href="#"
-              >Documentation</a
-            >
-            <a
-              class="text-on-surface hover:text-neon-cyan hover:underline transition-colors"
-              href="#"
-              >API</a
-            >
-            <a
-              class="text-on-surface hover:text-neon-cyan hover:underline transition-colors"
-              href="#"
-              >System Status</a
-            >
-          </nav>
-        </div>
-        <!-- Copyright -->
-        <div
-          class="flex items-end justify-start md:justify-end text-cyber-yellow uppercase text-xs font-bold"
-        >
-          © 2024 NEURAL_BENCH SYSTEM V2.0.4.
-        </div>
+        <nav class="inline-style-73">
+          <a href="https://discord.com" target="_blank" rel="noopener" class="inline-style-74">Discord</a>
+          <a href="catalogo.html" class="inline-style-75">Documentação</a>
+          <a href="dashboard.html" class="inline-style-76">Status do Sistema</a>
+        </nav>
+        <div class="inline-style-77">© 2026 Neural_Bench System v2.0.4</div>
       </div>
     </footer>
-  </body>
+
+  </div>
+</div>
+</body>
 </html>
