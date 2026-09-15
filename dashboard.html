@@ -1,158 +1,214 @@
 <!doctype html>
 <html lang="pt-BR">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Testes — BenchMetrics</title>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/dashboard.css" />
-</head>
-<body class="inline-style-1">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Testes — BenchMetrics</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/dashboard.css" />
+    </head>
+    <body class="inline-style-1">
+        <!-- Camada de fundo Aura (grade neon) - envolve toda a página -->
+        <div class="inline-style-2">
+            <div class="inline-style-3"></div>
+            <div class="inline-style-4"></div>
+            <div class="inline-style-5"></div>
 
-<!-- Camada de fundo Aura (grade neon) - envolve toda a página -->
-<div class="inline-style-2">
+            <div class="inline-style-6">
+                <!-- Cabeçalho / navegação -->
+                <header class="inline-style-7">
+                    <div class="inline-style-8">
+                        <a href="home.html" class="inline-style-9">BenchMetrics</a>
+                        <nav class="inline-style-10">
+                            <a href="home.html" class="inline-style-11">Home</a>
+                            <a href="catalogo.html" class="inline-style-12">Catálogo</a>
+                            <a href="dashboard.html" class="inline-style-13">Testes</a>
+                        </nav>
+                    </div>
+                </header>
 
-  <div class="inline-style-3"></div>
-  <div class="inline-style-4"></div>
-  <div class="inline-style-5"></div>
+                <main class="inline-style-14">
+                    <!-- Diagnósticos de hardware em formato de tabela -->
+                    <section>
+                        <h1 class="inline-style-15">Diagnóstico Atual</h1>
 
-  <div class="inline-style-6">
+                        <div class="inline-style-16">
+                            <!-- Tabela CPU -->
+                            <div class="inline-style-17">
+                                <h2 class="inline-style-18">CPU_Diagnostics</h2>
+                                <table class="inline-style-19">
+                                    <tbody>
+                                        <tr>
+                                            <th class="inline-style-20">HW.ID</th>
+                                            <td class="inline-style-21">Intel Core i9-13900K</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="inline-style-22">Carga</th>
+                                            <td class="inline-style-23">92%</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="inline-style-24">Freq. Máx.</th>
+                                            <td class="inline-style-25">5.8 GHz</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="inline-style-26">Térmico</th>
+                                            <td class="inline-style-27">84 °C</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
 
-    <!-- Cabeçalho / navegação -->
-    <header class="inline-style-7">
-      <div class="inline-style-8">
-        <a href="home.html" class="inline-style-9">BenchMetrics</a>
-        <nav class="inline-style-10">
-          <a href="home.html" class="inline-style-11">Home</a>
-          <a href="catalogo.html" class="inline-style-12">Catálogo</a>
-          <a href="dashboard.html" class="inline-style-13">Testes</a>
-        </nav>
-      </div>
-    </header>
+                            <!-- Tabela GPU -->
+                            <div class="inline-style-28">
+                                <h2 class="inline-style-29">GPU_Diagnostics</h2>
+                                <table class="inline-style-30">
+                                    <tbody>
+                                        <tr>
+                                            <th class="inline-style-31">HW.ID</th>
+                                            <td class="inline-style-32">NVIDIA RTX 4090</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="inline-style-33">VRAM Alocada</th>
+                                            <td class="inline-style-34">18.4 GB</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="inline-style-35">FPS Mín.</th>
+                                            <td class="inline-style-36">112</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="inline-style-37">FPS Máx.</th>
+                                            <td class="inline-style-38">180</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
 
-    <main class="inline-style-14">
+                            <!-- Resultado / pontuação -->
+                            <div class="inline-style-39">
+                                <span class="inline-style-40">Output_Val</span>
+                                <span class="inline-style-41">14.289</span>
+                                <span class="inline-style-42">Rank 01</span>
+                            </div>
+                        </div>
+                    </section>
 
-      <!-- Diagnósticos de hardware em formato de tabela -->
-      <section>
-        <h1 class="inline-style-15">Diagnóstico Atual</h1>
+                    <!-- Formulário para registrar um novo teste de benchmark -->
+                    <section class="inline-style-43">
+                        <h2 class="inline-style-44">Registrar Novo Teste</h2>
+                        <p class="inline-style-45">
+                            Preencha os dados abaixo para iniciar uma nova sequência de diagnóstico.
+                        </p>
 
-        <div class="inline-style-16">
+                        <form action="#" method="post" class="inline-style-46">
+                            <div>
+                                <label for="nome-sistema" class="inline-style-47">Nome do sistema</label>
+                                <input
+                                    id="nome-sistema"
+                                    name="nome_sistema"
+                                    type="text"
+                                    required
+                                    placeholder="Ex.: Estação de Trabalho 01"
+                                    class="inline-style-48"
+                                />
+                            </div>
 
-          <!-- Tabela CPU -->
-          <div class="inline-style-17">
-            <h2 class="inline-style-18">CPU_Diagnostics</h2>
-            <table class="inline-style-19">
-              <tbody>
-                <tr><th class="inline-style-20">HW.ID</th><td class="inline-style-21">Intel Core i9-13900K</td></tr>
-                <tr><th class="inline-style-22">Carga</th><td class="inline-style-23">92%</td></tr>
-                <tr><th class="inline-style-24">Freq. Máx.</th><td class="inline-style-25">5.8 GHz</td></tr>
-                <tr><th class="inline-style-26">Térmico</th><td class="inline-style-27">84 °C</td></tr>
-              </tbody>
-            </table>
-          </div>
+                            <div class="inline-style-49">
+                                <div>
+                                    <label for="cpu" class="inline-style-50">CPU</label>
+                                    <select id="cpu" name="cpu" class="inline-style-51">
+                                        <option value="i9-13900k">Intel Core i9-13900K</option>
+                                        <option value="ryzen-9-7950x">AMD Ryzen 9 7950X</option>
+                                        <option value="i7-14700k">Intel Core i7-14700K</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="gpu" class="inline-style-52">GPU</label>
+                                    <select id="gpu" name="gpu" class="inline-style-53">
+                                        <option value="rtx-4090">NVIDIA RTX 4090</option>
+                                        <option value="rtx-4080">NVIDIA RTX 4080</option>
+                                        <option value="rx-7900xtx">AMD RX 7900 XTX</option>
+                                    </select>
+                                </div>
+                            </div>
 
-          <!-- Tabela GPU -->
-          <div class="inline-style-28">
-            <h2 class="inline-style-29">GPU_Diagnostics</h2>
-            <table class="inline-style-30">
-              <tbody>
-                <tr><th class="inline-style-31">HW.ID</th><td class="inline-style-32">NVIDIA RTX 4090</td></tr>
-                <tr><th class="inline-style-33">VRAM Alocada</th><td class="inline-style-34">18.4 GB</td></tr>
-                <tr><th class="inline-style-35">FPS Mín.</th><td class="inline-style-36">112</td></tr>
-                <tr><th class="inline-style-37">FPS Máx.</th><td class="inline-style-38">180</td></tr>
-              </tbody>
-            </table>
-          </div>
+                            <div>
+                                <label for="ram" class="inline-style-54">Memória RAM (GB)</label>
+                                <input
+                                    id="ram"
+                                    name="ram_gb"
+                                    type="number"
+                                    min="4"
+                                    max="256"
+                                    step="4"
+                                    value="32"
+                                    class="inline-style-55"
+                                />
+                            </div>
 
-          <!-- Resultado / pontuação -->
-          <div class="inline-style-39">
-            <span class="inline-style-40">Output_Val</span>
-            <span class="inline-style-41">14.289</span>
-            <span class="inline-style-42">Rank 01</span>
-          </div>
+                            <fieldset class="inline-style-56">
+                                <legend class="inline-style-57">Tipo de teste</legend>
+                                <div class="inline-style-58">
+                                    <label class="inline-style-59"
+                                        ><input type="radio" name="tipo_teste" value="stress" checked /> Stress
+                                        Sintético</label
+                                    >
+                                    <label class="inline-style-60"
+                                        ><input type="radio" name="tipo_teste" value="render" /> Renderização 3D</label
+                                    >
+                                    <label class="inline-style-61"
+                                        ><input type="radio" name="tipo_teste" value="io" /> Leitura/Escrita</label
+                                    >
+                                </div>
+                            </fieldset>
 
+                            <div>
+                                <label for="email" class="inline-style-62">E-mail para envio do resultado</label>
+                                <input
+                                    id="email"
+                                    name="email"
+                                    type="email"
+                                    required
+                                    placeholder="voce@exemplo.com"
+                                    class="inline-style-63"
+                                />
+                            </div>
+
+                            <div>
+                                <label for="observacoes" class="inline-style-64">Observações</label>
+                                <textarea
+                                    id="observacoes"
+                                    name="observacoes"
+                                    rows="4"
+                                    placeholder="Detalhes adicionais sobre a configuração testada..."
+                                    class="inline-style-65"
+                                ></textarea>
+                            </div>
+
+                            <label class="inline-style-66">
+                                <input type="checkbox" name="aceite_termos" required />
+                                Li e concordo com os <a href="termos.html" class="inline-style-67">Termos de Uso</a> e a
+                                <a href="privacidade.html" class="inline-style-68">Política de Privacidade</a>.
+                            </label>
+
+                            <div class="inline-style-69">
+                                <button type="submit" class="inline-style-70">Fazer Teste</button>
+                                <button type="reset" class="inline-style-71">Limpar</button>
+                            </div>
+                        </form>
+                    </section>
+                </main>
+
+                <!-- Rodapé -->
+                <footer class="inline-style-72">
+                    <div class="inline-style-73">
+                        <div class="inline-style-74">BenchMetrics</div>
+                        <div class="inline-style-75">©2026 BenchMertics corp.</div>
+                    </div>
+                </footer>
+            </div>
         </div>
-      </section>
-
-      <!-- Formulário para registrar um novo teste de benchmark -->
-      <section class="inline-style-43">
-        <h2 class="inline-style-44">Registrar Novo Teste</h2>
-        <p class="inline-style-45">Preencha os dados abaixo para iniciar uma nova sequência de diagnóstico.</p>
-
-        <form action="#" method="post" class="inline-style-46">
-
-          <div>
-            <label for="nome-sistema" class="inline-style-47">Nome do sistema</label>
-            <input id="nome-sistema" name="nome_sistema" type="text" required placeholder="Ex.: Estação de Trabalho 01" class="inline-style-48" />
-          </div>
-
-          <div class="inline-style-49">
-            <div>
-              <label for="cpu" class="inline-style-50">CPU</label>
-              <select id="cpu" name="cpu" class="inline-style-51">
-                <option value="i9-13900k">Intel Core i9-13900K</option>
-                <option value="ryzen-9-7950x">AMD Ryzen 9 7950X</option>
-                <option value="i7-14700k">Intel Core i7-14700K</option>
-              </select>
-            </div>
-            <div>
-              <label for="gpu" class="inline-style-52">GPU</label>
-              <select id="gpu" name="gpu" class="inline-style-53">
-                <option value="rtx-4090">NVIDIA RTX 4090</option>
-                <option value="rtx-4080">NVIDIA RTX 4080</option>
-                <option value="rx-7900xtx">AMD RX 7900 XTX</option>
-              </select>
-            </div>
-          </div>
-
-          <div>
-            <label for="ram" class="inline-style-54">Memória RAM (GB)</label>
-            <input id="ram" name="ram_gb" type="number" min="4" max="256" step="4" value="32" class="inline-style-55" />
-          </div>
-
-          <fieldset class="inline-style-56">
-            <legend class="inline-style-57">Tipo de teste</legend>
-            <div class="inline-style-58">
-              <label class="inline-style-59"><input type="radio" name="tipo_teste" value="stress" checked /> Stress Sintético</label>
-              <label class="inline-style-60"><input type="radio" name="tipo_teste" value="render" /> Renderização 3D</label>
-              <label class="inline-style-61"><input type="radio" name="tipo_teste" value="io" /> Leitura/Escrita</label>
-            </div>
-          </fieldset>
-
-          <div>
-            <label for="email" class="inline-style-62">E-mail para envio do resultado</label>
-            <input id="email" name="email" type="email" required placeholder="voce@exemplo.com" class="inline-style-63" />
-          </div>
-
-          <div>
-            <label for="observacoes" class="inline-style-64">Observações</label>
-            <textarea id="observacoes" name="observacoes" rows="4" placeholder="Detalhes adicionais sobre a configuração testada..." class="inline-style-65"></textarea>
-          </div>
-
-          <label class="inline-style-66">
-            <input type="checkbox" name="aceite_termos" required />
-            Li e concordo com os <a href="termos.html" class="inline-style-67">Termos de Uso</a> e a <a href="privacidade.html" class="inline-style-68">Política de Privacidade</a>.
-          </label>
-
-          <div class="inline-style-69">
-            <button type="submit" class="inline-style-70">Init Sequence</button>
-            <button type="reset" class="inline-style-71">Limpar</button>
-          </div>
-
-        </form>
-      </section>
-
-    </main>
-
-    <!-- Rodapé -->
-    <footer class="inline-style-72">
-      <div class="inline-style-73">
-        <div class="inline-style-74">Neural_Bench</div>
-        <div class="inline-style-75">Sys.Ver 2.0.4 — © 2026 Neural_Bench Corp.</div>
-      </div>
-    </footer>
-
-  </div>
-</div>
-</body>
+    </body>
 </html>

@@ -1,208 +1,290 @@
 <!doctype html>
 <html lang="pt-BR">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Catálogo de Cenários — BenchMetrics</title>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/catalogo.css" />
-</head>
-<body class="inline-style-1">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Catálogo de Cenários — BenchMetrics</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/catalogo.css" />
+    </head>
+    <body class="inline-style-1">
+        <!-- Camada de fundo Aura (grade neon) - envolve toda a página -->
+        <div class="inline-style-2">
+            <div class="inline-style-3"></div>
+            <div class="inline-style-4"></div>
+            <div class="inline-style-5"></div>
 
-<!-- Camada de fundo Aura (grade neon) - envolve toda a página -->
-<div class="inline-style-2">
+            <div class="inline-style-6">
+                <!-- Cabeçalho / navegação -->
+                <header class="inline-style-7">
+                    <div class="inline-style-8">
+                        <a href="home.html" class="inline-style-9">BenchMetrics</a>
+                        <nav class="inline-style-10">
+                            <a href="home.html" class="inline-style-11">Home</a>
+                            <a href="catalogo.html" class="inline-style-12">Catálogo</a>
+                            <a href="dashboard.html" class="inline-style-13">Testes</a>
+                        </nav>
+                        <!-- Busca rápida de cenários -->
+                        <form action="catalogo.html" method="get" class="inline-style-14">
+                            <label for="busca-cenario" class="inline-style-15">Buscar cenário</label>
+                            <input
+                                id="busca-cenario"
+                                name="q"
+                                type="text"
+                                placeholder="Buscar cenário..."
+                                class="inline-style-16"
+                            />
+                            <button type="submit" class="inline-style-17">Ir</button>
+                        </form>
+                    </div>
+                </header>
 
-  <div class="inline-style-3"></div>
-  <div class="inline-style-4"></div>
-  <div class="inline-style-5"></div>
+                <main class="inline-style-18">
+                    <div class="inline-style-19">
+                        <h1 class="inline-style-20">Selecione o <span class="inline-style-21">Cenário</span></h1>
+                        <p class="inline-style-22">Ambiente de renderização para testes de estresse</p>
+                    </div>
 
-  <div class="inline-style-6">
+                    <!-- Galeria de imagens dos cenários -->
+                    <div class="cover-flow-container" id="galeria-container">
+                        <button
+                            class="carousel-btn carousel-btn-left"
+                            type="button"
+                            data-dir="-1"
+                            aria-label="Anterior"
+                        >
+                            ‹
+                        </button>
 
-    <!-- Cabeçalho / navegação -->
-    <header class="inline-style-7">
-      <div class="inline-style-8">
-        <a href="home.html" class="inline-style-9">BenchMetrics</a>
-        <nav class="inline-style-10">
-          <a href="home.html" class="inline-style-11">Home</a>
-          <a href="catalogo.html" class="inline-style-12">Catálogo</a>
-          <a href="dashboard.html" class="inline-style-13">Testes</a>
-        </nav>
-        <!-- Busca rápida de cenários -->
-        <form action="catalogo.html" method="get" class="inline-style-14">
-          <label for="busca-cenario" class="inline-style-15">Buscar cenário</label>
-          <input id="busca-cenario" name="q" type="text" placeholder="Buscar cenário..." class="inline-style-16" />
-          <button type="submit" class="inline-style-17">Ir</button>
-        </form>
-      </div>
-    </header>
+                        <div id="galeria" class="cover-flow">
+                            <figure
+                                data-index="0"
+                                data-titulo="Cyberpunk 2077"
+                                data-engine="RedEngine 4"
+                                data-otimizacao="40%"
+                                data-status="Moderado"
+                                class="cover-item"
+                                onclick="selecionarCenario(this)"
+                            >
+                                <img src="assets/cyber.jpg" alt="Cartaz de cidade futurista noturna sob luzes neon" />
+                                <figcaption>Cyberpunk 2077</figcaption>
+                            </figure>
 
-    <main class="inline-style-18">
+                            <figure
+                                data-index="1"
+                                data-titulo="Elden Ring"
+                                data-engine="Soul Engine"
+                                data-otimizacao="60%"
+                                data-status="Bom"
+                                class="cover-item"
+                                onclick="selecionarCenario(this)"
+                            >
+                                <img
+                                    src="assets/elden.png"
+                                    alt="Cartaz de fantasia sombria com árvore dourada e cavaleiro"
+                                />
+                                <figcaption>Elden Ring</figcaption>
+                            </figure>
 
-      <div class="inline-style-19">
-        <h1 class="inline-style-20">
-          Selecione o <span class="inline-style-21">Cenário</span>
-        </h1>
-        <p class="inline-style-22">
-          Ambiente de renderização para testes de estresse
-        </p>
-      </div>
+                            <figure
+                                data-index="2"
+                                data-titulo="Marvel Spider Man"
+                                data-engine="Creation Engine 2.0"
+                                data-otimizacao="75%"
+                                data-status="Alto"
+                                class="cover-item active"
+                                onclick="selecionarCenario(this)"
+                            >
+                                <img src="assets/spidey.jpg" alt="Cartaz de exploração espacial com planeta anelado" />
+                                <figcaption>Marvel`s Spider Man</figcaption>
+                            </figure>
 
-      <!-- Galeria de imagens dos cenários -->
-      <div class="cover-flow-container" id="galeria-container">
-        <button class="carousel-btn carousel-btn-left" type="button" data-dir="-1" aria-label="Anterior">‹</button>
+                            <figure
+                                data-index="3"
+                                data-titulo="Forza 6"
+                                data-engine="Rage"
+                                data-otimizacao="90%"
+                                data-status="Excelente"
+                                class="cover-item"
+                                onclick="selecionarCenario(this)"
+                            >
+                                <img
+                                    src="assets/fozinha.jpg"
+                                    alt="Cartaz de faroeste nevado com cavaleiro ao entardecer"
+                                />
+                                <figcaption>Forza Horizon 6</figcaption>
+                            </figure>
 
-        <div id="galeria" class="cover-flow">
-          <figure data-index="0" data-titulo="Neo Tokyo 2077" data-engine="RedEngine 4" data-otimizacao="40%" data-status="Moderado" class="cover-item" onclick="selecionarCenario(this)">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDulJoJiOHwpf7BjwGTtlJ-zKt_8rX4Lbhgo3V4KVMhm_UMIxlGR06vx5ZyifE5ylTtFg2rrcjA8m9l4mKYeT9397XDq7qVcrbwTdDggRN9ukmX3P0RiWBzJRRsq_fgTnNal0S70DvPeCNOTNA0oxBKTdgt6eeden7_nM6VfQTWJcs7VOpAbCP2uV52Y2_tJUdho1d0CWlYD9wqMyFNjTYlRAKAo80QJzAvdi86LIpdIJjBpr5MYw" alt="Cartaz de cidade futurista noturna sob luzes neon" />
-            <figcaption>Neo Tokyo 2077</figcaption>
-          </figure>
+                            <figure
+                                data-index="4"
+                                data-titulo="Velocity Apex"
+                                data-engine="Frostbite"
+                                data-otimizacao="85%"
+                                data-status="Muito Alto"
+                                class="cover-item"
+                                onclick="selecionarCenario(this)"
+                            >
+                                <img
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrYkrGaYTYiMv4dPA9iEHeBx8oQuCv67_sMCBH1klcElt2SUG0LHDl57j8n4xbPTI_TUt1A0-WZ0Btnig98lQ6kzA_WW09S4GeMwbQkHwQgkjh_fq9WgqGiBTqV-lvtJAJgtiw4Lem0_FIRPBr5eJHmQiow6L96FnEO0WRKjPHrAJZBzxCjVkxmqByEBZekRqaVkCSQo0WMnW3MD_bgWZPEFNwTtNifCl74iSwvx9OWDitWwOnemE"
+                                    alt="Cartaz de corrida noturna com carro neon sob chuva"
+                                />
+                                <figcaption>Velocity Apex</figcaption>
+                            </figure>
+                        </div>
 
-          <figure data-index="1" data-titulo="Eldritch Ring" data-engine="Soul Engine" data-otimizacao="60%" data-status="Bom" class="cover-item" onclick="selecionarCenario(this)">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW0zZjzm8VCJ_c5Qi_Hyq15MZhEB71CYAUGjUEAlW3PSJfva3riBHj_ipXqcw_84QpJfFUMNGdY2Hsub_BnArMEbhqbw9iSkupdTT5bz0AvqCDCyAlp8jrWA3hhyJMXtodlkBK1hVjf9C6tHhcYs4qg4JRI2ajAMOuz-g1KXnIGnHzxhb-zSfEXqZAX-E8K5AK5_hbMxQE8aOpUxOY362JXTxl97mEk36RtV7UoblwbogVO49f8pM" alt="Cartaz de fantasia sombria com árvore dourada e cavaleiro" />
-            <figcaption>Eldritch Ring</figcaption>
-          </figure>
+                        <button class="carousel-btn carousel-btn-right" type="button" data-dir="1" aria-label="Próximo">
+                            ›
+                        </button>
+                    </div>
 
-          <figure data-index="2" data-titulo="Stellar Field" data-engine="Creation Engine 2.0" data-otimizacao="75%" data-status="Alto" class="cover-item active" onclick="selecionarCenario(this)">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMsGdmHr3rZUPuuVh0P3tkkYeAz7LrlYaMPHilfCM5KRY1ItFViNFrcGrhZ0WiBTgtcd-uPAOk98piqDNnSLgiKWKwtmWigkIoEJR9TXsK2eVSCKTJZGEj6i6PTh4nNb9-_e-tn1l4zM2eXmxb6gBQba9GpUcQGulGx-VqnDJuI3yMKsAA8CQuVEOx9u5SPPt-Y989697XYgquLQTkqqDeCh8-EnVFCP2kzX8B32W0AUO9C64kafU" alt="Cartaz de exploração espacial com planeta anelado" />
-            <figcaption>Stellar Field</figcaption>
-          </figure>
+                    <!-- Painel de detalhes do cenário selecionado -->
+                    <section class="inline-style-39">
+                        <h2 id="detalhe-titulo" class="inline-style-40">Stellar Field</h2>
+                        <p class="inline-style-41">
+                            <span class="inline-style-42">DirectX 12</span>
+                            <span class="inline-style-43">Ray Tracing</span>
+                        </p>
+                        <table class="inline-style-44">
+                            <tbody>
+                                <tr>
+                                    <th class="inline-style-45">Engine</th>
+                                    <td id="detalhe-engine" class="inline-style-46">Creation Engine 2.0</td>
+                                </tr>
+                                <tr>
+                                    <th class="inline-style-47">Otimização</th>
+                                    <td id="detalhe-otimizacao" class="inline-style-48">75%</td>
+                                </tr>
+                                <tr>
+                                    <th class="inline-style-49">Status</th>
+                                    <td id="detalhe-status" class="inline-style-50">Alto</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a href="dashboard.html" class="inline-style-51">Iniciar Sequência →</a>
+                    </section>
 
-          <figure data-index="3" data-titulo="Crimson Dawn" data-engine="Rage" data-otimizacao="90%" data-status="Excelente" class="cover-item" onclick="selecionarCenario(this)">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWYowU1M1NZ7t-bCsG0WCoAJd69ncQWpS3MI18lKSeqWQgOSVLZI75EZqzpTCAd0d-f44n2OSme-lMOrY1D1HdVFUe13ZLN8mgMLwKqHmL4LSWmhRClLe1NCmQKGyMu6hZPi5zuOI2bVXp-3ELU-zsaNcvio8xq8K9o7ev1M0B1snfyMflnbNgF8CcYsLym1EETGWa6b4ApyAxUT_w4WX_rZlA3xJ5KJ27EZiYnqRnSUHufLkoacM" alt="Cartaz de faroeste nevado com cavaleiro ao entardecer" />
-            <figcaption>Crimson Dawn</figcaption>
-          </figure>
+                    <!-- Tabela completa do catálogo -->
+                    <section>
+                        <h2 class="inline-style-52">Tabela de Cenários</h2>
+                        <div class="inline-style-53">
+                            <table class="inline-style-54">
+                                <thead>
+                                    <tr>
+                                        <th class="inline-style-55">Cenário</th>
+                                        <th class="inline-style-56">Engine</th>
+                                        <th class="inline-style-57">Otimização</th>
+                                        <th class="inline-style-58">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="inline-style-59">Cyberpunk 2077</td>
+                                        <td class="inline-style-60">RedEngine 4</td>
+                                        <td class="inline-style-61">40%</td>
+                                        <td class="inline-style-62">Moderado</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="inline-style-63">Elden Ring</td>
+                                        <td class="inline-style-64">Soul Engine</td>
+                                        <td class="inline-style-65">60%</td>
+                                        <td class="inline-style-66">Bom</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="inline-style-67">Marvel`s Spider Man</td>
+                                        <td class="inline-style-68">Creation Engine 2.0</td>
+                                        <td class="inline-style-69">75%</td>
+                                        <td class="inline-style-70">Alto</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="inline-style-71">Forza 6</td>
+                                        <td class="inline-style-72">Rage</td>
+                                        <td class="inline-style-73">90%</td>
+                                        <td class="inline-style-74">Excelente</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="inline-style-75">Velocity Apex</td>
+                                        <td class="inline-style-76">Frostbite</td>
+                                        <td class="inline-style-77">85%</td>
+                                        <td class="inline-style-78">Muito Alto</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </main>
 
-          <figure data-index="4" data-titulo="Velocity Apex" data-engine="Frostbite" data-otimizacao="85%" data-status="Muito Alto" class="cover-item" onclick="selecionarCenario(this)">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrYkrGaYTYiMv4dPA9iEHeBx8oQuCv67_sMCBH1klcElt2SUG0LHDl57j8n4xbPTI_TUt1A0-WZ0Btnig98lQ6kzA_WW09S4GeMwbQkHwQgkjh_fq9WgqGiBTqV-lvtJAJgtiw4Lem0_FIRPBr5eJHmQiow6L96FnEO0WRKjPHrAJZBzxCjVkxmqByEBZekRqaVkCSQo0WMnW3MD_bgWZPEFNwTtNifCl74iSwvx9OWDitWwOnemE" alt="Cartaz de corrida noturna com carro neon sob chuva" />
-            <figcaption>Velocity Apex</figcaption>
-          </figure>
+                <!-- Rodapé -->
+                <footer class="inline-style-79">
+                    <div class="inline-style-80">
+                        <div class="inline-style-81">BenchMetrics</div>
+                        <div class="inline-style-82">©2026 BenchMetrics Corp.</div>
+                    </div>
+                </footer>
+            </div>
         </div>
 
-        <button class="carousel-btn carousel-btn-right" type="button" data-dir="1" aria-label="Próximo">›</button>
-      </div>
+        <!-- Atualiza o painel de detalhes e controla a seleção da galeria -->
+        <script>
+            const figuras = document.querySelectorAll("#galeria .cover-item");
+            let indiceSelecionado = 2;
 
-      <!-- Painel de detalhes do cenário selecionado -->
-      <section class="inline-style-39">
-        <h2 id="detalhe-titulo" class="inline-style-40">Stellar Field</h2>
-        <p class="inline-style-41">
-          <span class="inline-style-42">DirectX 12</span>
-          <span class="inline-style-43">Ray Tracing</span>
-        </p>
-        <table class="inline-style-44">
-          <tbody>
-            <tr>
-              <th class="inline-style-45">Engine</th>
-              <td id="detalhe-engine" class="inline-style-46">Creation Engine 2.0</td>
-            </tr>
-            <tr>
-              <th class="inline-style-47">Otimização</th>
-              <td id="detalhe-otimizacao" class="inline-style-48">75%</td>
-            </tr>
-            <tr>
-              <th class="inline-style-49">Status</th>
-              <td id="detalhe-status" class="inline-style-50">Alto</td>
-            </tr>
-          </tbody>
-        </table>
-        <a href="dashboard.html" class="inline-style-51">Iniciar Sequência →</a>
-      </section>
+            function selecionarCenario(elemento) {
+                indiceSelecionado = Number(elemento.dataset.index);
+                atualizarGaleria();
+            }
 
-      <!-- Tabela completa do catálogo -->
-      <section>
-        <h2 class="inline-style-52">Tabela de Cenários</h2>
-        <div class="inline-style-53">
-          <table class="inline-style-54">
-            <thead>
-              <tr>
-                <th class="inline-style-55">Cenário</th>
-                <th class="inline-style-56">Engine</th>
-                <th class="inline-style-57">Otimização</th>
-                <th class="inline-style-58">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td class="inline-style-59">Neo Tokyo 2077</td><td class="inline-style-60">RedEngine 4</td><td class="inline-style-61">40%</td><td class="inline-style-62">Moderado</td></tr>
-              <tr><td class="inline-style-63">Eldritch Ring</td><td class="inline-style-64">Soul Engine</td><td class="inline-style-65">60%</td><td class="inline-style-66">Bom</td></tr>
-              <tr><td class="inline-style-67">Stellar Field</td><td class="inline-style-68">Creation Engine 2.0</td><td class="inline-style-69">75%</td><td class="inline-style-70">Alto</td></tr>
-              <tr><td class="inline-style-71">Crimson Dawn</td><td class="inline-style-72">Rage</td><td class="inline-style-73">90%</td><td class="inline-style-74">Excelente</td></tr>
-              <tr><td class="inline-style-75">Velocity Apex</td><td class="inline-style-76">Frostbite</td><td class="inline-style-77">85%</td><td class="inline-style-78">Muito Alto</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+            function atualizarGaleria() {
+                figuras.forEach((figura, index) => {
+                    figura.className = "cover-item";
 
-    </main>
+                    const distancia = index - indiceSelecionado;
 
-    <!-- Rodapé -->
-    <footer class="inline-style-79">
-      <div class="inline-style-80">
-        <div class="inline-style-81">Neural_Bench</div>
-        <div class="inline-style-82">Sys.Ver 2.0.4.C — © 2026 N-B Corp.</div>
-      </div>
-    </footer>
+                    if (distancia === 0) {
+                        figura.classList.add("active");
+                    } else if (distancia === -1) {
+                        figura.classList.add("prev");
+                    } else if (distancia === 1) {
+                        figura.classList.add("next");
+                    } else if (distancia < -1) {
+                        figura.classList.add("far-prev");
+                    } else {
+                        figura.classList.add("far-next");
+                    }
+                });
 
-  </div>
-</div>
+                const selecionado = figuras[indiceSelecionado];
+                if (!selecionado) return;
 
-<!-- Atualiza o painel de detalhes e controla a seleção da galeria -->
-<script>
-  const figuras = document.querySelectorAll("#galeria .cover-item");
-  let indiceSelecionado = 2;
+                document.getElementById("detalhe-titulo").textContent = selecionado.dataset.titulo;
+                document.getElementById("detalhe-engine").textContent = selecionado.dataset.engine;
+                document.getElementById("detalhe-otimizacao").textContent = selecionado.dataset.otimizacao;
+                document.getElementById("detalhe-status").textContent = selecionado.dataset.status;
+            }
 
-  function selecionarCenario(elemento) {
-    indiceSelecionado = Number(elemento.dataset.index);
-    atualizarGaleria();
-  }
+            function moverCenario(direcao) {
+                indiceSelecionado += direcao;
 
-  function atualizarGaleria() {
-    figuras.forEach((figura, index) => {
-      figura.className = "cover-item";
+                if (indiceSelecionado < 0) {
+                    indiceSelecionado = 0;
+                }
 
-      const distancia = index - indiceSelecionado;
+                if (indiceSelecionado >= figuras.length) {
+                    indiceSelecionado = figuras.length - 1;
+                }
 
-      if (distancia === 0) {
-        figura.classList.add("active");
-      } else if (distancia === -1) {
-        figura.classList.add("prev");
-      } else if (distancia === 1) {
-        figura.classList.add("next");
-      } else if (distancia < -1) {
-        figura.classList.add("far-prev");
-      } else {
-        figura.classList.add("far-next");
-      }
-    });
+                atualizarGaleria();
+            }
 
-    const selecionado = figuras[indiceSelecionado];
-    if (!selecionado) return;
+            document.querySelectorAll(".carousel-btn").forEach(botao => {
+                botao.addEventListener("click", () => {
+                    moverCenario(Number(botao.dataset.dir));
+                });
+            });
 
-    document.getElementById("detalhe-titulo").textContent = selecionado.dataset.titulo;
-    document.getElementById("detalhe-engine").textContent = selecionado.dataset.engine;
-    document.getElementById("detalhe-otimizacao").textContent = selecionado.dataset.otimizacao;
-    document.getElementById("detalhe-status").textContent = selecionado.dataset.status;
-  }
-
-  function moverCenario(direcao) {
-    indiceSelecionado += direcao;
-
-    if (indiceSelecionado < 0) {
-      indiceSelecionado = 0;
-    }
-
-    if (indiceSelecionado >= figuras.length) {
-      indiceSelecionado = figuras.length - 1;
-    }
-
-    atualizarGaleria();
-  }
-
-  document.querySelectorAll(".carousel-btn").forEach((botao) => {
-    botao.addEventListener("click", () => {
-      moverCenario(Number(botao.dataset.dir));
-    });
-  });
-
-  atualizarGaleria();
-</script>
-</body>
+            atualizarGaleria();
+        </script>
+    </body>
 </html>
