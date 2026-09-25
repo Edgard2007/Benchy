@@ -1,43 +1,266 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="pt-BR">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Política de Privacidade — BenchMetrics</title>
-<link href="assets/bm.svg" rel="icon"/>
-<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
-
-</head>
-<body style="margin: 0; padding: 0; background-color: #100e0b; color: #e5e2e1; font-family: 'Archivo Narrow', sans-serif">
-<div style="position: relative; overflow: hidden; min-height: 100vh; background-color: #100e0b">
-<div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(139, 92, 246, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(139, 92, 246, 0.15) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none"></div>
-<div style="position: absolute; inset: 0; background-image: radial-gradient( circle at 77% 46%, rgba(139, 92, 246, 0.5) 0%, transparent 50% ); mix-blend-mode: screen; filter: blur(220px); pointer-events: none"></div>
-<div style="position: absolute; inset: 0; background-image: radial-gradient( circle at 12% 67%, rgba(123, 130, 23, 0.3) 0%, transparent 40% ); mix-blend-mode: screen; filter: blur(180px); pointer-events: none"></div>
-<div style="position: relative; z-index: 1; display: flex; flex-direction: column; min-height: 100vh">
-<header style="position: sticky; top: 0; z-index: 50; background-color: #121212; border-bottom: 3px solid #fcee0a">
-<div style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 14px clamp(16px, 4vw, 40px)">
-<a href="home.html" style="font-family: 'Anton', sans-serif; font-size: clamp(20px, 2.5vw, 26px); color: #fcee0a; text-decoration: none; letter-spacing: 0.03em; text-transform: uppercase">BenchMetrics</a>
-<nav style="display: flex; gap: clamp(14px, 3vw, 32px); flex-wrap: wrap">
-<a href="home.html" style="color: #e5e2e1; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase">Home</a>
-<a href="catalogo.html" style="color: #e5e2e1; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase">Catálogo</a>
-<a href="dashboard.html" style="color: #e5e2e1; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase">Testes</a>
-</nav>
-</div>
-</header>
-<main style="flex: 1; width: 100%; max-width: 800px; margin: 0 auto; padding: clamp(24px, 6vw, 56px) clamp(16px, 4vw, 40px); box-sizing: border-box">
-<h1 style="font-family: 'Anton', sans-serif; font-size: clamp(28px, 4vw, 40px); color: #ffffff; text-transform: uppercase; margin: 0 0 24px 0">Política de Privacidade</h1>
-<p style="font-size: 15px; line-height: 1.7; color: #e5e2e1">Este site é um projeto acadêmico. O formulário da página "Testes" (<code style="background-color: #121212; padding: 2px 6px">dashboard.html</code>) é estático: o atributo <code style="background-color: #121212; padding: 2px 6px">action="#"</code> não envia dados a nenhum servidor, banco de dados ou serviço de terceiros.</p>
-<h2 style="font-family: 'Anton', sans-serif; font-size: 20px; color: #fcee0a; text-transform: uppercase; margin: 32px 0 10px 0">Dados solicitados no formulário</h2>
-<p style="font-size: 15px; line-height: 1.7; color: #e5e2e1">Nome do sistema, configuração de CPU/GPU/RAM, tipo de teste, e-mail e observações. Esses campos existem apenas para fins didáticos de HTML e não são coletados, armazenados ou transmitidos.</p>
-<h2 style="font-family: 'Anton', sans-serif; font-size: 20px; color: #fcee0a; text-transform: uppercase; margin: 32px 0 10px 0">Se este projeto for conectado a um backend</h2>
-<p style="font-size: 15px; line-height: 1.7; color: #e5e2e1">Caso uma versão futura passe a enviar estes dados a um servidor real, os princípios de Privacy by Design devem ser aplicados: coleta mínima, mascaramento ou hash de identificadores pessoais na entrada, consentimento explícito (já representado pela caixa de aceite do formulário) e um mecanismo de exclusão de dados mediante solicitação do titular, em conformidade com a LGPD.</p>
-<p style="margin-top: 40px"><a href="dashboard.html" style="color: #fcee0a; font-family: 'Space Mono', monospace; font-size: 13px; text-transform: uppercase">← Voltar para Testes</a></p>
-</main>
-<footer style="background-color: #121212; border-top: 4px solid #fcee0a; margin-top: auto">
-<div style="max-width: 1280px; margin: 0 auto; padding: 24px clamp(16px, 4vw, 40px); font-family: 'Space Mono', monospace; font-size: 11px; color: #ccc7ab; text-transform: uppercase">© 2026 Neural_Bench Corp.</div>
-</footer>
-</div>
-</div>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Política de Privacidade — BenchMetrics</title>
+    <link href="assets/bm.svg" rel="icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #100e0b;
+      color: #e5e2e1;
+      font-family: &quot;Archivo Narrow&quot;, sans-serif;
+    "
+  >
+    <div
+      style="
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+        background-color: #100e0b;
+      "
+    >
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background-image:
+            linear-gradient(rgba(139, 92, 246, 0.15) 1px, transparent 1px),
+            linear-gradient(
+              90deg,
+              rgba(139, 92, 246, 0.15) 1px,
+              transparent 1px
+            );
+          background-size: 60px 60px;
+          pointer-events: none;
+        "
+      ></div>
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background-image: radial-gradient(
+            circle at 77% 46%,
+            rgba(139, 92, 246, 0.5) 0%,
+            transparent 50%
+          );
+          mix-blend-mode: screen;
+          filter: blur(220px);
+          pointer-events: none;
+        "
+      ></div>
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background-image: radial-gradient(
+            circle at 12% 67%,
+            rgba(123, 130, 23, 0.3) 0%,
+            transparent 40%
+          );
+          mix-blend-mode: screen;
+          filter: blur(180px);
+          pointer-events: none;
+        "
+      ></div>
+      <div
+        style="
+          position: relative;
+          z-index: 1;
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+        "
+      >
+        <header
+          style="
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: #121212;
+            border-bottom: 3px solid #fcee0a;
+          "
+        >
+          <div
+            style="
+              max-width: 1280px;
+              margin: 0 auto;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              flex-wrap: wrap;
+              gap: 12px;
+              padding: 14px clamp(16px, 4vw, 40px);
+            "
+          >
+            <a
+              href="home.html"
+              style="
+                font-family: &quot;Anton&quot;, sans-serif;
+                font-size: clamp(20px, 2.5vw, 26px);
+                color: #fcee0a;
+                text-decoration: none;
+                letter-spacing: 0.03em;
+                text-transform: uppercase;
+              "
+              >BenchMetrics</a
+            >
+            <nav
+              style="
+                display: flex;
+                gap: clamp(14px, 3vw, 32px);
+                flex-wrap: wrap;
+              "
+            >
+              <a
+                href="home.html"
+                style="
+                  color: #e5e2e1;
+                  text-decoration: none;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 12px;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                "
+                >Home</a
+              >
+              <a
+                href="catalogo.html"
+                style="
+                  color: #e5e2e1;
+                  text-decoration: none;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 12px;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                "
+                >Catálogo</a
+              >
+              <a
+                href="dashboard.html"
+                style="
+                  color: #e5e2e1;
+                  text-decoration: none;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 12px;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                "
+                >Testes</a
+              >
+            </nav>
+          </div>
+        </header>
+        <main
+          style="
+            flex: 1;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: clamp(24px, 6vw, 56px) clamp(16px, 4vw, 40px);
+            box-sizing: border-box;
+          "
+        >
+          <h1
+            style="
+              font-family: &quot;Anton&quot;, sans-serif;
+              font-size: clamp(28px, 4vw, 40px);
+              color: #ffffff;
+              text-transform: uppercase;
+              margin: 0 0 24px 0;
+            "
+          >
+            Política de Privacidade
+          </h1>
+          <p style="font-size: 15px; line-height: 1.7; color: #e5e2e1">
+            Este site é um projeto acadêmico. O formulário da página "Testes"
+            (<code style="background-color: #121212; padding: 2px 6px"
+              >dashboard.html</code
+            >) é estático: o atributo
+            <code style="background-color: #121212; padding: 2px 6px"
+              >action="#"</code
+            >
+            não envia dados a nenhum servidor, banco de dados ou serviço de
+            terceiros.
+          </p>
+          <h2
+            style="
+              font-family: &quot;Anton&quot;, sans-serif;
+              font-size: 20px;
+              color: #fcee0a;
+              text-transform: uppercase;
+              margin: 32px 0 10px 0;
+            "
+          >
+            Dados solicitados no formulário
+          </h2>
+          <p style="font-size: 15px; line-height: 1.7; color: #e5e2e1">
+            Nome do sistema, configuração de CPU/GPU/RAM, tipo de teste, e-mail
+            e observações. Esses campos existem apenas para fins didáticos de
+            HTML e não são coletados, armazenados ou transmitidos.
+          </p>
+          <h2
+            style="
+              font-family: &quot;Anton&quot;, sans-serif;
+              font-size: 20px;
+              color: #fcee0a;
+              text-transform: uppercase;
+              margin: 32px 0 10px 0;
+            "
+          >
+            Se este projeto for conectado a um backend
+          </h2>
+          <p style="font-size: 15px; line-height: 1.7; color: #e5e2e1">
+            Caso uma versão futura passe a enviar estes dados a um servidor
+            real, os princípios de Privacy by Design devem ser aplicados: coleta
+            mínima, mascaramento ou hash de identificadores pessoais na entrada,
+            consentimento explícito (já representado pela caixa de aceite do
+            formulário) e um mecanismo de exclusão de dados mediante solicitação
+            do titular, em conformidade com a LGPD.
+          </p>
+          <p style="margin-top: 40px">
+            <a
+              href="dashboard.html"
+              style="
+                color: #fcee0a;
+                font-family: &quot;Space Mono&quot;, monospace;
+                font-size: 13px;
+                text-transform: uppercase;
+              "
+              >← Voltar para Testes</a
+            >
+          </p>
+        </main>
+        <footer
+          style="
+            background-color: #121212;
+            border-top: 4px solid #fcee0a;
+            margin-top: auto;
+          "
+        >
+          <div
+            style="
+              max-width: 1280px;
+              margin: 0 auto;
+              padding: 24px clamp(16px, 4vw, 40px);
+              font-family: &quot;Space Mono&quot;, monospace;
+              font-size: 11px;
+              color: #ccc7ab;
+              text-transform: uppercase;
+            "
+          >
+            © 2026 Neural_Bench Corp.
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
 </html>

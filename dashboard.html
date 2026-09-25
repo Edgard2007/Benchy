@@ -1,163 +1,902 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="pt-BR">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Testes — BenchMetrics</title>
-<link href="assets/bm.svg" rel="icon"/>
-<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
-
-</head>
-<body style="margin: 0; padding: 0; background-color: #100e0b; color: #e5e2e1; font-family: 'Archivo Narrow', sans-serif">
-<!-- Camada de fundo Aura (grade neon) - envolve toda a página -->
-<div style="position: relative; overflow: hidden; min-height: 100vh; background-color: #100e0b">
-<div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(139, 92, 246, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(139, 92, 246, 0.15) 1px, transparent 1px); background-size: 60px 60px; mix-blend-mode: normal; pointer-events: none"></div>
-<div style="position: absolute; inset: 0; background-image: radial-gradient( circle at 77% 46%, rgba(139, 92, 246, 0.5) 0%, transparent 50% ); mix-blend-mode: screen; filter: blur(220px); pointer-events: none"></div>
-<div style="position: absolute; inset: 0; background-image: radial-gradient( circle at 12% 67%, rgba(123, 130, 23, 0.3) 0%, transparent 40% ); mix-blend-mode: screen; filter: blur(180px); pointer-events: none"></div>
-<div style="position: relative; z-index: 1; display: flex; flex-direction: column; min-height: 100vh">
-<!-- Cabeçalho / navegação -->
-<header style="position: sticky; top: 0; z-index: 50; background-color: #121212; border-bottom: 3px solid #fcee0a">
-<div style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 14px clamp(16px, 4vw, 40px)">
-<a href="home.html" style="font-family: 'Anton', sans-serif; font-size: clamp(20px, 2.5vw, 26px); color: #fcee0a; text-decoration: none; letter-spacing: 0.03em; text-transform: uppercase">BenchMetrics</a>
-<nav style="display: flex; gap: clamp(14px, 3vw, 32px); flex-wrap: wrap">
-<a href="home.html" style="color: #e5e2e1; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding-bottom: 4px; border-bottom: 2px solid transparent">Home</a>
-<a href="catalogo.html" style="color: #e5e2e1; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding-bottom: 4px; border-bottom: 2px solid transparent">Catálogo</a>
-<a href="dashboard.html" style="color: #fcee0a; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding-bottom: 4px; border-bottom: 2px solid #fcee0a">Testes</a>
-</nav>
-</div>
-</header>
-<main style="flex: 1; width: 100%; max-width: 1280px; margin: 0 auto; padding: clamp(24px, 6vw, 56px) clamp(16px, 4vw, 40px); box-sizing: border-box; display: flex; flex-direction: column; gap: 48px">
-<!-- Diagnósticos de hardware em formato de tabela -->
-<section>
-<h1 style="font-family: 'Anton', sans-serif; font-size: clamp(26px, 4vw, 40px); color: #ffffff; text-transform: uppercase; margin: 0 0 24px 0">Diagnóstico Atual</h1>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px">
-<!-- Tabela CPU -->
-<div style="background-color: rgba(18, 18, 18, 0.85); border: 2px solid #353534; padding: 20px; box-sizing: border-box">
-<h2 style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #e5e2e1; border-bottom: 2px solid #4a4732; padding-bottom: 10px; margin: 0 0 14px 0">CPU_Diagnostics</h2>
-<table style="width: 100%; border-collapse: collapse; font-family: 'Space Mono', monospace; font-size: 13px">
-<tbody>
-<tr>
-<th style="text-align: left; padding: 8px 0; color: #ccc7ab; text-transform: uppercase; font-weight: 400">HW.ID</th>
-<td style="text-align: right; padding: 8px 0; color: #00f0ff">Intel Core i9-13900K</td>
-</tr>
-<tr>
-<th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase; font-weight: 400">Carga</th>
-<td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ff003c; font-weight: 700">92%</td>
-</tr>
-<tr>
-<th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase; font-weight: 400">Freq. Máx.</th>
-<td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #e5e2e1">5.8 GHz</td>
-</tr>
-<tr>
-<th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase; font-weight: 400">Térmico</th>
-<td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ff003c">84 °C</td>
-</tr>
-</tbody>
-</table>
-</div>
-<!-- Tabela GPU -->
-<div style="background-color: rgba(18, 18, 18, 0.85); border: 2px solid #353534; padding: 20px; box-sizing: border-box">
-<h2 style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #e5e2e1; border-bottom: 2px solid #4a4732; padding-bottom: 10px; margin: 0 0 14px 0">GPU_Diagnostics</h2>
-<table style="width: 100%; border-collapse: collapse; font-family: 'Space Mono', monospace; font-size: 13px">
-<tbody>
-<tr>
-<th style="text-align: left; padding: 8px 0; color: #ccc7ab; text-transform: uppercase; font-weight: 400">HW.ID</th>
-<td style="text-align: right; padding: 8px 0; color: #fcee0a">NVIDIA RTX 4090</td>
-</tr>
-<tr>
-<th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase; font-weight: 400">VRAM Alocada</th>
-<td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #00f0ff; font-weight: 700">18.4 GB</td>
-</tr>
-<tr>
-<th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase; font-weight: 400">FPS Mín.</th>
-<td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #e5e2e1">112</td>
-</tr>
-<tr>
-<th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase; font-weight: 400">FPS Máx.</th>
-<td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #e5e2e1">180</td>
-</tr>
-</tbody>
-</table>
-</div>
-<!-- Resultado / pontuação -->
-<div style="background-color: rgba(18, 18, 18, 0.85); border: 2px solid #00f0ff; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center">
-<span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: #ccc7ab; text-transform: uppercase; margin-bottom: 8px">Output_Val</span>
-<span style="font-family: 'Anton', sans-serif; font-size: 48px; color: #00f0ff; line-height: 1">14.289</span>
-<span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #100e0b; background-color: #fcee0a; padding: 4px 12px; margin-top: 12px; font-weight: 700; text-transform: uppercase">Rank 01</span>
-</div>
-</div>
-</section>
-<!-- Formulário para registrar um novo teste de benchmark -->
-<section style="background-color: rgba(18, 18, 18, 0.85); border: 2px solid #353534; padding: clamp(20px, 4vw, 36px); box-sizing: border-box; max-width: 760px; margin: 0 auto; width: 100%">
-<h2 style="font-family: 'Anton', sans-serif; font-size: clamp(22px, 3vw, 30px); color: #ffffff; text-transform: uppercase; margin: 0 0 8px 0">Registrar Novo Teste</h2>
-<p style="font-family: 'Space Mono', monospace; font-size: 12px; color: #ccc7ab; margin: 0 0 28px 0">
-                            Preencha os dados abaixo para iniciar uma nova sequência de diagnóstico.
-                        </p>
-<form action="#" method="post" style="display: flex; flex-direction: column; gap: 20px">
-<div>
-<label for="nome-sistema" style="display: block; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #e5e2e1; margin-bottom: 6px">Nome do sistema</label>
-<input id="nome-sistema" name="nome_sistema" placeholder="Ex.: Estação de Trabalho 01" required="" style="width: 100%; box-sizing: border-box; background-color: #0b0a08; border: 1px solid #4a4732; color: #e5e2e1; font-family: 'Archivo Narrow', sans-serif; font-size: 14px; padding: 10px 12px" type="text"/>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px">
-<div>
-<label for="cpu" style="display: block; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #e5e2e1; margin-bottom: 6px">CPU</label>
-<select id="cpu" name="cpu" style="width: 100%; box-sizing: border-box; background-color: #0b0a08; border: 1px solid #4a4732; color: #e5e2e1; font-family: 'Archivo Narrow', sans-serif; font-size: 14px; padding: 10px 12px">
-<option value="i9-13900k">Intel Core i9-13900K</option>
-<option value="ryzen-9-7950x">AMD Ryzen 9 7950X</option>
-<option value="i7-14700k">Intel Core i7-14700K</option>
-</select>
-</div>
-<div>
-<label for="gpu" style="display: block; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #e5e2e1; margin-bottom: 6px">GPU</label>
-<select id="gpu" name="gpu" style="width: 100%; box-sizing: border-box; background-color: #0b0a08; border: 1px solid #4a4732; color: #e5e2e1; font-family: 'Archivo Narrow', sans-serif; font-size: 14px; padding: 10px 12px">
-<option value="rtx-4090">NVIDIA RTX 4090</option>
-<option value="rtx-4080">NVIDIA RTX 4080</option>
-<option value="rx-7900xtx">AMD RX 7900 XTX</option>
-</select>
-</div>
-</div>
-<div>
-<label for="ram" style="display: block; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #e5e2e1; margin-bottom: 6px">Memória RAM (GB)</label>
-<input id="ram" max="256" min="4" name="ram_gb" step="4" style="width: 100%; box-sizing: border-box; background-color: #0b0a08; border: 1px solid #4a4732; color: #e5e2e1; font-family: 'Archivo Narrow', sans-serif; font-size: 14px; padding: 10px 12px" type="number" value="32"/>
-</div>
-<fieldset style="border: 1px solid #4a4732; padding: 16px; margin: 0">
-<legend style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #fcee0a; padding: 0 8px">Tipo de teste</legend>
-<div style="display: flex; flex-wrap: wrap; gap: 20px; font-family: 'Archivo Narrow', sans-serif; font-size: 14px">
-<label style="display: flex; align-items: center; gap: 8px"><input checked="" name="tipo_teste" type="radio" value="stress"/> Stress
-                                        Sintético</label>
-<label style="display: flex; align-items: center; gap: 8px"><input name="tipo_teste" type="radio" value="render"/> Renderização 3D</label>
-<label style="display: flex; align-items: center; gap: 8px"><input name="tipo_teste" type="radio" value="io"/> Leitura/Escrita</label>
-</div>
-</fieldset>
-<div>
-<label for="email" style="display: block; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #e5e2e1; margin-bottom: 6px">E-mail para envio do resultado</label>
-<input id="email" name="email" placeholder="voce@exemplo.com" required="" style="width: 100%; box-sizing: border-box; background-color: #0b0a08; border: 1px solid #4a4732; color: #e5e2e1; font-family: 'Archivo Narrow', sans-serif; font-size: 14px; padding: 10px 12px" type="email"/>
-</div>
-<div>
-<label for="observacoes" style="display: block; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #e5e2e1; margin-bottom: 6px">Observações</label>
-<textarea id="observacoes" name="observacoes" placeholder="Detalhes adicionais sobre a configuração testada..." rows="4" style="width: 100%; box-sizing: border-box; background-color: #0b0a08; border: 1px solid #4a4732; color: #e5e2e1; font-family: 'Archivo Narrow', sans-serif; font-size: 14px; padding: 10px 12px; resize: vertical"></textarea>
-</div>
-<label style="display: flex; align-items: center; gap: 10px; font-family: 'Space Mono', monospace; font-size: 12px; color: #ccc7ab">
-<input name="aceite_termos" required="" type="checkbox"/>
-                                Li e concordo com os <a href="termos.html" style="color: #fcee0a">Termos de Uso</a> e a
-                                <a href="privacidade.html" style="color: #fcee0a">Política de Privacidade</a>.
-                            </label>
-<div style="display: flex; gap: 16px; flex-wrap: wrap">
-<button style="background-color: #fcee0a; border: 2px solid #fcee0a; color: #100e0b; font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; padding: 14px 28px; cursor: pointer" type="submit">Fazer Teste</button>
-<button style="background-color: transparent; border: 2px solid #4a4732; color: #e5e2e1; font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 28px; cursor: pointer" type="reset">Limpar</button>
-</div>
-</form>
-</section>
-</main>
-<!-- Rodapé -->
-<footer style="background-color: #121212; border-top: 4px solid #fcee0a; margin-top: auto">
-<div style="max-width: 1280px; margin: 0 auto; padding: 32px clamp(16px, 4vw, 40px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; box-sizing: border-box">
-<div style="font-family: 'Anton', sans-serif; font-size: 18px; color: #fcee0a; text-transform: uppercase">BenchMetrics</div>
-<div style="font-family: 'Space Mono', monospace; font-size: 11px; color: #ccc7ab; text-transform: uppercase">©2026 BenchMertics corp.</div>
-</div>
-</footer>
-</div>
-</div>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Testes — BenchMetrics</title>
+    <link href="assets/bm.svg" rel="icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #100e0b;
+      color: #e5e2e1;
+      font-family: &quot;Archivo Narrow&quot;, sans-serif;
+    "
+  >
+    <!-- Camada de fundo Aura (grade neon) - envolve toda a página -->
+    <div
+      style="
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+        background-color: #100e0b;
+      "
+    >
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background-image:
+            linear-gradient(rgba(139, 92, 246, 0.15) 1px, transparent 1px),
+            linear-gradient(
+              90deg,
+              rgba(139, 92, 246, 0.15) 1px,
+              transparent 1px
+            );
+          background-size: 60px 60px;
+          mix-blend-mode: normal;
+          pointer-events: none;
+        "
+      ></div>
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background-image: radial-gradient(
+            circle at 77% 46%,
+            rgba(139, 92, 246, 0.5) 0%,
+            transparent 50%
+          );
+          mix-blend-mode: screen;
+          filter: blur(220px);
+          pointer-events: none;
+        "
+      ></div>
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background-image: radial-gradient(
+            circle at 12% 67%,
+            rgba(123, 130, 23, 0.3) 0%,
+            transparent 40%
+          );
+          mix-blend-mode: screen;
+          filter: blur(180px);
+          pointer-events: none;
+        "
+      ></div>
+      <div
+        style="
+          position: relative;
+          z-index: 1;
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+        "
+      >
+        <!-- Cabeçalho / navegação -->
+        <header
+          style="
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: #121212;
+            border-bottom: 3px solid #fcee0a;
+          "
+        >
+          <div
+            style="
+              max-width: 1280px;
+              margin: 0 auto;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              flex-wrap: wrap;
+              gap: 12px;
+              padding: 14px clamp(16px, 4vw, 40px);
+            "
+          >
+            <a
+              href="home.html"
+              style="
+                font-family: &quot;Anton&quot;, sans-serif;
+                font-size: clamp(20px, 2.5vw, 26px);
+                color: #fcee0a;
+                text-decoration: none;
+                letter-spacing: 0.03em;
+                text-transform: uppercase;
+              "
+              >BenchMetrics</a
+            >
+            <nav
+              style="
+                display: flex;
+                gap: clamp(14px, 3vw, 32px);
+                flex-wrap: wrap;
+              "
+            >
+              <a
+                href="home.html"
+                style="
+                  color: #e5e2e1;
+                  text-decoration: none;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 12px;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                  padding-bottom: 4px;
+                  border-bottom: 2px solid transparent;
+                "
+                >Home</a
+              >
+              <a
+                href="catalogo.html"
+                style="
+                  color: #e5e2e1;
+                  text-decoration: none;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 12px;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                  padding-bottom: 4px;
+                  border-bottom: 2px solid transparent;
+                "
+                >Catálogo</a
+              >
+              <a
+                href="dashboard.html"
+                style="
+                  color: #fcee0a;
+                  text-decoration: none;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 12px;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                  padding-bottom: 4px;
+                  border-bottom: 2px solid #fcee0a;
+                "
+                >Testes</a
+              >
+            </nav>
+          </div>
+        </header>
+        <main
+          style="
+            flex: 1;
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: clamp(24px, 6vw, 56px) clamp(16px, 4vw, 40px);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+          "
+        >
+          <!-- Diagnósticos de hardware em formato de tabela -->
+          <section>
+            <h1
+              style="
+                font-family: &quot;Anton&quot;, sans-serif;
+                font-size: clamp(26px, 4vw, 40px);
+                color: #ffffff;
+                text-transform: uppercase;
+                margin: 0 0 24px 0;
+              "
+            >
+              Diagnóstico Atual
+            </h1>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 24px;
+              "
+            >
+              <!-- Tabela CPU -->
+              <div
+                style="
+                  background-color: rgba(18, 18, 18, 0.85);
+                  border: 2px solid #353534;
+                  padding: 20px;
+                  box-sizing: border-box;
+                "
+              >
+                <h2
+                  style="
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 13px;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    color: #e5e2e1;
+                    border-bottom: 2px solid #4a4732;
+                    padding-bottom: 10px;
+                    margin: 0 0 14px 0;
+                  "
+                >
+                  CPU_Diagnostics
+                </h2>
+                <table
+                  style="
+                    width: 100%;
+                    border-collapse: collapse;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 13px;
+                  "
+                >
+                  <tbody>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                          font-weight: 400;
+                        "
+                      >
+                        HW.ID
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          color: #00f0ff;
+                        "
+                      >
+                        Intel Core i9-13900K
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                          font-weight: 400;
+                        "
+                      >
+                        Carga
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ff003c;
+                          font-weight: 700;
+                        "
+                      >
+                        92%
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                          font-weight: 400;
+                        "
+                      >
+                        Freq. Máx.
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #e5e2e1;
+                        "
+                      >
+                        5.8 GHz
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                          font-weight: 400;
+                        "
+                      >
+                        Térmico
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ff003c;
+                        "
+                      >
+                        84 °C
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- Tabela GPU -->
+              <div
+                style="
+                  background-color: rgba(18, 18, 18, 0.85);
+                  border: 2px solid #353534;
+                  padding: 20px;
+                  box-sizing: border-box;
+                "
+              >
+                <h2
+                  style="
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 13px;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    color: #e5e2e1;
+                    border-bottom: 2px solid #4a4732;
+                    padding-bottom: 10px;
+                    margin: 0 0 14px 0;
+                  "
+                >
+                  GPU_Diagnostics
+                </h2>
+                <table
+                  style="
+                    width: 100%;
+                    border-collapse: collapse;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 13px;
+                  "
+                >
+                  <tbody>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                          font-weight: 400;
+                        "
+                      >
+                        HW.ID
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          color: #fcee0a;
+                        "
+                      >
+                        NVIDIA RTX 4090
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                          font-weight: 400;
+                        "
+                      >
+                        VRAM Alocada
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #00f0ff;
+                          font-weight: 700;
+                        "
+                      >
+                        18.4 GB
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                          font-weight: 400;
+                        "
+                      >
+                        FPS Mín.
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #e5e2e1;
+                        "
+                      >
+                        112
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                          font-weight: 400;
+                        "
+                      >
+                        FPS Máx.
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #e5e2e1;
+                        "
+                      >
+                        180
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- Resultado / pontuação -->
+              <div
+                style="
+                  background-color: rgba(18, 18, 18, 0.85);
+                  border: 2px solid #00f0ff;
+                  padding: 20px;
+                  box-sizing: border-box;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;
+                  text-align: center;
+                "
+              >
+                <span
+                  style="
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 11px;
+                    letter-spacing: 0.2em;
+                    color: #ccc7ab;
+                    text-transform: uppercase;
+                    margin-bottom: 8px;
+                  "
+                  >Output_Val</span
+                >
+                <span
+                  style="
+                    font-family: &quot;Anton&quot;, sans-serif;
+                    font-size: 48px;
+                    color: #00f0ff;
+                    line-height: 1;
+                  "
+                  >14.289</span
+                >
+                <span
+                  style="
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 12px;
+                    color: #100e0b;
+                    background-color: #fcee0a;
+                    padding: 4px 12px;
+                    margin-top: 12px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                  "
+                  >Rank 01</span
+                >
+              </div>
+            </div>
+          </section>
+          <!-- Formulário para registrar um novo teste de benchmark -->
+          <section
+            style="
+              background-color: rgba(18, 18, 18, 0.85);
+              border: 2px solid #353534;
+              padding: clamp(20px, 4vw, 36px);
+              box-sizing: border-box;
+              max-width: 760px;
+              margin: 0 auto;
+              width: 100%;
+            "
+          >
+            <h2
+              style="
+                font-family: &quot;Anton&quot;, sans-serif;
+                font-size: clamp(22px, 3vw, 30px);
+                color: #ffffff;
+                text-transform: uppercase;
+                margin: 0 0 8px 0;
+              "
+            >
+              Registrar Novo Teste
+            </h2>
+            <p
+              style="
+                font-family: &quot;Space Mono&quot;, monospace;
+                font-size: 12px;
+                color: #ccc7ab;
+                margin: 0 0 28px 0;
+              "
+            >
+              Preencha os dados abaixo para iniciar uma nova sequência de
+              diagnóstico.
+            </p>
+            <form
+              action="#"
+              method="post"
+              style="display: flex; flex-direction: column; gap: 20px"
+            >
+              <div>
+                <label
+                  for="nome-sistema"
+                  style="
+                    display: block;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 12px;
+                    letter-spacing: 0.08em;
+                    text-transform: uppercase;
+                    color: #e5e2e1;
+                    margin-bottom: 6px;
+                  "
+                  >Nome do sistema</label
+                >
+                <input
+                  id="nome-sistema"
+                  name="nome_sistema"
+                  placeholder="Ex.: Estação de Trabalho 01"
+                  required=""
+                  style="
+                    width: 100%;
+                    box-sizing: border-box;
+                    background-color: #0b0a08;
+                    border: 1px solid #4a4732;
+                    color: #e5e2e1;
+                    font-family: &quot;Archivo Narrow&quot;, sans-serif;
+                    font-size: 14px;
+                    padding: 10px 12px;
+                  "
+                  type="text"
+                />
+              </div>
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                  gap: 20px;
+                "
+              >
+                <div>
+                  <label
+                    for="cpu"
+                    style="
+                      display: block;
+                      font-family: &quot;Space Mono&quot;, monospace;
+                      font-size: 12px;
+                      letter-spacing: 0.08em;
+                      text-transform: uppercase;
+                      color: #e5e2e1;
+                      margin-bottom: 6px;
+                    "
+                    >CPU</label
+                  >
+                  <select
+                    id="cpu"
+                    name="cpu"
+                    style="
+                      width: 100%;
+                      box-sizing: border-box;
+                      background-color: #0b0a08;
+                      border: 1px solid #4a4732;
+                      color: #e5e2e1;
+                      font-family: &quot;Archivo Narrow&quot;, sans-serif;
+                      font-size: 14px;
+                      padding: 10px 12px;
+                    "
+                  >
+                    <option value="i9-13900k">Intel Core i9-13900K</option>
+                    <option value="ryzen-9-7950x">AMD Ryzen 9 7950X</option>
+                    <option value="i7-14700k">Intel Core i7-14700K</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    for="gpu"
+                    style="
+                      display: block;
+                      font-family: &quot;Space Mono&quot;, monospace;
+                      font-size: 12px;
+                      letter-spacing: 0.08em;
+                      text-transform: uppercase;
+                      color: #e5e2e1;
+                      margin-bottom: 6px;
+                    "
+                    >GPU</label
+                  >
+                  <select
+                    id="gpu"
+                    name="gpu"
+                    style="
+                      width: 100%;
+                      box-sizing: border-box;
+                      background-color: #0b0a08;
+                      border: 1px solid #4a4732;
+                      color: #e5e2e1;
+                      font-family: &quot;Archivo Narrow&quot;, sans-serif;
+                      font-size: 14px;
+                      padding: 10px 12px;
+                    "
+                  >
+                    <option value="rtx-4090">NVIDIA RTX 4090</option>
+                    <option value="rtx-4080">NVIDIA RTX 4080</option>
+                    <option value="rx-7900xtx">AMD RX 7900 XTX</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label
+                  for="ram"
+                  style="
+                    display: block;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 12px;
+                    letter-spacing: 0.08em;
+                    text-transform: uppercase;
+                    color: #e5e2e1;
+                    margin-bottom: 6px;
+                  "
+                  >Memória RAM (GB)</label
+                >
+                <input
+                  id="ram"
+                  max="256"
+                  min="4"
+                  name="ram_gb"
+                  step="4"
+                  style="
+                    width: 100%;
+                    box-sizing: border-box;
+                    background-color: #0b0a08;
+                    border: 1px solid #4a4732;
+                    color: #e5e2e1;
+                    font-family: &quot;Archivo Narrow&quot;, sans-serif;
+                    font-size: 14px;
+                    padding: 10px 12px;
+                  "
+                  type="number"
+                  value="32"
+                />
+              </div>
+              <fieldset
+                style="border: 1px solid #4a4732; padding: 16px; margin: 0"
+              >
+                <legend
+                  style="
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 12px;
+                    letter-spacing: 0.08em;
+                    text-transform: uppercase;
+                    color: #fcee0a;
+                    padding: 0 8px;
+                  "
+                >
+                  Tipo de teste
+                </legend>
+                <div
+                  style="
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 20px;
+                    font-family: &quot;Archivo Narrow&quot;, sans-serif;
+                    font-size: 14px;
+                  "
+                >
+                  <label style="display: flex; align-items: center; gap: 8px"
+                    ><input
+                      checked=""
+                      name="tipo_teste"
+                      type="radio"
+                      value="stress"
+                    />
+                    Stress Sintético</label
+                  >
+                  <label style="display: flex; align-items: center; gap: 8px"
+                    ><input name="tipo_teste" type="radio" value="render" />
+                    Renderização 3D</label
+                  >
+                  <label style="display: flex; align-items: center; gap: 8px"
+                    ><input name="tipo_teste" type="radio" value="io" />
+                    Leitura/Escrita</label
+                  >
+                </div>
+              </fieldset>
+              <div>
+                <label
+                  for="email"
+                  style="
+                    display: block;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 12px;
+                    letter-spacing: 0.08em;
+                    text-transform: uppercase;
+                    color: #e5e2e1;
+                    margin-bottom: 6px;
+                  "
+                  >E-mail para envio do resultado</label
+                >
+                <input
+                  id="email"
+                  name="email"
+                  placeholder="voce@exemplo.com"
+                  required=""
+                  style="
+                    width: 100%;
+                    box-sizing: border-box;
+                    background-color: #0b0a08;
+                    border: 1px solid #4a4732;
+                    color: #e5e2e1;
+                    font-family: &quot;Archivo Narrow&quot;, sans-serif;
+                    font-size: 14px;
+                    padding: 10px 12px;
+                  "
+                  type="email"
+                />
+              </div>
+              <div>
+                <label
+                  for="observacoes"
+                  style="
+                    display: block;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 12px;
+                    letter-spacing: 0.08em;
+                    text-transform: uppercase;
+                    color: #e5e2e1;
+                    margin-bottom: 6px;
+                  "
+                  >Observações</label
+                >
+                <textarea
+                  id="observacoes"
+                  name="observacoes"
+                  placeholder="Detalhes adicionais sobre a configuração testada..."
+                  rows="4"
+                  style="
+                    width: 100%;
+                    box-sizing: border-box;
+                    background-color: #0b0a08;
+                    border: 1px solid #4a4732;
+                    color: #e5e2e1;
+                    font-family: &quot;Archivo Narrow&quot;, sans-serif;
+                    font-size: 14px;
+                    padding: 10px 12px;
+                    resize: vertical;
+                  "
+                ></textarea>
+              </div>
+              <label
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 12px;
+                  color: #ccc7ab;
+                "
+              >
+                <input name="aceite_termos" required="" type="checkbox" />
+                Li e concordo com os
+                <a href="termos.html" style="color: #fcee0a">Termos de Uso</a> e
+                a
+                <a href="privacidade.html" style="color: #fcee0a"
+                  >Política de Privacidade</a
+                >.
+              </label>
+              <div style="display: flex; gap: 16px; flex-wrap: wrap">
+                <button
+                  style="
+                    background-color: #fcee0a;
+                    border: 2px solid #fcee0a;
+                    color: #100e0b;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 13px;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    padding: 14px 28px;
+                    cursor: pointer;
+                  "
+                  type="submit"
+                >
+                  Fazer Teste
+                </button>
+                <button
+                  style="
+                    background-color: transparent;
+                    border: 2px solid #4a4732;
+                    color: #e5e2e1;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 13px;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    padding: 14px 28px;
+                    cursor: pointer;
+                  "
+                  type="reset"
+                >
+                  Limpar
+                </button>
+              </div>
+            </form>
+          </section>
+        </main>
+        <!-- Rodapé -->
+        <footer
+          style="
+            background-color: #121212;
+            border-top: 4px solid #fcee0a;
+            margin-top: auto;
+          "
+        >
+          <div
+            style="
+              max-width: 1280px;
+              margin: 0 auto;
+              padding: 32px clamp(16px, 4vw, 40px);
+              display: flex;
+              flex-wrap: wrap;
+              align-items: center;
+              justify-content: space-between;
+              gap: 16px;
+              box-sizing: border-box;
+            "
+          >
+            <div
+              style="
+                font-family: &quot;Anton&quot;, sans-serif;
+                font-size: 18px;
+                color: #fcee0a;
+                text-transform: uppercase;
+              "
+            >
+              BenchMetrics
+            </div>
+            <div
+              style="
+                font-family: &quot;Space Mono&quot;, monospace;
+                font-size: 11px;
+                color: #ccc7ab;
+                text-transform: uppercase;
+              "
+            >
+              ©2026 BenchMertics corp.
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
 </html>
