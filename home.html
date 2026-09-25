@@ -1,170 +1,950 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>BenchMetrics — Diagnóstico de Hardware</title>
-<link href="assets/bm.svg" rel="icon"/>
-<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
-</head>
-<body style="margin: 0; padding: 0; background-color: #100e0b; color: #e5e2e1; font-family: 'Archivo Narrow', sans-serif">
-<!-- fundo com grid + glow, mesmo esquema nas 3 páginas -->
-<div style="position: relative; overflow: hidden; min-height: 100vh; background-color: #100e0b">
-<div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(139, 92, 246, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(139, 92, 246, 0.15) 1px, transparent 1px); background-size: 60px 60px; mix-blend-mode: normal; pointer-events: none"></div>
-<div style="position: absolute; inset: 0; background-image: radial-gradient(circle at 77% 46%, rgba(139, 92, 246, 0.5) 0%, transparent 50%); mix-blend-mode: screen; filter: blur(220px); pointer-events: none"></div>
-<div style="position: absolute; inset: 0; background-image: radial-gradient(circle at 12% 67%, rgba(123, 130, 23, 0.3) 0%, transparent 40%); mix-blend-mode: screen; filter: blur(180px); pointer-events: none"></div>
-<div style="position: relative; z-index: 1; display: flex; flex-direction: column; min-height: 100vh">
-<!-- nav fixa no topo -->
-<header style="position: sticky; top: 0; z-index: 50; background-color: #121212; border-bottom: 3px solid #fcee0a">
-<div style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 14px clamp(16px, 4vw, 40px)">
-<a href="home.html" style="font-family: 'Anton', sans-serif; font-size: clamp(20px, 2.5vw, 26px); color: #fcee0a; text-decoration: none; letter-spacing: 0.03em; text-transform: uppercase">BenchMetrics</a>
-<nav style="display: flex; gap: clamp(14px, 3vw, 32px); flex-wrap: wrap">
-<a href="home.html" style="color: #fcee0a; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding-bottom: 4px; border-bottom: 2px solid #fcee0a">Home</a>
-<a href="catalogo.html" style="color: #e5e2e1; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding-bottom: 4px; border-bottom: 2px solid transparent">Catálogo</a>
-<a href="dashboard.html" style="color: #e5e2e1; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding-bottom: 4px; border-bottom: 2px solid transparent">Testes</a>
-</nav>
-</div>
-</header>
-<main style="flex: 1; width: 100%; max-width: 1280px; margin: 0 auto; padding: clamp(24px, 6vw, 64px) clamp(16px, 4vw, 40px); box-sizing: border-box">
-<!-- hero -->
-<section style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px; padding: 32px 0 64px 0">
-<div style="flex: 1 1 420px; min-width: 280px">
-<div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 2px solid #fcee0a; background-color: rgba(252, 238, 10, 0.08); margin-bottom: 20px">
-<span style="width: 9px; height: 9px; background-color: #8b5cf680; border-radius: 50%; display: inline-block"></span>
-<span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: #fcee0a; text-transform: uppercase">Sistema v2.0.4 online</span>
-</div>
-<h1 style="font-family: 'Anton', sans-serif; font-size: clamp(34px, 6vw, 64px); line-height: 1.05; color: #ffffff; text-transform: uppercase; margin: 0 0 20px 0">
-                                Leve seu hardware<br/>
-<span style="color: #fcee0a">ao limite</span>
-</h1>
-<p style="font-size: 16px; line-height: 1.6; color: #e5e2e1; background-color: rgba(18, 18, 18, 0.7); border-left: 4px solid #fcee0a; padding: 14px 18px; margin: 0 0 28px 0; max-width: 520px">
-                                Benchmarking de precisão para a próxima geração de entusiastas de PC. Execute
-                                diagnósticos completos, compare com métricas globais e descubra o verdadeiro potencial
-                                da sua máquina.
-                            </p>
-<div style="display: flex; gap: 16px">
-<a href="dashboard.html" style="display: flex; text-align: justify; background-color: #fcee0a; color: #100e0b; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; padding: 14px 28px; border: 2px solid #fcee0a">Iniciar Teste</a>
-<a href="catalogo.html" style="display: inline-block; background-color: transparent; color: #e5e2e1; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 28px; border: 2px solid #4a4732">Ver Catálogo</a>
-</div>
-</div>
-<div style="flex: 1 1 320px; min-width: 800px; text-align: center">
-<img alt="Banner do BenchMetrics" src="assets/banner.png" style="width: 100%; max-width: 100000px; height: auto; border: 4px solid #2a2a2a; display: inline-block"/>
-</div>
-</section>
-<!-- 3 cards de recursos -->
-<section style="padding: 24px 0">
-<div style="display: flex; align-items: center; gap: 16px; margin-bottom: 32px">
-<span style="flex-grow: 1; height: 2px; background-color: #fcee0a"></span>
-<h2 style="font-family: 'Anton', sans-serif; font-size: clamp(22px, 3vw, 32px); color: #ffffff; text-transform: uppercase; margin: 0; padding: 6px 16px; border: 2px solid #fcee0a; background-color: #121212; text-align: center">Recursos Principais</h2>
-<span style="flex-grow: 1; height: 2px; background-color: #fcee0a"></span>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
-<article style="background-color: rgba(18, 18, 18, 0.85); border: 1px solid #353534; padding: 28px; box-sizing: border-box">
-<div style="width: 44px; height: 44px; border: 2px solid #00f0ff; display: flex; align-items: center; justify-content: center; margin-bottom: 20px">
-<span style="color: #00f0ff; font-family: 'Space Mono', monospace; font-weight: 700">M</span>
-</div>
-<h3 style="font-family: 'Anton', sans-serif; font-size: 20px; color: #ffffff; text-transform: uppercase; margin: 0 0 10px 0">Teste o desempenho de jogos em seu computador</h3>
-<p style="font-family: 'Space Mono', monospace; font-size: 13px; line-height: 1.7; color: #ccc7ab; margin: 0">
-                                    Coloque suas informações, selecione o jogo e descubra o poder do fps.
-                                </p>
-</article>
-<article style="background-color: rgba(18, 18, 18, 0.85); border: 1px solid #353534; padding: 28px; box-sizing: border-box">
-<div style="width: 44px; height: 44px; border: 2px solid #ff003c; display: flex; align-items: center; justify-content: center; margin-bottom: 20px">
-<span style="color: #ff003c; font-family: 'Space Mono', monospace; font-weight: 700">G</span>
-</div>
-<h3 style="font-family: 'Anton', sans-serif; font-size: 20px; color: #ffffff; text-transform: uppercase; margin: 0 0 10px 0">Comparações globais</h3>
-<p style="font-family: 'Space Mono', monospace; font-size: 13px; line-height: 1.7; color: #ccc7ab; margin: 0">
-                                    Compare sua máquina com milhões de resultados de testes sintéticos ao redor do
-                                    mundo.
-                                </p>
-</article>
-<article style="background-color: rgba(18, 18, 18, 0.85); border: 1px solid #353534; padding: 28px; box-sizing: border-box">
-<div style="width: 44px; height: 44px; border: 2px solid #fcee0a; display: flex; align-items: center; justify-content: center; margin-bottom: 20px">
-<span style="color: #fcee0a; font-family: 'Space Mono', monospace; font-weight: 700">A</span>
-</div>
-<h3 style="font-family: 'Anton', sans-serif; font-size: 20px; color: #ffffff; text-transform: uppercase; margin: 0 0 10px 0">Análise profunda</h3>
-<p style="font-family: 'Space Mono', monospace; font-size: 13px; line-height: 1.7; color: #ccc7ab; margin: 0">
-                                    Descubra de uma vez por todas se seu computador é capaz de rodar algo, antes mesmo
-                                    de comprar
-                                </p>
-</article>
-</div>
-</section>
-<!-- tabela com os testes disponíveis -->
-<section style="padding: 48px 0 24px 0">
-<h2 style="font-family: 'Anton', sans-serif; font-size: clamp(20px, 3vw, 28px); color: #ffffff; text-transform: uppercase; margin: 0 0 20px 0">Testes Suportados</h2>
-<div style="overflow-x: auto">
-<table style="width: 100%; border-collapse: collapse; font-family: 'Space Mono', monospace; font-size: 13px; min-width: 520px">
-<thead>
-<tr>
-<th style="text-align: left; padding: 12px; background-color: #121212; color: #fcee0a; border: 1px solid #353534; text-transform: uppercase; letter-spacing: 0.08em">Módulo</th>
-<th style="text-align: left; padding: 12px; background-color: #121212; color: #fcee0a; border: 1px solid #353534; text-transform: uppercase; letter-spacing: 0.08em">Componente</th>
-<th style="text-align: left; padding: 12px; background-color: #121212; color: #fcee0a; border: 1px solid #353534; text-transform: uppercase; letter-spacing: 0.08em">Duração média</th>
-<th style="text-align: left; padding: 12px; background-color: #121212; color: #fcee0a; border: 1px solid #353534; text-transform: uppercase; letter-spacing: 0.08em">Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="padding: 12px; border: 1px solid #353534; color: #e5e2e1">Stress Sintético</td>
-<td style="padding: 12px; border: 1px solid #353534; color: #e5e2e1">CPU</td>
-<td style="padding: 12px; border: 1px solid #353534; color: #e5e2e1">08 min</td>
-<td style="padding: 12px; border: 1px solid #353534; color: #00f0ff">Ativo</td>
-</tr>
-<tr>
-<td style="padding: 12px; border: 1px solid #353534; color: #e5e2e1; background-color: rgba(255, 255, 255, 0.02)">Renderização 3D</td>
-<td style="padding: 12px; border: 1px solid #353534; color: #e5e2e1; background-color: rgba(255, 255, 255, 0.02)">GPU</td>
-<td style="padding: 12px; border: 1px solid #353534; color: #e5e2e1; background-color: rgba(255, 255, 255, 0.02)">12 min</td>
-<td style="padding: 12px; border: 1px solid #353534; color: #00f0ff; background-color: rgba(255, 255, 255, 0.02)">Ativo</td>
-</tr>
-<tr>
-<td style="padding: 12px; border: 1px solid #353534; color: #e5e2e1">Leitura/Escrita</td>
-<td style="padding: 12px; border: 1px solid #353534; color: #e5e2e1">Armazenamento</td>
-<td style="padding: 12px; border: 1px solid #353534; color: #e5e2e1">05 min</td>
-<td style="padding: 12px; border: 1px solid #353534; color: #fcee0a">Beta</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-</main>
-<!-- footer -->
-<section style="max-width: 1200px; margin: 70px auto; padding: 32px 20px; border-top: 10px solid #fcee0a">
-<div style="text-align: center; margin-bottom: 30px">
-<p style="font-family: 'Space Mono', monospace; letter-spacing: 0.12em; font-size: 12px; color: #bdb8aa">EQUIPE RESPONSÁVEL</p>
-<h2 style="font-family: 'Anton', sans-serif; font-size: clamp(28px, 5vw, 48px); text-transform: uppercase; color: #fff">Quem fez o <span style="color: #fcee0a">BenchMetrics</span></h2>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px">
-<figure style="margin: 0; background: #121212; border: 1px solid #4a4732; overflow: hidden">
-<img alt="Foto do integrante 1" src="assets/davi.jpeg" style="display: block; width: 100%; aspect-ratio: 1; object-fit: cover; background: #24221b"/>
-<figcaption style="padding: 50px; font-family: 'Space Mono', monospace; font-size: 12px; text-align: center; color: #fcee0a; text-transform: uppercase">Davi Lopes</figcaption>
-</figure>
-<figure style="margin: 0; background: #121212; border: 1px solid #4a4732; overflow: hidden">
-<img alt="Foto do integrante 2" src="assets/edgard.jpeg" style="display: block; width: 100%; aspect-ratio: 1; object-fit: cover; background: #24221b"/>
-<figcaption style="padding: 50px; font-family: 'Space Mono', monospace; font-size: 12px; text-align: center; color: #fcee0a; text-transform: uppercase">Edgard Costa</figcaption>
-</figure>
-<figure style="margin: 0; background: #121212; border: 1px solid #4a4732; overflow: hidden">
-<img align="center" alt="Foto do integrante 3" src="assets/jvnutelinha.jpeg" style="display: block; width: 100%; aspect-ratio: 1; object-fit: cover; background: #24221b"/>
-<figcaption style="padding: 50px; font-family: 'Space Mono', monospace; font-size: 12px; text-align: center; color: #fcee0a; text-transform: uppercase">João Victor</figcaption>
-</figure>
-<figure style="margin: 0; background: #121212; border: 1px solid #4a4732; overflow: hidden">
-<img alt="Foto do integrante 4" src="assets/luis.jpeg" style="display: block; width: 100%; aspect-ratio: 1; object-fit: cover; background: #24221b"/>
-<figcaption style="padding: 50px; font-family: 'Space Mono', monospace; font-size: 12px; text-align: center; color: #fcee0a; text-transform: uppercase">Luiz Felipe</figcaption>
-</figure>
-<figure style="margin: 0; background: #121212; border: 1px solid #4a4732; overflow: hidden">
-<img alt="Foto do integrante 5" src="assets/rafael.jpeg" style="display: block; width: 100%; aspect-ratio: 1; object-fit: cover; background: #24221b"/>
-<figcaption style="padding: 50px; font-family: 'Space Mono', monospace; font-size: 12px; text-align: center; color: #fcee0a; text-transform: uppercase">Rafael Arão</figcaption>
-</figure>
-</div>
-</section>
-<footer style="background-color: #121212; border-top: 4px solid #fcee0a; margin-top: auto">
-<div style="max-width: 1280px; margin: 0 auto; padding: 40px clamp(16px, 4vw, 40px); display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; box-sizing: border-box">
-<div>
-<div style="font-family: 'Anton', sans-serif; font-size: 20px; color: #fcee0a; text-transform: uppercase; margin-bottom: 10px">BenchMetrics</div>
-</div>
-<div style="font-family: 'Space Mono', monospace; font-size: 11px; color: #fcee0a; text-transform: uppercase; text-align: left">© 2026 BenchMetrics corp</div>
-</div>
-</footer>
-</div>
-</div>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>BenchMetrics — Diagnóstico de Hardware</title>
+    <link href="assets/bm.svg" rel="icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #100e0b;
+      color: #e5e2e1;
+      font-family: &quot;Archivo Narrow&quot;, sans-serif;
+    "
+  >
+    <!-- fundo com grid + glow, mesmo esquema nas 3 páginas -->
+    <div
+      style="
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+        background-color: #100e0b;
+      "
+    >
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background-image:
+            linear-gradient(rgba(139, 92, 246, 0.15) 1px, transparent 1px),
+            linear-gradient(
+              90deg,
+              rgba(139, 92, 246, 0.15) 1px,
+              transparent 1px
+            );
+          background-size: 60px 60px;
+          mix-blend-mode: normal;
+          pointer-events: none;
+        "
+      ></div>
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background-image: radial-gradient(
+            circle at 77% 46%,
+            rgba(139, 92, 246, 0.5) 0%,
+            transparent 50%
+          );
+          mix-blend-mode: screen;
+          filter: blur(220px);
+          pointer-events: none;
+        "
+      ></div>
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background-image: radial-gradient(
+            circle at 12% 67%,
+            rgba(123, 130, 23, 0.3) 0%,
+            transparent 40%
+          );
+          mix-blend-mode: screen;
+          filter: blur(180px);
+          pointer-events: none;
+        "
+      ></div>
+      <div
+        style="
+          position: relative;
+          z-index: 1;
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+        "
+      >
+        <!-- nav fixa no topo -->
+        <header
+          style="
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: #121212;
+            border-bottom: 3px solid #fcee0a;
+          "
+        >
+          <div
+            style="
+              max-width: 1280px;
+              margin: 0 auto;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              flex-wrap: wrap;
+              gap: 12px;
+              padding: 14px clamp(16px, 4vw, 40px);
+            "
+          >
+            <a
+              href="home.html"
+              style="
+                font-family: &quot;Anton&quot;, sans-serif;
+                font-size: clamp(20px, 2.5vw, 26px);
+                color: #fcee0a;
+                text-decoration: none;
+                letter-spacing: 0.03em;
+                text-transform: uppercase;
+              "
+              >BenchMetrics</a
+            >
+            <nav
+              style="
+                display: flex;
+                gap: clamp(14px, 3vw, 32px);
+                flex-wrap: wrap;
+              "
+            >
+              <a
+                href="home.html"
+                style="
+                  color: #fcee0a;
+                  text-decoration: none;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 12px;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                  padding-bottom: 4px;
+                  border-bottom: 2px solid #fcee0a;
+                "
+                >Home</a
+              >
+              <a
+                href="catalogo.html"
+                style="
+                  color: #e5e2e1;
+                  text-decoration: none;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 12px;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                  padding-bottom: 4px;
+                  border-bottom: 2px solid transparent;
+                "
+                >Catálogo</a
+              >
+              <a
+                href="dashboard.html"
+                style="
+                  color: #e5e2e1;
+                  text-decoration: none;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 12px;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                  padding-bottom: 4px;
+                  border-bottom: 2px solid transparent;
+                "
+                >Testes</a
+              >
+            </nav>
+          </div>
+        </header>
+        <main
+          style="
+            flex: 1;
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: clamp(24px, 6vw, 64px) clamp(16px, 4vw, 40px);
+            box-sizing: border-box;
+          "
+        >
+          <!-- hero -->
+          <section
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              align-items: center;
+              gap: 40px;
+              padding: 32px 0 64px 0;
+            "
+          >
+            <div style="flex: 1 1 420px; min-width: 280px">
+              <div
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 8px;
+                  padding: 6px 12px;
+                  border: 2px solid #fcee0a;
+                  background-color: rgba(252, 238, 10, 0.08);
+                  margin-bottom: 20px;
+                "
+              >
+                <span
+                  style="
+                    width: 9px;
+                    height: 9px;
+                    background-color: #8b5cf680;
+                    border-radius: 50%;
+                    display: inline-block;
+                  "
+                ></span>
+                <span
+                  style="
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 11px;
+                    letter-spacing: 0.15em;
+                    color: #fcee0a;
+                    text-transform: uppercase;
+                  "
+                  >Sistema v2.0.4 online</span
+                >
+              </div>
+              <h1
+                style="
+                  font-family: &quot;Anton&quot;, sans-serif;
+                  font-size: clamp(34px, 6vw, 64px);
+                  line-height: 1.05;
+                  color: #ffffff;
+                  text-transform: uppercase;
+                  margin: 0 0 20px 0;
+                "
+              >
+                Leve seu hardware<br />
+                <span style="color: #fcee0a">ao limite</span>
+              </h1>
+              <p
+                style="
+                  font-size: 16px;
+                  line-height: 1.6;
+                  color: #e5e2e1;
+                  background-color: rgba(18, 18, 18, 0.7);
+                  border-left: 4px solid #fcee0a;
+                  padding: 14px 18px;
+                  margin: 0 0 28px 0;
+                  max-width: 520px;
+                "
+              >
+                Benchmarking de precisão para a próxima geração de entusiastas
+                de PC. Execute diagnósticos completos, compare com métricas
+                globais e descubra o verdadeiro potencial da sua máquina.
+              </p>
+              <div style="display: flex; gap: 16px">
+                <a
+                  href="dashboard.html"
+                  style="
+                    display: flex;
+                    text-align: justify;
+                    background-color: #fcee0a;
+                    color: #100e0b;
+                    text-decoration: none;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 13px;
+                    letter-spacing: 0.12em;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    padding: 14px 28px;
+                    border: 2px solid #fcee0a;
+                  "
+                  >Iniciar Teste</a
+                >
+                <a
+                  href="catalogo.html"
+                  style="
+                    display: inline-block;
+                    background-color: transparent;
+                    color: #e5e2e1;
+                    text-decoration: none;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 13px;
+                    letter-spacing: 0.12em;
+                    text-transform: uppercase;
+                    padding: 14px 28px;
+                    border: 2px solid #4a4732;
+                  "
+                  >Ver Catálogo</a
+                >
+              </div>
+            </div>
+            <div style="flex: 1 1 320px; min-width: 800px; text-align: center">
+              <img
+                alt="Banner do BenchMetrics"
+                src="assets/banner.png"
+                style="
+                  width: 100%;
+                  max-width: 100000px;
+                  height: auto;
+                  border: 4px solid #2a2a2a;
+                  display: inline-block;
+                "
+              />
+            </div>
+          </section>
+          <!-- 3 cards de recursos -->
+          <section style="padding: 24px 0">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                margin-bottom: 32px;
+              "
+            >
+              <span
+                style="flex-grow: 1; height: 2px; background-color: #fcee0a"
+              ></span>
+              <h2
+                style="
+                  font-family: &quot;Anton&quot;, sans-serif;
+                  font-size: clamp(22px, 3vw, 32px);
+                  color: #ffffff;
+                  text-transform: uppercase;
+                  margin: 0;
+                  padding: 6px 16px;
+                  border: 2px solid #fcee0a;
+                  background-color: #121212;
+                  text-align: center;
+                "
+              >
+                Recursos Principais
+              </h2>
+              <span
+                style="flex-grow: 1; height: 2px; background-color: #fcee0a"
+              ></span>
+            </div>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                gap: 24px;
+              "
+            >
+              <article
+                style="
+                  background-color: rgba(18, 18, 18, 0.85);
+                  border: 1px solid #353534;
+                  padding: 28px;
+                  box-sizing: border-box;
+                "
+              >
+                <div
+                  style="
+                    width: 44px;
+                    height: 44px;
+                    border: 2px solid #00f0ff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 20px;
+                  "
+                >
+                  <span
+                    style="
+                      color: #00f0ff;
+                      font-family: &quot;Space Mono&quot;, monospace;
+                      font-weight: 700;
+                    "
+                    >M</span
+                  >
+                </div>
+                <h3
+                  style="
+                    font-family: &quot;Anton&quot;, sans-serif;
+                    font-size: 20px;
+                    color: #ffffff;
+                    text-transform: uppercase;
+                    margin: 0 0 10px 0;
+                  "
+                >
+                  Teste o desempenho de jogos em seu computador
+                </h3>
+                <p
+                  style="
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 13px;
+                    line-height: 1.7;
+                    color: #ccc7ab;
+                    margin: 0;
+                  "
+                >
+                  Coloque suas informações, selecione o jogo e descubra o poder
+                  do fps.
+                </p>
+              </article>
+              <article
+                style="
+                  background-color: rgba(18, 18, 18, 0.85);
+                  border: 1px solid #353534;
+                  padding: 28px;
+                  box-sizing: border-box;
+                "
+              >
+                <div
+                  style="
+                    width: 44px;
+                    height: 44px;
+                    border: 2px solid #ff003c;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 20px;
+                  "
+                >
+                  <span
+                    style="
+                      color: #ff003c;
+                      font-family: &quot;Space Mono&quot;, monospace;
+                      font-weight: 700;
+                    "
+                    >G</span
+                  >
+                </div>
+                <h3
+                  style="
+                    font-family: &quot;Anton&quot;, sans-serif;
+                    font-size: 20px;
+                    color: #ffffff;
+                    text-transform: uppercase;
+                    margin: 0 0 10px 0;
+                  "
+                >
+                  Comparações globais
+                </h3>
+                <p
+                  style="
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 13px;
+                    line-height: 1.7;
+                    color: #ccc7ab;
+                    margin: 0;
+                  "
+                >
+                  Compare sua máquina com milhões de resultados de testes
+                  sintéticos ao redor do mundo.
+                </p>
+              </article>
+              <article
+                style="
+                  background-color: rgba(18, 18, 18, 0.85);
+                  border: 1px solid #353534;
+                  padding: 28px;
+                  box-sizing: border-box;
+                "
+              >
+                <div
+                  style="
+                    width: 44px;
+                    height: 44px;
+                    border: 2px solid #fcee0a;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 20px;
+                  "
+                >
+                  <span
+                    style="
+                      color: #fcee0a;
+                      font-family: &quot;Space Mono&quot;, monospace;
+                      font-weight: 700;
+                    "
+                    >A</span
+                  >
+                </div>
+                <h3
+                  style="
+                    font-family: &quot;Anton&quot;, sans-serif;
+                    font-size: 20px;
+                    color: #ffffff;
+                    text-transform: uppercase;
+                    margin: 0 0 10px 0;
+                  "
+                >
+                  Análise profunda
+                </h3>
+                <p
+                  style="
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 13px;
+                    line-height: 1.7;
+                    color: #ccc7ab;
+                    margin: 0;
+                  "
+                >
+                  Descubra de uma vez por todas se seu computador é capaz de
+                  rodar algo, antes mesmo de comprar
+                </p>
+              </article>
+            </div>
+          </section>
+          <!-- tabela com os testes disponíveis -->
+          <section style="padding: 48px 0 24px 0">
+            <h2
+              style="
+                font-family: &quot;Anton&quot;, sans-serif;
+                font-size: clamp(20px, 3vw, 28px);
+                color: #ffffff;
+                text-transform: uppercase;
+                margin: 0 0 20px 0;
+              "
+            >
+              Testes Suportados
+            </h2>
+            <div style="overflow-x: auto">
+              <table
+                style="
+                  width: 100%;
+                  border-collapse: collapse;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 13px;
+                  min-width: 520px;
+                "
+              >
+                <thead>
+                  <tr>
+                    <th
+                      style="
+                        text-align: left;
+                        padding: 12px;
+                        background-color: #121212;
+                        color: #fcee0a;
+                        border: 1px solid #353534;
+                        text-transform: uppercase;
+                        letter-spacing: 0.08em;
+                      "
+                    >
+                      Módulo
+                    </th>
+                    <th
+                      style="
+                        text-align: left;
+                        padding: 12px;
+                        background-color: #121212;
+                        color: #fcee0a;
+                        border: 1px solid #353534;
+                        text-transform: uppercase;
+                        letter-spacing: 0.08em;
+                      "
+                    >
+                      Componente
+                    </th>
+                    <th
+                      style="
+                        text-align: left;
+                        padding: 12px;
+                        background-color: #121212;
+                        color: #fcee0a;
+                        border: 1px solid #353534;
+                        text-transform: uppercase;
+                        letter-spacing: 0.08em;
+                      "
+                    >
+                      Duração média
+                    </th>
+                    <th
+                      style="
+                        text-align: left;
+                        padding: 12px;
+                        background-color: #121212;
+                        color: #fcee0a;
+                        border: 1px solid #353534;
+                        text-transform: uppercase;
+                        letter-spacing: 0.08em;
+                      "
+                    >
+                      Status
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        color: #e5e2e1;
+                      "
+                    >
+                      Stress Sintético
+                    </td>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        color: #e5e2e1;
+                      "
+                    >
+                      CPU
+                    </td>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        color: #e5e2e1;
+                      "
+                    >
+                      08 min
+                    </td>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        color: #00f0ff;
+                      "
+                    >
+                      Ativo
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        color: #e5e2e1;
+                        background-color: rgba(255, 255, 255, 0.02);
+                      "
+                    >
+                      Renderização 3D
+                    </td>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        color: #e5e2e1;
+                        background-color: rgba(255, 255, 255, 0.02);
+                      "
+                    >
+                      GPU
+                    </td>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        color: #e5e2e1;
+                        background-color: rgba(255, 255, 255, 0.02);
+                      "
+                    >
+                      12 min
+                    </td>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        color: #00f0ff;
+                        background-color: rgba(255, 255, 255, 0.02);
+                      "
+                    >
+                      Ativo
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        color: #e5e2e1;
+                      "
+                    >
+                      Leitura/Escrita
+                    </td>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        color: #e5e2e1;
+                      "
+                    >
+                      Armazenamento
+                    </td>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        color: #e5e2e1;
+                      "
+                    >
+                      05 min
+                    </td>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        color: #fcee0a;
+                      "
+                    >
+                      Beta
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+        <!-- footer -->
+        <section
+          style="
+            max-width: 1200px;
+            margin: 70px auto;
+            padding: 32px 20px;
+            border-top: 10px solid #fcee0a;
+          "
+        >
+          <div style="text-align: center; margin-bottom: 30px">
+            <p
+              style="
+                font-family: &quot;Space Mono&quot;, monospace;
+                letter-spacing: 0.12em;
+                font-size: 12px;
+                color: #bdb8aa;
+              "
+            >
+              EQUIPE RESPONSÁVEL
+            </p>
+            <h2
+              style="
+                font-family: &quot;Anton&quot;, sans-serif;
+                font-size: clamp(28px, 5vw, 48px);
+                text-transform: uppercase;
+                color: #fff;
+              "
+            >
+              Quem fez o <span style="color: #fcee0a">BenchMetrics</span>
+            </h2>
+          </div>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+              gap: 20px;
+            "
+          >
+            <figure
+              style="
+                margin: 0;
+                background: #121212;
+                border: 1px solid #4a4732;
+                overflow: hidden;
+              "
+            >
+              <img
+                alt="Foto do integrante 1"
+                src="assets/davi.jpeg"
+                style="
+                  display: block;
+                  width: 100%;
+                  aspect-ratio: 1;
+                  object-fit: cover;
+                  background: #24221b;
+                "
+              />
+              <figcaption
+                style="
+                  padding: 50px;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 12px;
+                  text-align: center;
+                  color: #fcee0a;
+                  text-transform: uppercase;
+                "
+              >
+                Davi Lopes
+              </figcaption>
+            </figure>
+            <figure
+              style="
+                margin: 0;
+                background: #121212;
+                border: 1px solid #4a4732;
+                overflow: hidden;
+              "
+            >
+              <img
+                alt="Foto do integrante 2"
+                src="assets/edgard.jpeg"
+                style="
+                  display: block;
+                  width: 100%;
+                  aspect-ratio: 1;
+                  object-fit: cover;
+                  background: #24221b;
+                "
+              />
+              <figcaption
+                style="
+                  padding: 50px;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 12px;
+                  text-align: center;
+                  color: #fcee0a;
+                  text-transform: uppercase;
+                "
+              >
+                Edgard Costa
+              </figcaption>
+            </figure>
+            <figure
+              style="
+                margin: 0;
+                background: #121212;
+                border: 1px solid #4a4732;
+                overflow: hidden;
+              "
+            >
+              <img
+                align="center"
+                alt="Foto do integrante 3"
+                src="assets/jvnutelinha.jpeg"
+                style="
+                  display: block;
+                  width: 100%;
+                  aspect-ratio: 1;
+                  object-fit: cover;
+                  background: #24221b;
+                "
+              />
+              <figcaption
+                style="
+                  padding: 50px;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 12px;
+                  text-align: center;
+                  color: #fcee0a;
+                  text-transform: uppercase;
+                "
+              >
+                João Victor
+              </figcaption>
+            </figure>
+            <figure
+              style="
+                margin: 0;
+                background: #121212;
+                border: 1px solid #4a4732;
+                overflow: hidden;
+              "
+            >
+              <img
+                alt="Foto do integrante 4"
+                src="assets/luis.jpeg"
+                style="
+                  display: block;
+                  width: 100%;
+                  aspect-ratio: 1;
+                  object-fit: cover;
+                  background: #24221b;
+                "
+              />
+              <figcaption
+                style="
+                  padding: 50px;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 12px;
+                  text-align: center;
+                  color: #fcee0a;
+                  text-transform: uppercase;
+                "
+              >
+                Luiz Felipe
+              </figcaption>
+            </figure>
+            <figure
+              style="
+                margin: 0;
+                background: #121212;
+                border: 1px solid #4a4732;
+                overflow: hidden;
+              "
+            >
+              <img
+                alt="Foto do integrante 5"
+                src="assets/rafael.jpeg"
+                style="
+                  display: block;
+                  width: 100%;
+                  aspect-ratio: 1;
+                  object-fit: cover;
+                  background: #24221b;
+                "
+              />
+              <figcaption
+                style="
+                  padding: 50px;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 12px;
+                  text-align: center;
+                  color: #fcee0a;
+                  text-transform: uppercase;
+                "
+              >
+                Rafael Arão
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+        <footer
+          style="
+            background-color: #121212;
+            border-top: 4px solid #fcee0a;
+            margin-top: auto;
+          "
+        >
+          <div
+            style="
+              max-width: 1280px;
+              margin: 0 auto;
+              padding: 40px clamp(16px, 4vw, 40px);
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+              gap: 24px;
+              box-sizing: border-box;
+            "
+          >
+            <div>
+              <div
+                style="
+                  font-family: &quot;Anton&quot;, sans-serif;
+                  font-size: 20px;
+                  color: #fcee0a;
+                  text-transform: uppercase;
+                  margin-bottom: 10px;
+                "
+              >
+                BenchMetrics
+              </div>
+            </div>
+            <div
+              style="
+                font-family: &quot;Space Mono&quot;, monospace;
+                font-size: 11px;
+                color: #fcee0a;
+                text-transform: uppercase;
+                text-align: left;
+              "
+            >
+              © 2026 BenchMetrics corp
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
 </html>
