@@ -222,7 +222,7 @@
                     margin: 0 0 14px 0;
                   "
                 >
-                  CPU_Diagnostics
+                  Diagnóstico CPU
                 </h2>
                 <table
                   style="
@@ -352,7 +352,7 @@
                     margin: 0 0 14px 0;
                   "
                 >
-                  GPU_Diagnostics
+                  Diagnóstico da GPU
                 </h2>
                 <table
                   style="
@@ -484,7 +484,7 @@
                     text-transform: uppercase;
                     margin-bottom: 8px;
                   "
-                  >Output_Val</span
+                  >Benchmark Score:</span
                 >
                 <span
                   style="
@@ -506,7 +506,7 @@
                     font-weight: 700;
                     text-transform: uppercase;
                   "
-                  >Rank 01</span
+                  ></span
                 >
               </div>
             </div>
@@ -562,25 +562,28 @@
                     color: #e5e2e1;
                     margin-bottom: 6px;
                   "
-                  >Nome do sistema</label
+                  >Jogo selecionado</label
                 >
-                <input
-                  id="nome-sistema"
-                  name="nome_sistema"
-                  placeholder="Ex.: Estação de Trabalho 01"
-                  required=""
-                  style="
-                    width: 100%;
-                    box-sizing: border-box;
-                    background-color: #0b0a08;
-                    border: 1px solid #4a4732;
-                    color: #e5e2e1;
-                    font-family: &quot;Archivo Narrow&quot;, sans-serif;
-                    font-size: 14px;
-                    padding: 10px 12px;
-                  "
-                  type="text"
-                />
+               <select
+                    id="cpu"
+                    name="cpu"
+                    style="
+                      width: 100%;
+                      box-sizing: border-box;
+                      background-color: #0b0a08;
+                      border: 1px solid #4a4732;
+                      color: #e5e2e1;
+                      font-family: &quot;Archivo Narrow&quot;, sans-serif;
+                      font-size: 14px;
+                      padding: 10px 12px;
+                    "
+                  >
+                    <option value="cyberpunk">Cyberpunk 2077</option>
+                    <option value="eldenRing">Elden Ring</option>
+                    <option value="miranha">Marvel's Spider-Man</option>
+                    <option value="fh6">Forza Horizon 6</option>
+                    <option value="gtaV">Grand Theft Auto V</option>
+                  </select>
               </div>
               <div
                 style="
@@ -620,6 +623,7 @@
                     <option value="i9-13900k">Intel Core i9-13900K</option>
                     <option value="ryzen-9-7950x">AMD Ryzen 9 7950X</option>
                     <option value="i7-14700k">Intel Core i7-14700K</option>
+                    <option value="i5-3340">Intel Core i5-3340</option>
                   </select>
                 </div>
                 <div>
@@ -652,7 +656,9 @@
                   >
                     <option value="rtx-4090">NVIDIA RTX 4090</option>
                     <option value="rtx-4080">NVIDIA RTX 4080</option>
-                    <option value="rx-7900xtx">AMD RX 7900 XTX</option>
+                    <option value="rx-9070xt">AMD RX 9070 XT</option>
+                    <option value="intelHD">INTEL HD GRAPHICS 4000</option>
+                    <option value="intelUHD">INTEL UHD GRAPHICS</option>
                   </select>
                 </div>
               </div>
@@ -721,15 +727,15 @@
                       type="radio"
                       value="stress"
                     />
-                    Stress Sintético</label
+                    Preset</label
                   >
                   <label style="display: flex; align-items: center; gap: 8px"
                     ><input name="tipo_teste" type="radio" value="render" />
-                    Renderização 3D</label
+                    Bottleneck</label
                   >
                   <label style="display: flex; align-items: center; gap: 8px"
                     ><input name="tipo_teste" type="radio" value="io" />
-                    Leitura/Escrita</label
+                    Playability</label
                   >
                 </div>
               </fieldset>
@@ -893,6 +899,16 @@
               "
             >
               ©2026 BenchMertics corp.
+            </div>
+            <div
+              style="
+                font-family: &quot;Space Mono&quot;, monospace;
+                font-size: 11px;
+                color: #ccc7ab;
+                text-transform: uppercase;
+              "
+            >
+              OBS: Dados fictícios.
             </div>
           </div>
         </footer>

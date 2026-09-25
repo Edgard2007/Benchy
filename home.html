@@ -193,31 +193,12 @@
                   display: inline-flex;
                   align-items: center;
                   gap: 8px;
-                  padding: 6px 12px;
-                  border: 2px solid #fcee0a;
                   background-color: rgba(252, 238, 10, 0.08);
                   margin-bottom: 20px;
                 "
               >
-                <span
-                  style="
-                    width: 9px;
-                    height: 9px;
-                    background-color: #8b5cf680;
-                    border-radius: 50%;
-                    display: inline-block;
-                  "
-                ></span>
-                <span
-                  style="
-                    font-family: &quot;Space Mono&quot;, monospace;
-                    font-size: 11px;
-                    letter-spacing: 0.15em;
-                    color: #fcee0a;
-                    text-transform: uppercase;
-                  "
-                  >Sistema v2.0.4 online</span
-                >
+              
+                
               </div>
               <h1
                 style="
@@ -363,7 +344,7 @@
                       font-family: &quot;Space Mono&quot;, monospace;
                       font-weight: 700;
                     "
-                    >M</span
+                    >T</span
                   >
                 </div>
                 <h3
@@ -415,7 +396,7 @@
                       font-family: &quot;Space Mono&quot;, monospace;
                       font-weight: 700;
                     "
-                    >G</span
+                    >C</span
                   >
                 </div>
                 <h3
@@ -558,7 +539,7 @@
                         letter-spacing: 0.08em;
                       "
                     >
-                      Duração média
+                      Resultado
                     </th>
                     <th
                       style="
@@ -584,7 +565,7 @@
                         color: #e5e2e1;
                       "
                     >
-                      Stress Sintético
+                      Teste de preset
                     </td>
                     <td
                       style="
@@ -593,7 +574,7 @@
                         color: #e5e2e1;
                       "
                     >
-                      CPU
+                      -
                     </td>
                     <td
                       style="
@@ -602,16 +583,16 @@
                         color: #e5e2e1;
                       "
                     >
-                      08 min
+                      Preset padrão do jogo
                     </td>
                     <td
                       style="
                         padding: 12px;
                         border: 1px solid #353534;
-                        color: #00f0ff;
+                        color: #fcee0a;
                       "
                     >
-                      Ativo
+                      Beta
                     </td>
                   </tr>
                   <tr>
@@ -623,7 +604,7 @@
                         background-color: rgba(255, 255, 255, 0.02);
                       "
                     >
-                      Renderização 3D
+                      Bottleneck
                     </td>
                     <td
                       style="
@@ -631,6 +612,45 @@
                         border: 1px solid #353534;
                         color: #e5e2e1;
                         background-color: rgba(255, 255, 255, 0.02);
+                      "
+                    >
+                      CPU/GPU
+                    </td>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        color: #e5e2e1;
+                        background-color: rgba(255, 255, 255, 0.02);
+                      "
+                    >
+                      Medido em porcentagem
+                    </td>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        color: #fcee0a;
+                      "
+                    >
+                      Beta
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        color: #e5e2e1;
+                      "
+                    >
+                      Playability
+                    </td>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        color: #e5e2e1;
                       "
                     >
                       GPU
@@ -640,49 +660,9 @@
                         padding: 12px;
                         border: 1px solid #353534;
                         color: #e5e2e1;
-                        background-color: rgba(255, 255, 255, 0.02);
                       "
                     >
-                      12 min
-                    </td>
-                    <td
-                      style="
-                        padding: 12px;
-                        border: 1px solid #353534;
-                        color: #00f0ff;
-                        background-color: rgba(255, 255, 255, 0.02);
-                      "
-                    >
-                      Ativo
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      style="
-                        padding: 12px;
-                        border: 1px solid #353534;
-                        color: #e5e2e1;
-                      "
-                    >
-                      Leitura/Escrita
-                    </td>
-                    <td
-                      style="
-                        padding: 12px;
-                        border: 1px solid #353534;
-                        color: #e5e2e1;
-                      "
-                    >
-                      Armazenamento
-                    </td>
-                    <td
-                      style="
-                        padding: 12px;
-                        border: 1px solid #353534;
-                        color: #e5e2e1;
-                      "
-                    >
-                      05 min
+                      FPS bruto e 1% low
                     </td>
                     <td
                       style="
@@ -900,6 +880,7 @@
             </figure>
           </div>
         </section>
+          <!-- footer -->
         <footer
           style="
             background-color: #121212;
@@ -911,36 +892,44 @@
             style="
               max-width: 1280px;
               margin: 0 auto;
-              padding: 40px clamp(16px, 4vw, 40px);
-              display: grid;
-              grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-              gap: 24px;
+              padding: 32px clamp(16px, 4vw, 40px);
+              display: flex;
+              flex-wrap: wrap;
+              align-items: center;
+              justify-content: space-between;
+              gap: 16px;
               box-sizing: border-box;
             "
           >
-            <div>
-              <div
-                style="
-                  font-family: &quot;Anton&quot;, sans-serif;
-                  font-size: 20px;
-                  color: #fcee0a;
-                  text-transform: uppercase;
-                  margin-bottom: 10px;
-                "
-              >
-                BenchMetrics
-              </div>
+            <div
+              style="
+                font-family: &quot;Anton&quot;, sans-serif;
+                font-size: 18px;
+                color: #fcee0a;
+                text-transform: uppercase;
+              "
+            >
+              BenchMetrics
             </div>
             <div
               style="
                 font-family: &quot;Space Mono&quot;, monospace;
                 font-size: 11px;
-                color: #fcee0a;
+                color: #ccc7ab;
                 text-transform: uppercase;
-                text-align: left;
               "
             >
-              © 2026 BenchMetrics corp
+              ©2026 BenchMertics corp.
+            </div>
+            <div
+              style="
+                font-family: &quot;Space Mono&quot;, monospace;
+                font-size: 11px;
+                color: #ccc7ab;
+                text-transform: uppercase;
+              "
+            >
+              OBS: Dados fictícios.
             </div>
           </div>
         </footer>
