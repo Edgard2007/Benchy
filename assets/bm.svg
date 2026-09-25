@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Fundo escuro padrão do tema -->
+  <rect width="512" height="512" fill="#050505" />
+  
+  <!-- Letra B geométrica estilizada baseada no logo -->
+  <path d="M140 90 H320 C390 90, 410 160, 360 210 C420 260, 410 340, 340 422 H140 Z" fill="none" stroke="#FCEE0A" stroke-width="45" stroke-linejoin="round" />
+  <path d="M140 256 H300" fill="none" stroke="#FCEE0A" stroke-width="40" />
+</svg>

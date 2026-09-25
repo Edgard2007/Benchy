@@ -17,8 +17,10 @@ Tailwind. Toda a formatação visual é feita com o atributo `style=""` diretame
 ```
 
 Não há mais pasta `css/` nem arquivos `.css`: cada elemento carrega seu próprio `style=""`.
-O único uso de JavaScript é em `catalogo.html`, para atualizar o painel de detalhes quando uma
-imagem da galeria é clicada (troca de texto via `textContent`, sem dependências externas).
+O projeto não usa JavaScript: a seleção de cenários em `catalogo.html` usa o elemento
+nativo `<details>`/`<summary>`: cada capa é um botão que abre os detalhes do jogo, e o atributo
+`name="cenario"` garante que só um fique aberto por vez. Para incluir um jogo, copie um bloco
+`<details>` dentro da `<div>` em grade e troque imagem, título e dados.
 
 ## Onde alterar cada coisa
 
@@ -56,4 +58,4 @@ formulário não envia dados a nenhum servidor, não há coleta real de dados pe
 documentos deixam isso explícito e descrevem os princípios que deveriam ser seguidos (LGPD,
 Privacy by Design) caso o formulário seja conectado a um backend no futuro.
 
-CSS separado por página; home com 5 fotos; catálogo com carrossel. Fotos em assets/.
+Home com 5 fotos da equipe; catálogo com grade de cenários selecionáveis. Fotos em assets/.

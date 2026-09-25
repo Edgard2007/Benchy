@@ -1,208 +1,190 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Catálogo de Cenários — BenchMetrics</title>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/catalogo.css" />
+<link href="assets/bm.svg" rel="icon"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+
 </head>
-<body class="inline-style-1">
-
+<body style="margin: 0; padding: 0; background-color: #100e0b; color: #e5e2e1; font-family: 'Archivo Narrow', sans-serif">
 <!-- Camada de fundo Aura (grade neon) - envolve toda a página -->
-<div class="inline-style-2">
-
-  <div class="inline-style-3"></div>
-  <div class="inline-style-4"></div>
-  <div class="inline-style-5"></div>
-
-  <div class="inline-style-6">
-
-    <!-- Cabeçalho / navegação -->
-    <header class="inline-style-7">
-      <div class="inline-style-8">
-        <a href="home.html" class="inline-style-9">BenchMetrics</a>
-        <nav class="inline-style-10">
-          <a href="home.html" class="inline-style-11">Home</a>
-          <a href="catalogo.html" class="inline-style-12">Catálogo</a>
-          <a href="dashboard.html" class="inline-style-13">Testes</a>
-        </nav>
-        <!-- Busca rápida de cenários -->
-        <form action="catalogo.html" method="get" class="inline-style-14">
-          <label for="busca-cenario" class="inline-style-15">Buscar cenário</label>
-          <input id="busca-cenario" name="q" type="text" placeholder="Buscar cenário..." class="inline-style-16" />
-          <button type="submit" class="inline-style-17">Ir</button>
-        </form>
-      </div>
-    </header>
-
-    <main class="inline-style-18">
-
-      <div class="inline-style-19">
-        <h1 class="inline-style-20">
-          Selecione o <span class="inline-style-21">Cenário</span>
-        </h1>
-        <p class="inline-style-22">
-          Ambiente de renderização para testes de estresse
-        </p>
-      </div>
-
-      <!-- Galeria de imagens dos cenários -->
-      <div class="cover-flow-container" id="galeria-container">
-        <button class="carousel-btn carousel-btn-left" type="button" data-dir="-1" aria-label="Anterior">‹</button>
-
-        <div id="galeria" class="cover-flow">
-          <figure data-index="0" data-titulo="Neo Tokyo 2077" data-engine="RedEngine 4" data-otimizacao="40%" data-status="Moderado" class="cover-item" onclick="selecionarCenario(this)">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDulJoJiOHwpf7BjwGTtlJ-zKt_8rX4Lbhgo3V4KVMhm_UMIxlGR06vx5ZyifE5ylTtFg2rrcjA8m9l4mKYeT9397XDq7qVcrbwTdDggRN9ukmX3P0RiWBzJRRsq_fgTnNal0S70DvPeCNOTNA0oxBKTdgt6eeden7_nM6VfQTWJcs7VOpAbCP2uV52Y2_tJUdho1d0CWlYD9wqMyFNjTYlRAKAo80QJzAvdi86LIpdIJjBpr5MYw" alt="Cartaz de cidade futurista noturna sob luzes neon" />
-            <figcaption>Neo Tokyo 2077</figcaption>
-          </figure>
-
-          <figure data-index="1" data-titulo="Eldritch Ring" data-engine="Soul Engine" data-otimizacao="60%" data-status="Bom" class="cover-item" onclick="selecionarCenario(this)">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW0zZjzm8VCJ_c5Qi_Hyq15MZhEB71CYAUGjUEAlW3PSJfva3riBHj_ipXqcw_84QpJfFUMNGdY2Hsub_BnArMEbhqbw9iSkupdTT5bz0AvqCDCyAlp8jrWA3hhyJMXtodlkBK1hVjf9C6tHhcYs4qg4JRI2ajAMOuz-g1KXnIGnHzxhb-zSfEXqZAX-E8K5AK5_hbMxQE8aOpUxOY362JXTxl97mEk36RtV7UoblwbogVO49f8pM" alt="Cartaz de fantasia sombria com árvore dourada e cavaleiro" />
-            <figcaption>Eldritch Ring</figcaption>
-          </figure>
-
-          <figure data-index="2" data-titulo="Stellar Field" data-engine="Creation Engine 2.0" data-otimizacao="75%" data-status="Alto" class="cover-item active" onclick="selecionarCenario(this)">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMsGdmHr3rZUPuuVh0P3tkkYeAz7LrlYaMPHilfCM5KRY1ItFViNFrcGrhZ0WiBTgtcd-uPAOk98piqDNnSLgiKWKwtmWigkIoEJR9TXsK2eVSCKTJZGEj6i6PTh4nNb9-_e-tn1l4zM2eXmxb6gBQba9GpUcQGulGx-VqnDJuI3yMKsAA8CQuVEOx9u5SPPt-Y989697XYgquLQTkqqDeCh8-EnVFCP2kzX8B32W0AUO9C64kafU" alt="Cartaz de exploração espacial com planeta anelado" />
-            <figcaption>Stellar Field</figcaption>
-          </figure>
-
-          <figure data-index="3" data-titulo="Crimson Dawn" data-engine="Rage" data-otimizacao="90%" data-status="Excelente" class="cover-item" onclick="selecionarCenario(this)">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWYowU1M1NZ7t-bCsG0WCoAJd69ncQWpS3MI18lKSeqWQgOSVLZI75EZqzpTCAd0d-f44n2OSme-lMOrY1D1HdVFUe13ZLN8mgMLwKqHmL4LSWmhRClLe1NCmQKGyMu6hZPi5zuOI2bVXp-3ELU-zsaNcvio8xq8K9o7ev1M0B1snfyMflnbNgF8CcYsLym1EETGWa6b4ApyAxUT_w4WX_rZlA3xJ5KJ27EZiYnqRnSUHufLkoacM" alt="Cartaz de faroeste nevado com cavaleiro ao entardecer" />
-            <figcaption>Crimson Dawn</figcaption>
-          </figure>
-
-          <figure data-index="4" data-titulo="Velocity Apex" data-engine="Frostbite" data-otimizacao="85%" data-status="Muito Alto" class="cover-item" onclick="selecionarCenario(this)">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrYkrGaYTYiMv4dPA9iEHeBx8oQuCv67_sMCBH1klcElt2SUG0LHDl57j8n4xbPTI_TUt1A0-WZ0Btnig98lQ6kzA_WW09S4GeMwbQkHwQgkjh_fq9WgqGiBTqV-lvtJAJgtiw4Lem0_FIRPBr5eJHmQiow6L96FnEO0WRKjPHrAJZBzxCjVkxmqByEBZekRqaVkCSQo0WMnW3MD_bgWZPEFNwTtNifCl74iSwvx9OWDitWwOnemE" alt="Cartaz de corrida noturna com carro neon sob chuva" />
-            <figcaption>Velocity Apex</figcaption>
-          </figure>
-        </div>
-
-        <button class="carousel-btn carousel-btn-right" type="button" data-dir="1" aria-label="Próximo">›</button>
-      </div>
-
-      <!-- Painel de detalhes do cenário selecionado -->
-      <section class="inline-style-39">
-        <h2 id="detalhe-titulo" class="inline-style-40">Stellar Field</h2>
-        <p class="inline-style-41">
-          <span class="inline-style-42">DirectX 12</span>
-          <span class="inline-style-43">Ray Tracing</span>
-        </p>
-        <table class="inline-style-44">
-          <tbody>
-            <tr>
-              <th class="inline-style-45">Engine</th>
-              <td id="detalhe-engine" class="inline-style-46">Creation Engine 2.0</td>
-            </tr>
-            <tr>
-              <th class="inline-style-47">Otimização</th>
-              <td id="detalhe-otimizacao" class="inline-style-48">75%</td>
-            </tr>
-            <tr>
-              <th class="inline-style-49">Status</th>
-              <td id="detalhe-status" class="inline-style-50">Alto</td>
-            </tr>
-          </tbody>
-        </table>
-        <a href="dashboard.html" class="inline-style-51">Iniciar Sequência →</a>
-      </section>
-
-      <!-- Tabela completa do catálogo -->
-      <section>
-        <h2 class="inline-style-52">Tabela de Cenários</h2>
-        <div class="inline-style-53">
-          <table class="inline-style-54">
-            <thead>
-              <tr>
-                <th class="inline-style-55">Cenário</th>
-                <th class="inline-style-56">Engine</th>
-                <th class="inline-style-57">Otimização</th>
-                <th class="inline-style-58">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td class="inline-style-59">Neo Tokyo 2077</td><td class="inline-style-60">RedEngine 4</td><td class="inline-style-61">40%</td><td class="inline-style-62">Moderado</td></tr>
-              <tr><td class="inline-style-63">Eldritch Ring</td><td class="inline-style-64">Soul Engine</td><td class="inline-style-65">60%</td><td class="inline-style-66">Bom</td></tr>
-              <tr><td class="inline-style-67">Stellar Field</td><td class="inline-style-68">Creation Engine 2.0</td><td class="inline-style-69">75%</td><td class="inline-style-70">Alto</td></tr>
-              <tr><td class="inline-style-71">Crimson Dawn</td><td class="inline-style-72">Rage</td><td class="inline-style-73">90%</td><td class="inline-style-74">Excelente</td></tr>
-              <tr><td class="inline-style-75">Velocity Apex</td><td class="inline-style-76">Frostbite</td><td class="inline-style-77">85%</td><td class="inline-style-78">Muito Alto</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-    </main>
-
-    <!-- Rodapé -->
-    <footer class="inline-style-79">
-      <div class="inline-style-80">
-        <div class="inline-style-81">Neural_Bench</div>
-        <div class="inline-style-82">Sys.Ver 2.0.4.C — © 2026 N-B Corp.</div>
-      </div>
-    </footer>
-
-  </div>
+<div style="position: relative; overflow: hidden; min-height: 100vh; background-color: #100e0b">
+<div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(139, 92, 246, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(139, 92, 246, 0.15) 1px, transparent 1px); background-size: 60px 60px; mix-blend-mode: normal; pointer-events: none"></div>
+<div style="position: absolute; inset: 0; background-image: radial-gradient( circle at 77% 46%, rgba(139, 92, 246, 0.5) 0%, transparent 50% ); mix-blend-mode: screen; filter: blur(220px); pointer-events: none"></div>
+<div style="position: absolute; inset: 0; background-image: radial-gradient( circle at 12% 67%, rgba(123, 130, 23, 0.3) 0%, transparent 40% ); mix-blend-mode: screen; filter: blur(180px); pointer-events: none"></div>
+<div style="position: relative; z-index: 1; display: flex; flex-direction: column; min-height: 100vh">
+<!-- Cabeçalho / navegação -->
+<header style="position: sticky; top: 0; z-index: 50; background-color: #121212; border-bottom: 3px solid #fcee0a">
+<div style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 14px clamp(16px, 4vw, 40px)">
+<a href="home.html" style="font-family: 'Anton', sans-serif; font-size: clamp(20px, 2.5vw, 26px); color: #fcee0a; text-decoration: none; letter-spacing: 0.03em; text-transform: uppercase">BenchMetrics</a>
+<nav style="display: flex; gap: clamp(14px, 3vw, 32px); flex-wrap: wrap; align-items: center">
+<a href="home.html" style="color: #e5e2e1; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding-bottom: 4px; border-bottom: 2px solid transparent">Home</a>
+<a href="catalogo.html" style="color: #fcee0a; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding-bottom: 4px; border-bottom: 2px solid #fcee0a">Catálogo</a>
+<a href="dashboard.html" style="color: #e5e2e1; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding-bottom: 4px; border-bottom: 2px solid transparent">Testes</a>
+</nav>
+<!-- Busca rápida de cenários -->
+<form action="catalogo.html" method="get" style="display: flex; gap: 0">
+<label for="busca-cenario" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Buscar cenário</label>
+<input id="busca-cenario" name="q" placeholder="Buscar cenário..." style="background-color: #0b0a08; border: 1px solid #4a4732; color: #e5e2e1; font-family: 'Space Mono', monospace; font-size: 12px; padding: 8px 10px; width: 150px; box-sizing: border-box" type="text"/>
+<button style="background-color: #fcee0a; border: 1px solid #fcee0a; color: #100e0b; font-family: 'Space Mono', monospace; font-size: 12px; padding: 8px 12px; cursor: pointer; text-transform: uppercase" type="submit">Ir</button>
+</form>
+</div>
+</header>
+<main style="flex: 1; width: 100%; max-width: 1280px; margin: 0 auto; padding: clamp(24px, 6vw, 56px) clamp(16px, 4vw, 40px); box-sizing: border-box">
+<div style="text-align: center; margin-bottom: 36px">
+<h1 style="font-family: 'Anton', sans-serif; font-size: clamp(28px, 5vw, 48px); color: #ffffff; text-transform: uppercase; letter-spacing: 0.02em; margin: 0 0 10px 0">Selecione o <span style="color: #fcee0a">Cenário</span></h1>
+<p style="display: inline-block; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #fcee0a; background-color: rgba(252, 238, 10, 0.08); border: 1px solid rgba(252, 238, 10, 0.3); padding: 8px 16px; margin: 0">Ambiente de renderização para testes de estresse</p>
+</div>
+<!-- Grade de cenários: clique na capa para abrir os detalhes (um por vez) -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 20px; align-items: start; margin: 32px 0 48px 0">
+<details name="cenario" style="background-color: #121212; border: 2px solid #353534">
+<summary style="display: block; list-style: none; position: relative; cursor: pointer">
+<img src="assets/cyber.jpg" alt="Cartaz de cidade futurista noturna sob luzes neon" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover" />
+<div style="position: absolute; inset: 0; pointer-events: none; opacity: 0.9; background: linear-gradient(to top, #050505 0%, rgba(5, 5, 5, 0.65) 30%, transparent 70%)"></div>
+<span style="position: absolute; left: 12px; right: 12px; bottom: 12px; font-family: 'Space Mono', monospace; font-size: 12px; line-height: 16px; letter-spacing: 0.08em; font-weight: 700; text-transform: uppercase; color: #e5e2e1">Cyberpunk 2077</span>
+</summary>
+<div style="padding: 14px; border-top: 2px solid #fcee0a">
+<table style="width: 100%; border-collapse: collapse; font-family: 'Space Mono', monospace; font-size: 12px">
+<tbody>
+<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Engine</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #00f0ff">RedEngine 4</td></tr>
+<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Otimização</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #fcee0a">40%</td></tr>
+<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Status</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #e5e2e1">Moderado</td></tr>
+</tbody>
+</table>
+<a href="dashboard.html" style="display: block; text-align: center; margin-top: 14px; background-color: #fcee0a; color: #100e0b; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; padding: 12px 8px; border: 2px solid #fcee0a">Iniciar Sequência →</a>
+</div>
+</details>
+<details name="cenario" style="background-color: #121212; border: 2px solid #353534">
+<summary style="display: block; list-style: none; position: relative; cursor: pointer">
+<img src="assets/elden.png" alt="Cartaz de fantasia sombria com árvore dourada e cavaleiro" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover" />
+<div style="position: absolute; inset: 0; pointer-events: none; opacity: 0.9; background: linear-gradient(to top, #050505 0%, rgba(5, 5, 5, 0.65) 30%, transparent 70%)"></div>
+<span style="position: absolute; left: 12px; right: 12px; bottom: 12px; font-family: 'Space Mono', monospace; font-size: 12px; line-height: 16px; letter-spacing: 0.08em; font-weight: 700; text-transform: uppercase; color: #e5e2e1">Elden Ring</span>
+</summary>
+<div style="padding: 14px; border-top: 2px solid #fcee0a">
+<table style="width: 100%; border-collapse: collapse; font-family: 'Space Mono', monospace; font-size: 12px">
+<tbody>
+<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Engine</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #00f0ff">Dantelion</td></tr>
+<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Otimização</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #fcee0a">60%</td></tr>
+<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Status</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #e5e2e1">Bom</td></tr>
+</tbody>
+</table>
+<a href="dashboard.html" style="display: block; text-align: center; margin-top: 14px; background-color: #fcee0a; color: #100e0b; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; padding: 12px 8px; border: 2px solid #fcee0a">Iniciar Sequência →</a>
+</div>
+</details>
+<details name="cenario" style="background-color: #121212; border: 2px solid #353534">
+<summary style="display: block; list-style: none; position: relative; cursor: pointer">
+<img src="assets/spidey.jpg" alt="Cartaz de exploração espacial com planeta anelado" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover" />
+<div style="position: absolute; inset: 0; pointer-events: none; opacity: 0.9; background: linear-gradient(to top, #050505 0%, rgba(5, 5, 5, 0.65) 30%, transparent 70%)"></div>
+<span style="position: absolute; left: 12px; right: 12px; bottom: 12px; font-family: 'Space Mono', monospace; font-size: 12px; line-height: 16px; letter-spacing: 0.08em; font-weight: 700; text-transform: uppercase; color: #e5e2e1">Marvel`s Spider Man</span>
+</summary>
+<div style="padding: 14px; border-top: 2px solid #fcee0a">
+<table style="width: 100%; border-collapse: collapse; font-family: 'Space Mono', monospace; font-size: 12px">
+<tbody>
+<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Engine</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #00f0ff">Insomniac Engine</td></tr>
+<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Otimização</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #fcee0a">75%</td></tr>
+<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Status</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #e5e2e1">Alto</td></tr>
+</tbody>
+</table>
+<a href="dashboard.html" style="display: block; text-align: center; margin-top: 14px; background-color: #fcee0a; color: #100e0b; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; padding: 12px 8px; border: 2px solid #fcee0a">Iniciar Sequência →</a>
+</div>
+</details>
+<details name="cenario" style="background-color: #121212; border: 2px solid #353534">
+<summary style="display: block; list-style: none; position: relative; cursor: pointer">
+<img src="assets/fozinha.jpg" alt="Cartaz de faroeste nevado com cavaleiro ao entardecer" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover" />
+<div style="position: absolute; inset: 0; pointer-events: none; opacity: 0.9; background: linear-gradient(to top, #050505 0%, rgba(5, 5, 5, 0.65) 30%, transparent 70%)"></div>
+<span style="position: absolute; left: 12px; right: 12px; bottom: 12px; font-family: 'Space Mono', monospace; font-size: 12px; line-height: 16px; letter-spacing: 0.08em; font-weight: 700; text-transform: uppercase; color: #e5e2e1">Forza Horizon 6</span>
+</summary>
+<div style="padding: 14px; border-top: 2px solid #fcee0a">
+<table style="width: 100%; border-collapse: collapse; font-family: 'Space Mono', monospace; font-size: 12px">
+<tbody>
+<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Engine</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #00f0ff">ForzaTech</td></tr>
+<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Otimização</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #fcee0a">90%</td></tr>
+<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Status</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #e5e2e1">Excelente</td></tr>
+</tbody>
+</table>
+<a href="dashboard.html" style="display: block; text-align: center; margin-top: 14px; background-color: #fcee0a; color: #100e0b; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; padding: 12px 8px; border: 2px solid #fcee0a">Iniciar Sequência →</a>
+</div>
+</details>
+<details name="cenario" style="background-color: #121212; border: 2px solid #353534">
+<summary style="display: block; list-style: none; position: relative; cursor: pointer">
+<img src="assets/Grand_Theft_Auto_V_capa.png" alt="Cartaz do GTA V" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover" />
+<div style="position: absolute; inset: 0; pointer-events: none; opacity: 0.9; background: linear-gradient(to top, #050505 0%, rgba(5, 5, 5, 0.65) 30%, transparent 70%)"></div>
+<span style="position: absolute; left: 12px; right: 12px; bottom: 12px; font-family: 'Space Mono', monospace; font-size: 12px; line-height: 16px; letter-spacing: 0.08em; font-weight: 700; text-transform: uppercase; color: #e5e2e1">Grand Theft Auto V</span>
+</summary>
+<div style="padding: 14px; border-top: 2px solid #fcee0a">
+<table style="width: 100%; border-collapse: collapse; font-family: 'Space Mono', monospace; font-size: 12px">
+<tbody>
+<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Engine</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #00f0ff">RAGE</td></tr>
+<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Otimização</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #fcee0a">85%</td></tr>
+<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Status</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #e5e2e1">Muito Alto</td></tr>
+</tbody>
+</table>
+<a href="dashboard.html" style="display: block; text-align: center; margin-top: 14px; background-color: #fcee0a; color: #100e0b; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; padding: 12px 8px; border: 2px solid #fcee0a">Iniciar Sequência →</a>
+</div>
+</details>
+</div>
+<!-- Tabela completa do catálogo -->
+<section>
+<h2 style="font-family: 'Anton', sans-serif; font-size: clamp(20px, 3vw, 28px); color: #ffffff; text-transform: uppercase; margin: 0 0 20px 0">Tabela de Cenários</h2>
+<div style="overflow-x: auto">
+<table style="width: 100%; border-collapse: collapse; font-family: 'Space Mono', monospace; font-size: 13px; min-width: 600px">
+<thead>
+<tr>
+<th style="text-align: left; padding: 12px; background-color: #121212; color: #fcee0a; border: 1px solid #353534; text-transform: uppercase">Cenário</th>
+<th style="text-align: left; padding: 12px; background-color: #121212; color: #fcee0a; border: 1px solid #353534; text-transform: uppercase">Engine</th>
+<th style="text-align: left; padding: 12px; background-color: #121212; color: #fcee0a; border: 1px solid #353534; text-transform: uppercase">Otimização</th>
+<th style="text-align: left; padding: 12px; background-color: #121212; color: #fcee0a; border: 1px solid #353534; text-transform: uppercase">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="padding: 12px; border: 1px solid #353534">Cyberpunk 2077</td>
+<td style="padding: 12px; border: 1px solid #353534">RedEngine 4</td>
+<td style="padding: 12px; border: 1px solid #353534">40%</td>
+<td style="padding: 12px; border: 1px solid #353534">Moderado</td>
+</tr>
+<tr>
+<td style="padding: 12px; border: 1px solid #353534; background-color: rgba(255, 255, 255, 0.02)">Elden Ring</td>
+<td style="padding: 12px; border: 1px solid #353534; background-color: rgba(255, 255, 255, 0.02)">Dantelion</td>
+<td style="padding: 12px; border: 1px solid #353534; background-color: rgba(255, 255, 255, 0.02)">60%</td>
+<td style="padding: 12px; border: 1px solid #353534; background-color: rgba(255, 255, 255, 0.02)">Bom</td>
+</tr>
+<tr>
+<td style="padding: 12px; border: 1px solid #353534; color: #fcee0a">Marvel`s Spider Man</td>
+<td style="padding: 12px; border: 1px solid #353534">Insomniac Engine</td>
+<td style="padding: 12px; border: 1px solid #353534">75%</td>
+<td style="padding: 12px; border: 1px solid #353534">Alto</td>
+</tr>
+<tr>
+<td style="padding: 12px; border: 1px solid #353534; background-color: rgba(255, 255, 255, 0.02)">Forza 6</td>
+<td style="padding: 12px; border: 1px solid #353534; background-color: rgba(255, 255, 255, 0.02)">ForzaTech</td>
+<td style="padding: 12px; border: 1px solid #353534; background-color: rgba(255, 255, 255, 0.02)">90%</td>
+<td style="padding: 12px; border: 1px solid #353534; background-color: rgba(255, 255, 255, 0.02)">Excelente</td>
+</tr>
+<tr>
+<td style="padding: 12px; border: 1px solid #353534">Grand Theft Auto V</td>
+<td style="padding: 12px; border: 1px solid #353534">RAGE</td>
+<td style="padding: 12px; border: 1px solid #353534">85%</td>
+<td style="padding: 12px; border: 1px solid #353534">Muito Alto</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+<!-- Rodapé -->
+<footer style="background-color: #121212; border-top: 4px solid #fcee0a; margin-top: auto">
+<div style="max-width: 1280px; margin: 0 auto; padding: 32px clamp(16px, 4vw, 40px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; box-sizing: border-box">
+<div style="font-family: 'Anton', sans-serif; font-size: 18px; color: #fcee0a; text-transform: uppercase">BenchMetrics</div>
+<div style="font-family: 'Space Mono', monospace; font-size: 11px; color: #ccc7ab; text-transform: uppercase">©2026 BenchMetrics Corp.</div>
+</div>
+</footer>
+</div>
 </div>
 
-<!-- Atualiza o painel de detalhes e controla a seleção da galeria -->
-<script>
-  const figuras = document.querySelectorAll("#galeria .cover-item");
-  let indiceSelecionado = 2;
 
-  function selecionarCenario(elemento) {
-    indiceSelecionado = Number(elemento.dataset.index);
-    atualizarGaleria();
-  }
-
-  function atualizarGaleria() {
-    figuras.forEach((figura, index) => {
-      figura.className = "cover-item";
-
-      const distancia = index - indiceSelecionado;
-
-      if (distancia === 0) {
-        figura.classList.add("active");
-      } else if (distancia === -1) {
-        figura.classList.add("prev");
-      } else if (distancia === 1) {
-        figura.classList.add("next");
-      } else if (distancia < -1) {
-        figura.classList.add("far-prev");
-      } else {
-        figura.classList.add("far-next");
-      }
-    });
-
-    const selecionado = figuras[indiceSelecionado];
-    if (!selecionado) return;
-
-    document.getElementById("detalhe-titulo").textContent = selecionado.dataset.titulo;
-    document.getElementById("detalhe-engine").textContent = selecionado.dataset.engine;
-    document.getElementById("detalhe-otimizacao").textContent = selecionado.dataset.otimizacao;
-    document.getElementById("detalhe-status").textContent = selecionado.dataset.status;
-  }
-
-  function moverCenario(direcao) {
-    indiceSelecionado += direcao;
-
-    if (indiceSelecionado < 0) {
-      indiceSelecionado = 0;
-    }
-
-    if (indiceSelecionado >= figuras.length) {
-      indiceSelecionado = figuras.length - 1;
-    }
-
-    atualizarGaleria();
-  }
-
-  document.querySelectorAll(".carousel-btn").forEach((botao) => {
-    botao.addEventListener("click", () => {
-      moverCenario(Number(botao.dataset.dir));
-    });
-  });
-
-  atualizarGaleria();
-</script>
 </body>
 </html>
