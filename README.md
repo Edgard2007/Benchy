@@ -24,6 +24,9 @@ nativo `<details>`/`<summary>`: cada capa é um botão que abre os detalhes do j
 
 ## Onde alterar cada coisa
 
+Os títulos usam `Archivo Narrow` com peso 600. A fonte mantém o visual técnico,
+mas evita o peso excessivo que havia nos títulos em `Anton`.
+
 - **Cores**: procure pelos códigos hexadecimais dentro dos atributos `style`. A paleta usada em
   todo o site é:
   - `#FCEE0A` — amarelo (cor primária / destaque)
