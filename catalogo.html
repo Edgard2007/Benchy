@@ -1,190 +1,1298 @@
-﻿<!DOCTYPE html>
+<!doctype html>
 
 <html lang="pt-BR">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Catálogo de Cenários — BenchMetrics</title>
-<link href="assets/bm.svg" rel="icon"/>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
-
-</head>
-<body style="margin: 0; padding: 0; background-color: #100e0b; color: #e5e2e1; font-family: 'Archivo Narrow', sans-serif">
-<!-- Camada de fundo Aura (grade neon) - envolve toda a página -->
-<div style="position: relative; overflow: hidden; min-height: 100vh; background-color: #100e0b">
-<div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(139, 92, 246, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(139, 92, 246, 0.15) 1px, transparent 1px); background-size: 60px 60px; mix-blend-mode: normal; pointer-events: none"></div>
-<div style="position: absolute; inset: 0; background-image: radial-gradient( circle at 77% 46%, rgba(139, 92, 246, 0.5) 0%, transparent 50% ); mix-blend-mode: screen; filter: blur(220px); pointer-events: none"></div>
-<div style="position: absolute; inset: 0; background-image: radial-gradient( circle at 12% 67%, rgba(123, 130, 23, 0.3) 0%, transparent 40% ); mix-blend-mode: screen; filter: blur(180px); pointer-events: none"></div>
-<div style="position: relative; z-index: 1; display: flex; flex-direction: column; min-height: 100vh">
-<!-- Cabeçalho / navegação -->
-<header style="position: sticky; top: 0; z-index: 50; background-color: #121212; border-bottom: 3px solid #fcee0a">
-<div style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 14px clamp(16px, 4vw, 40px)">
-<a href="home.html" style="font-family: 'Archivo Narrow', sans-serif; font-weight: 600; font-size: clamp(20px, 2.5vw, 26px); color: #fcee0a; text-decoration: none; letter-spacing: 0.03em; text-transform: uppercase">BenchMetrics</a>
-<nav style="display: flex; gap: clamp(14px, 3vw, 32px); flex-wrap: wrap; align-items: center">
-<a href="home.html" style="color: #e5e2e1; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding-bottom: 4px; border-bottom: 2px solid transparent">Home</a>
-<a href="catalogo.html" style="color: #fcee0a; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding-bottom: 4px; border-bottom: 2px solid #fcee0a">Catálogo</a>
-<a href="dashboard.html" style="color: #e5e2e1; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding-bottom: 4px; border-bottom: 2px solid transparent">Testes</a>
-</nav>
-<!-- Busca rápida de cenários -->
-<form action="catalogo.html" method="get" style="display: flex; gap: 0">
-<label for="busca-cenario" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Buscar cenário</label>
-<input id="busca-cenario" name="q" placeholder="Buscar cenário..." style="background-color: #0b0a08; border: 1px solid #4a4732; color: #e5e2e1; font-family: 'Space Mono', monospace; font-size: 12px; padding: 8px 10px; width: 150px; box-sizing: border-box" type="text"/>
-<button style="background-color: #fcee0a; border: 1px solid #fcee0a; color: #100e0b; font-family: 'Space Mono', monospace; font-size: 12px; padding: 8px 12px; cursor: pointer; text-transform: uppercase" type="submit">Ir</button>
-</form>
-</div>
-</header>
-<main style="flex: 1; width: 100%; max-width: 1280px; margin: 0 auto; padding: clamp(24px, 6vw, 56px) clamp(16px, 4vw, 40px); box-sizing: border-box">
-<div style="text-align: center; margin-bottom: 36px">
-<h1 style="font-family: 'Archivo Narrow', sans-serif; font-weight: 600; font-size: clamp(28px, 5vw, 48px); color: #ffffff; text-transform: uppercase; letter-spacing: 0.02em; margin: 0 0 10px 0">Selecione o <span style="color: #fcee0a">Cenário</span></h1>
-<p style="display: inline-block; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #fcee0a; background-color: rgba(252, 238, 10, 0.08); border: 1px solid rgba(252, 238, 10, 0.3); padding: 8px 16px; margin: 0">Ambiente de renderização para testes de estresse</p>
-</div>
-<!-- Grade de cenários: clique na capa para abrir os detalhes (um por vez) -->
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 20px; align-items: start; margin: 32px 0 48px 0">
-<details name="cenario" style="background-color: #121212; border: 2px solid #353534">
-<summary style="display: block; list-style: none; position: relative; cursor: pointer">
-<img src="assets/cyber.jpg" alt="Cartaz de cidade futurista noturna sob luzes neon" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover" />
-<div style="position: absolute; inset: 0; pointer-events: none; opacity: 0.9; background: linear-gradient(to top, #050505 0%, rgba(5, 5, 5, 0.65) 30%, transparent 70%)"></div>
-<span style="position: absolute; left: 12px; right: 12px; bottom: 12px; font-family: 'Space Mono', monospace; font-size: 12px; line-height: 16px; letter-spacing: 0.08em; font-weight: 600; text-transform: uppercase; color: #e5e2e1">Cyberpunk 2077</span>
-</summary>
-<div style="padding: 14px; border-top: 2px solid #fcee0a">
-<table style="width: 100%; border-collapse: collapse; font-family: 'Space Mono', monospace; font-size: 12px">
-<tbody>
-<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Engine</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #00f0ff">RedEngine 4</td></tr>
-<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Otimização</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #fcee0a">40%</td></tr>
-<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Status</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #e5e2e1">Moderado</td></tr>
-</tbody>
-</table>
-<a href="dashboard.html" style="display: block; text-align: center; margin-top: 14px; background-color: #fcee0a; color: #100e0b; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; padding: 12px 8px; border: 2px solid #fcee0a">Iniciar Sequência →</a>
-</div>
-</details>
-<details name="cenario" style="background-color: #121212; border: 2px solid #353534">
-<summary style="display: block; list-style: none; position: relative; cursor: pointer">
-<img src="assets/elden.png" alt="Cartaz de fantasia sombria com árvore dourada e cavaleiro" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover" />
-<div style="position: absolute; inset: 0; pointer-events: none; opacity: 0.9; background: linear-gradient(to top, #050505 0%, rgba(5, 5, 5, 0.65) 30%, transparent 70%)"></div>
-<span style="position: absolute; left: 12px; right: 12px; bottom: 12px; font-family: 'Space Mono', monospace; font-size: 12px; line-height: 16px; letter-spacing: 0.08em; font-weight: 600; text-transform: uppercase; color: #e5e2e1">Elden Ring</span>
-</summary>
-<div style="padding: 14px; border-top: 2px solid #fcee0a">
-<table style="width: 100%; border-collapse: collapse; font-family: 'Space Mono', monospace; font-size: 12px">
-<tbody>
-<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Engine</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #00f0ff">Dantelion</td></tr>
-<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Otimização</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #fcee0a">60%</td></tr>
-<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Status</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #e5e2e1">Bom</td></tr>
-</tbody>
-</table>
-<a href="dashboard.html" style="display: block; text-align: center; margin-top: 14px; background-color: #fcee0a; color: #100e0b; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; padding: 12px 8px; border: 2px solid #fcee0a">Iniciar Sequência →</a>
-</div>
-</details>
-<details name="cenario" style="background-color: #121212; border: 2px solid #353534">
-<summary style="display: block; list-style: none; position: relative; cursor: pointer">
-<img src="assets/spidey.jpg" alt="Cartaz de exploração espacial com planeta anelado" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover" />
-<div style="position: absolute; inset: 0; pointer-events: none; opacity: 0.9; background: linear-gradient(to top, #050505 0%, rgba(5, 5, 5, 0.65) 30%, transparent 70%)"></div>
-<span style="position: absolute; left: 12px; right: 12px; bottom: 12px; font-family: 'Space Mono', monospace; font-size: 12px; line-height: 16px; letter-spacing: 0.08em; font-weight: 600; text-transform: uppercase; color: #e5e2e1">Marvel's Spider-Man</span>
-</summary>
-<div style="padding: 14px; border-top: 2px solid #fcee0a">
-<table style="width: 100%; border-collapse: collapse; font-family: 'Space Mono', monospace; font-size: 12px">
-<tbody>
-<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Engine</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #00f0ff">Insomniac Engine</td></tr>
-<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Otimização</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #fcee0a">75%</td></tr>
-<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Status</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #e5e2e1">Alto</td></tr>
-</tbody>
-</table>
-<a href="dashboard.html" style="display: block; text-align: center; margin-top: 14px; background-color: #fcee0a; color: #100e0b; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; padding: 12px 8px; border: 2px solid #fcee0a">Iniciar Sequência →</a>
-</div>
-</details>
-<details name="cenario" style="background-color: #121212; border: 2px solid #353534">
-<summary style="display: block; list-style: none; position: relative; cursor: pointer">
-<img src="assets/fozinha.jpg" alt="Cartaz de faroeste nevado com cavaleiro ao entardecer" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover" />
-<div style="position: absolute; inset: 0; pointer-events: none; opacity: 0.9; background: linear-gradient(to top, #050505 0%, rgba(5, 5, 5, 0.65) 30%, transparent 70%)"></div>
-<span style="position: absolute; left: 12px; right: 12px; bottom: 12px; font-family: 'Space Mono', monospace; font-size: 12px; line-height: 16px; letter-spacing: 0.08em; font-weight: 600; text-transform: uppercase; color: #e5e2e1">Forza Horizon 6</span>
-</summary>
-<div style="padding: 14px; border-top: 2px solid #fcee0a">
-<table style="width: 100%; border-collapse: collapse; font-family: 'Space Mono', monospace; font-size: 12px">
-<tbody>
-<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Engine</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #00f0ff">ForzaTech</td></tr>
-<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Otimização</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #fcee0a">90%</td></tr>
-<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Status</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #e5e2e1">Excelente</td></tr>
-</tbody>
-</table>
-<a href="dashboard.html" style="display: block; text-align: center; margin-top: 14px; background-color: #fcee0a; color: #100e0b; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; padding: 12px 8px; border: 2px solid #fcee0a">Iniciar Sequência →</a>
-</div>
-</details>
-<details name="cenario" style="background-color: #121212; border: 2px solid #353534">
-<summary style="display: block; list-style: none; position: relative; cursor: pointer">
-<img src="assets/Grand_Theft_Auto_V_capa.png" alt="Cartaz do GTA V" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover" />
-<div style="position: absolute; inset: 0; pointer-events: none; opacity: 0.9; background: linear-gradient(to top, #050505 0%, rgba(5, 5, 5, 0.65) 30%, transparent 70%)"></div>
-<span style="position: absolute; left: 12px; right: 12px; bottom: 12px; font-family: 'Space Mono', monospace; font-size: 12px; line-height: 16px; letter-spacing: 0.08em; font-weight: 600; text-transform: uppercase; color: #e5e2e1">Grand Theft Auto V</span>
-</summary>
-<div style="padding: 14px; border-top: 2px solid #fcee0a">
-<table style="width: 100%; border-collapse: collapse; font-family: 'Space Mono', monospace; font-size: 12px">
-<tbody>
-<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Engine</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #00f0ff">RAGE</td></tr>
-<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Otimização</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #fcee0a">85%</td></tr>
-<tr><th style="text-align: left; padding: 8px 0; border-top: 1px dashed #4a4732; color: #ccc7ab; text-transform: uppercase">Status</th><td style="text-align: right; padding: 8px 0; border-top: 1px dashed #4a4732; color: #e5e2e1">Muito Alto</td></tr>
-</tbody>
-</table>
-<a href="dashboard.html" style="display: block; text-align: center; margin-top: 14px; background-color: #fcee0a; color: #100e0b; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; padding: 12px 8px; border: 2px solid #fcee0a">Iniciar Sequência →</a>
-</div>
-</details>
-</div>
-<!-- Tabela completa do catálogo -->
-<section>
-<h2 style="font-family: 'Archivo Narrow', sans-serif; font-weight: 600; font-size: clamp(20px, 3vw, 28px); color: #ffffff; text-transform: uppercase; margin: 0 0 20px 0">Tabela de Cenários</h2>
-<div style="overflow-x: auto">
-<table style="width: 100%; border-collapse: collapse; font-family: 'Space Mono', monospace; font-size: 13px; min-width: 600px">
-<thead>
-<tr>
-<th style="text-align: left; padding: 12px; background-color: #121212; color: #fcee0a; border: 1px solid #353534; text-transform: uppercase">Cenário</th>
-<th style="text-align: left; padding: 12px; background-color: #121212; color: #fcee0a; border: 1px solid #353534; text-transform: uppercase">Engine</th>
-<th style="text-align: left; padding: 12px; background-color: #121212; color: #fcee0a; border: 1px solid #353534; text-transform: uppercase">Otimização</th>
-<th style="text-align: left; padding: 12px; background-color: #121212; color: #fcee0a; border: 1px solid #353534; text-transform: uppercase">Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="padding: 12px; border: 1px solid #353534">Cyberpunk 2077</td>
-<td style="padding: 12px; border: 1px solid #353534">RedEngine 4</td>
-<td style="padding: 12px; border: 1px solid #353534">40%</td>
-<td style="padding: 12px; border: 1px solid #353534">Moderado</td>
-</tr>
-<tr>
-<td style="padding: 12px; border: 1px solid #353534; background-color: rgba(255, 255, 255, 0.02)">Elden Ring</td>
-<td style="padding: 12px; border: 1px solid #353534; background-color: rgba(255, 255, 255, 0.02)">Dantelion</td>
-<td style="padding: 12px; border: 1px solid #353534; background-color: rgba(255, 255, 255, 0.02)">60%</td>
-<td style="padding: 12px; border: 1px solid #353534; background-color: rgba(255, 255, 255, 0.02)">Bom</td>
-</tr>
-<tr>
-<td style="padding: 12px; border: 1px solid #353534; color: #fcee0a">Marvel's Spider-Man</td>
-<td style="padding: 12px; border: 1px solid #353534">Insomniac Engine</td>
-<td style="padding: 12px; border: 1px solid #353534">75%</td>
-<td style="padding: 12px; border: 1px solid #353534">Alto</td>
-</tr>
-<tr>
-<td style="padding: 12px; border: 1px solid #353534; background-color: rgba(255, 255, 255, 0.02)">Forza Horizon 6</td>
-<td style="padding: 12px; border: 1px solid #353534; background-color: rgba(255, 255, 255, 0.02)">ForzaTech</td>
-<td style="padding: 12px; border: 1px solid #353534; background-color: rgba(255, 255, 255, 0.02)">90%</td>
-<td style="padding: 12px; border: 1px solid #353534; background-color: rgba(255, 255, 255, 0.02)">Excelente</td>
-</tr>
-<tr>
-<td style="padding: 12px; border: 1px solid #353534">Grand Theft Auto V</td>
-<td style="padding: 12px; border: 1px solid #353534">RAGE</td>
-<td style="padding: 12px; border: 1px solid #353534">85%</td>
-<td style="padding: 12px; border: 1px solid #353534">Muito Alto</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-</main>
-<!-- Rodapé -->
-<footer style="background-color: #121212; border-top: 4px solid #fcee0a; margin-top: auto">
-<div style="max-width: 1280px; margin: 0 auto; padding: 32px clamp(16px, 4vw, 40px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; box-sizing: border-box">
-<div style="font-family: 'Archivo Narrow', sans-serif; font-weight: 600; font-size: 18px; color: #fcee0a; text-transform: uppercase">BenchMetrics</div>
-<div style="font-family: 'Space Mono', monospace; font-size: 11px; color: #ccc7ab; text-transform: uppercase">©2026 BenchMetrics Corp.</div>
-</div>
-</footer>
-</div>
-</div>
-
-
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Catálogo de Cenários — BenchMetrics</title>
+    <link href="assets/bm.svg" rel="icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #100e0b;
+      color: #e5e2e1;
+      font-family: &quot;Archivo Narrow&quot;, sans-serif;
+    "
+  >
+    <!-- Camada de fundo Aura (grade neon) - envolve toda a página -->
+    <div
+      style="
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+        background-color: #100e0b;
+      "
+    >
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background-image:
+            linear-gradient(rgba(139, 92, 246, 0.15) 1px, transparent 1px),
+            linear-gradient(
+              90deg,
+              rgba(139, 92, 246, 0.15) 1px,
+              transparent 1px
+            );
+          background-size: 60px 60px;
+          mix-blend-mode: normal;
+          pointer-events: none;
+        "
+      ></div>
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background-image: radial-gradient(
+            circle at 77% 46%,
+            rgba(139, 92, 246, 0.5) 0%,
+            transparent 50%
+          );
+          mix-blend-mode: screen;
+          filter: blur(220px);
+          pointer-events: none;
+        "
+      ></div>
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background-image: radial-gradient(
+            circle at 12% 67%,
+            rgba(123, 130, 23, 0.3) 0%,
+            transparent 40%
+          );
+          mix-blend-mode: screen;
+          filter: blur(180px);
+          pointer-events: none;
+        "
+      ></div>
+      <div
+        style="
+          position: relative;
+          z-index: 1;
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+        "
+      >
+        <!-- Cabeçalho / navegação -->
+        <header
+          style="
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: #121212;
+            border-bottom: 3px solid #fcee0a;
+          "
+        >
+          <div
+            style="
+              max-width: 1280px;
+              margin: 0 auto;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              flex-wrap: wrap;
+              gap: 12px;
+              padding: 14px clamp(16px, 4vw, 40px);
+            "
+          >
+            <a
+              href="home.html"
+              style="
+                font-family: &quot;Anton&quot;, sans-serif;
+                font-size: clamp(20px, 2.5vw, 26px);
+                color: #fcee0a;
+                text-decoration: none;
+                letter-spacing: 0.03em;
+                text-transform: uppercase;
+              "
+              >BenchMetrics</a
+            >
+            <nav
+              style="
+                display: flex;
+                gap: clamp(14px, 3vw, 32px);
+                flex-wrap: wrap;
+                align-items: center;
+              "
+            >
+              <a
+                href="home.html"
+                style="
+                  color: #e5e2e1;
+                  text-decoration: none;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 12px;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                  padding-bottom: 4px;
+                  border-bottom: 2px solid transparent;
+                "
+                >Home</a
+              >
+              <a
+                href="catalogo.html"
+                style="
+                  color: #fcee0a;
+                  text-decoration: none;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 12px;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                  padding-bottom: 4px;
+                  border-bottom: 2px solid #fcee0a;
+                "
+                >Catálogo</a
+              >
+              <a
+                href="dashboard.html"
+                style="
+                  color: #e5e2e1;
+                  text-decoration: none;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 12px;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                  padding-bottom: 4px;
+                  border-bottom: 2px solid transparent;
+                "
+                >Testes</a
+              >
+            </nav>
+            <!-- Busca rápida de cenários -->
+            <form
+              action="catalogo.html"
+              method="get"
+              style="display: flex; gap: 0"
+            >
+              <label
+                for="busca-cenario"
+                style="
+                  position: absolute;
+                  width: 1px;
+                  height: 1px;
+                  overflow: hidden;
+                  clip: rect(0 0 0 0);
+                "
+                >Buscar cenário</label
+              >
+              <input
+                id="busca-cenario"
+                name="q"
+                placeholder="Buscar cenário..."
+                style="
+                  background-color: #0b0a08;
+                  border: 1px solid #4a4732;
+                  color: #e5e2e1;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 12px;
+                  padding: 8px 10px;
+                  width: 150px;
+                  box-sizing: border-box;
+                "
+                type="text"
+              />
+              <button
+                style="
+                  background-color: #fcee0a;
+                  border: 1px solid #fcee0a;
+                  color: #100e0b;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 12px;
+                  padding: 8px 12px;
+                  cursor: pointer;
+                  text-transform: uppercase;
+                "
+                type="submit"
+              >
+                Ir
+              </button>
+            </form>
+          </div>
+        </header>
+        <main
+          style="
+            flex: 1;
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: clamp(24px, 6vw, 56px) clamp(16px, 4vw, 40px);
+            box-sizing: border-box;
+          "
+        >
+          <div style="text-align: center; margin-bottom: 36px">
+            <h1
+              style="
+                font-family: &quot;Anton&quot;, sans-serif;
+                font-size: clamp(28px, 5vw, 48px);
+                color: #ffffff;
+                text-transform: uppercase;
+                letter-spacing: 0.02em;
+                margin: 0 0 10px 0;
+              "
+            >
+              Selecione o <span style="color: #fcee0a">Cenário</span>
+            </h1>
+            <p
+              style="
+                display: inline-block;
+                font-family: &quot;Space Mono&quot;, monospace;
+                font-size: 12px;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: #fcee0a;
+                background-color: rgba(252, 238, 10, 0.08);
+                border: 1px solid rgba(252, 238, 10, 0.3);
+                padding: 8px 16px;
+                margin: 0;
+              "
+            >
+              Ambiente de renderização para testes de estresse
+            </p>
+          </div>
+          <!-- Grade de cenários: clique na capa para abrir os detalhes (um por vez) -->
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+              gap: 20px;
+              align-items: start;
+              margin: 32px 0 48px 0;
+            "
+          >
+            <details
+              name="cenario"
+              style="background-color: #121212; border: 2px solid #353534"
+            >
+              <summary
+                style="
+                  display: block;
+                  list-style: none;
+                  position: relative;
+                  cursor: pointer;
+                "
+              >
+                <img
+                  src="assets/cyber.jpg"
+                  alt="Cartaz de cidade futurista noturna sob luzes neon"
+                  style="
+                    display: block;
+                    width: 100%;
+                    aspect-ratio: 3 / 4;
+                    object-fit: cover;
+                  "
+                />
+                <div
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    pointer-events: none;
+                    opacity: 0.9;
+                    background: linear-gradient(
+                      to top,
+                      #050505 0%,
+                      rgba(5, 5, 5, 0.65) 30%,
+                      transparent 70%
+                    );
+                  "
+                ></div>
+                <span
+                  style="
+                    position: absolute;
+                    left: 12px;
+                    right: 12px;
+                    bottom: 12px;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 12px;
+                    line-height: 16px;
+                    letter-spacing: 0.08em;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    color: #e5e2e1;
+                  "
+                  >Cyberpunk 2077</span
+                >
+              </summary>
+              <div style="padding: 14px; border-top: 2px solid #fcee0a">
+                <table
+                  style="
+                    width: 100%;
+                    border-collapse: collapse;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 12px;
+                  "
+                >
+                  <tbody>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                        "
+                      >
+                        Engine
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #00f0ff;
+                        "
+                      >
+                        RedEngine 4
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                        "
+                      >
+                        Otimização
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #fcee0a;
+                        "
+                      >
+                        40%
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                        "
+                      >
+                        Status
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #e5e2e1;
+                        "
+                      >
+                        Moderado
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <a
+                  href="dashboard.html"
+                  style="
+                    display: block;
+                    text-align: center;
+                    margin-top: 14px;
+                    background-color: #fcee0a;
+                    color: #100e0b;
+                    text-decoration: none;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 12px;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    padding: 12px 8px;
+                    border: 2px solid #fcee0a;
+                  "
+                  >Iniciar Sequência →</a
+                >
+              </div>
+            </details>
+            <details
+              name="cenario"
+              style="background-color: #121212; border: 2px solid #353534"
+            >
+              <summary
+                style="
+                  display: block;
+                  list-style: none;
+                  position: relative;
+                  cursor: pointer;
+                "
+              >
+                <img
+                  src="assets/elden.png"
+                  alt="Cartaz de fantasia sombria com árvore dourada e cavaleiro"
+                  style="
+                    display: block;
+                    width: 100%;
+                    aspect-ratio: 3 / 4;
+                    object-fit: cover;
+                  "
+                />
+                <div
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    pointer-events: none;
+                    opacity: 0.9;
+                    background: linear-gradient(
+                      to top,
+                      #050505 0%,
+                      rgba(5, 5, 5, 0.65) 30%,
+                      transparent 70%
+                    );
+                  "
+                ></div>
+                <span
+                  style="
+                    position: absolute;
+                    left: 12px;
+                    right: 12px;
+                    bottom: 12px;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 12px;
+                    line-height: 16px;
+                    letter-spacing: 0.08em;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    color: #e5e2e1;
+                  "
+                  >Elden Ring</span
+                >
+              </summary>
+              <div style="padding: 14px; border-top: 2px solid #fcee0a">
+                <table
+                  style="
+                    width: 100%;
+                    border-collapse: collapse;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 12px;
+                  "
+                >
+                  <tbody>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                        "
+                      >
+                        Engine
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #00f0ff;
+                        "
+                      >
+                        Dantelion
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                        "
+                      >
+                        Otimização
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #fcee0a;
+                        "
+                      >
+                        60%
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                        "
+                      >
+                        Status
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #e5e2e1;
+                        "
+                      >
+                        Bom
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <a
+                  href="dashboard.html"
+                  style="
+                    display: block;
+                    text-align: center;
+                    margin-top: 14px;
+                    background-color: #fcee0a;
+                    color: #100e0b;
+                    text-decoration: none;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 12px;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    padding: 12px 8px;
+                    border: 2px solid #fcee0a;
+                  "
+                  >Iniciar Sequência →</a
+                >
+              </div>
+            </details>
+            <details
+              name="cenario"
+              style="background-color: #121212; border: 2px solid #353534"
+            >
+              <summary
+                style="
+                  display: block;
+                  list-style: none;
+                  position: relative;
+                  cursor: pointer;
+                "
+              >
+                <img
+                  src="assets/spidey.jpg"
+                  alt="Cartaz de exploração espacial com planeta anelado"
+                  style="
+                    display: block;
+                    width: 100%;
+                    aspect-ratio: 3 / 4;
+                    object-fit: cover;
+                  "
+                />
+                <div
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    pointer-events: none;
+                    opacity: 0.9;
+                    background: linear-gradient(
+                      to top,
+                      #050505 0%,
+                      rgba(5, 5, 5, 0.65) 30%,
+                      transparent 70%
+                    );
+                  "
+                ></div>
+                <span
+                  style="
+                    position: absolute;
+                    left: 12px;
+                    right: 12px;
+                    bottom: 12px;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 12px;
+                    line-height: 16px;
+                    letter-spacing: 0.08em;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    color: #e5e2e1;
+                  "
+                  >Marvel`s Spider Man</span
+                >
+              </summary>
+              <div style="padding: 14px; border-top: 2px solid #fcee0a">
+                <table
+                  style="
+                    width: 100%;
+                    border-collapse: collapse;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 12px;
+                  "
+                >
+                  <tbody>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                        "
+                      >
+                        Engine
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #00f0ff;
+                        "
+                      >
+                        Insomniac Engine
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                        "
+                      >
+                        Otimização
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #fcee0a;
+                        "
+                      >
+                        75%
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                        "
+                      >
+                        Status
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #e5e2e1;
+                        "
+                      >
+                        Alto
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <a
+                  href="dashboard.html"
+                  style="
+                    display: block;
+                    text-align: center;
+                    margin-top: 14px;
+                    background-color: #fcee0a;
+                    color: #100e0b;
+                    text-decoration: none;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 12px;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    padding: 12px 8px;
+                    border: 2px solid #fcee0a;
+                  "
+                  >Iniciar Sequência →</a
+                >
+              </div>
+            </details>
+            <details
+              name="cenario"
+              style="background-color: #121212; border: 2px solid #353534"
+            >
+              <summary
+                style="
+                  display: block;
+                  list-style: none;
+                  position: relative;
+                  cursor: pointer;
+                "
+              >
+                <img
+                  src="assets/fozinha.jpg"
+                  alt="Cartaz de faroeste nevado com cavaleiro ao entardecer"
+                  style="
+                    display: block;
+                    width: 100%;
+                    aspect-ratio: 3 / 4;
+                    object-fit: cover;
+                  "
+                />
+                <div
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    pointer-events: none;
+                    opacity: 0.9;
+                    background: linear-gradient(
+                      to top,
+                      #050505 0%,
+                      rgba(5, 5, 5, 0.65) 30%,
+                      transparent 70%
+                    );
+                  "
+                ></div>
+                <span
+                  style="
+                    position: absolute;
+                    left: 12px;
+                    right: 12px;
+                    bottom: 12px;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 12px;
+                    line-height: 16px;
+                    letter-spacing: 0.08em;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    color: #e5e2e1;
+                  "
+                  >Forza Horizon 6</span
+                >
+              </summary>
+              <div style="padding: 14px; border-top: 2px solid #fcee0a">
+                <table
+                  style="
+                    width: 100%;
+                    border-collapse: collapse;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 12px;
+                  "
+                >
+                  <tbody>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                        "
+                      >
+                        Engine
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #00f0ff;
+                        "
+                      >
+                        ForzaTech
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                        "
+                      >
+                        Otimização
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #fcee0a;
+                        "
+                      >
+                        90%
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                        "
+                      >
+                        Status
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #e5e2e1;
+                        "
+                      >
+                        Excelente
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <a
+                  href="dashboard.html"
+                  style="
+                    display: block;
+                    text-align: center;
+                    margin-top: 14px;
+                    background-color: #fcee0a;
+                    color: #100e0b;
+                    text-decoration: none;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 12px;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    padding: 12px 8px;
+                    border: 2px solid #fcee0a;
+                  "
+                  >Iniciar Sequência →</a
+                >
+              </div>
+            </details>
+            <details
+              name="cenario"
+              style="background-color: #121212; border: 2px solid #353534"
+            >
+              <summary
+                style="
+                  display: block;
+                  list-style: none;
+                  position: relative;
+                  cursor: pointer;
+                "
+              >
+                <img
+                  src="assets/Grand_Theft_Auto_V_capa.png"
+                  alt="Cartaz do GTA V"
+                  style="
+                    display: block;
+                    width: 100%;
+                    aspect-ratio: 3 / 4;
+                    object-fit: cover;
+                  "
+                />
+                <div
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    pointer-events: none;
+                    opacity: 0.9;
+                    background: linear-gradient(
+                      to top,
+                      #050505 0%,
+                      rgba(5, 5, 5, 0.65) 30%,
+                      transparent 70%
+                    );
+                  "
+                ></div>
+                <span
+                  style="
+                    position: absolute;
+                    left: 12px;
+                    right: 12px;
+                    bottom: 12px;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 12px;
+                    line-height: 16px;
+                    letter-spacing: 0.08em;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    color: #e5e2e1;
+                  "
+                  >Grand Theft Auto V</span
+                >
+              </summary>
+              <div style="padding: 14px; border-top: 2px solid #fcee0a">
+                <table
+                  style="
+                    width: 100%;
+                    border-collapse: collapse;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 12px;
+                  "
+                >
+                  <tbody>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                        "
+                      >
+                        Engine
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #00f0ff;
+                        "
+                      >
+                        RAGE
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                        "
+                      >
+                        Otimização
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #fcee0a;
+                        "
+                      >
+                        85%
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        style="
+                          text-align: left;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #ccc7ab;
+                          text-transform: uppercase;
+                        "
+                      >
+                        Status
+                      </th>
+                      <td
+                        style="
+                          text-align: right;
+                          padding: 8px 0;
+                          border-top: 1px dashed #4a4732;
+                          color: #e5e2e1;
+                        "
+                      >
+                        Muito Alto
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <a
+                  href="dashboard.html"
+                  style="
+                    display: block;
+                    text-align: center;
+                    margin-top: 14px;
+                    background-color: #fcee0a;
+                    color: #100e0b;
+                    text-decoration: none;
+                    font-family: &quot;Space Mono&quot;, monospace;
+                    font-size: 12px;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    padding: 12px 8px;
+                    border: 2px solid #fcee0a;
+                  "
+                  >Iniciar Sequência →</a
+                >
+              </div>
+            </details>
+          </div>
+          <!-- Tabela completa do catálogo -->
+          <section>
+            <h2
+              style="
+                font-family: &quot;Anton&quot;, sans-serif;
+                font-size: clamp(20px, 3vw, 28px);
+                color: #ffffff;
+                text-transform: uppercase;
+                margin: 0 0 20px 0;
+              "
+            >
+              Tabela de Cenários
+            </h2>
+            <div style="overflow-x: auto">
+              <table
+                style="
+                  width: 100%;
+                  border-collapse: collapse;
+                  font-family: &quot;Space Mono&quot;, monospace;
+                  font-size: 13px;
+                  min-width: 600px;
+                "
+              >
+                <thead>
+                  <tr>
+                    <th
+                      style="
+                        text-align: left;
+                        padding: 12px;
+                        background-color: #121212;
+                        color: #fcee0a;
+                        border: 1px solid #353534;
+                        text-transform: uppercase;
+                      "
+                    >
+                      Cenário
+                    </th>
+                    <th
+                      style="
+                        text-align: left;
+                        padding: 12px;
+                        background-color: #121212;
+                        color: #fcee0a;
+                        border: 1px solid #353534;
+                        text-transform: uppercase;
+                      "
+                    >
+                      Engine
+                    </th>
+                    <th
+                      style="
+                        text-align: left;
+                        padding: 12px;
+                        background-color: #121212;
+                        color: #fcee0a;
+                        border: 1px solid #353534;
+                        text-transform: uppercase;
+                      "
+                    >
+                      Otimização
+                    </th>
+                    <th
+                      style="
+                        text-align: left;
+                        padding: 12px;
+                        background-color: #121212;
+                        color: #fcee0a;
+                        border: 1px solid #353534;
+                        text-transform: uppercase;
+                      "
+                    >
+                      Status
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="padding: 12px; border: 1px solid #353534">
+                      Cyberpunk 2077
+                    </td>
+                    <td style="padding: 12px; border: 1px solid #353534">
+                      RedEngine 4
+                    </td>
+                    <td style="padding: 12px; border: 1px solid #353534">
+                      40%
+                    </td>
+                    <td style="padding: 12px; border: 1px solid #353534">
+                      Moderado
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        background-color: rgba(255, 255, 255, 0.02);
+                      "
+                    >
+                      Elden Ring
+                    </td>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        background-color: rgba(255, 255, 255, 0.02);
+                      "
+                    >
+                      Dantelion
+                    </td>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        background-color: rgba(255, 255, 255, 0.02);
+                      "
+                    >
+                      60%
+                    </td>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        background-color: rgba(255, 255, 255, 0.02);
+                      "
+                    >
+                      Bom
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        color: #fcee0a;
+                      "
+                    >
+                      Marvel`s Spider Man
+                    </td>
+                    <td style="padding: 12px; border: 1px solid #353534">
+                      Insomniac Engine
+                    </td>
+                    <td style="padding: 12px; border: 1px solid #353534">
+                      75%
+                    </td>
+                    <td style="padding: 12px; border: 1px solid #353534">
+                      Alto
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        background-color: rgba(255, 255, 255, 0.02);
+                      "
+                    >
+                      Forza 6
+                    </td>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        background-color: rgba(255, 255, 255, 0.02);
+                      "
+                    >
+                      ForzaTech
+                    </td>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        background-color: rgba(255, 255, 255, 0.02);
+                      "
+                    >
+                      90%
+                    </td>
+                    <td
+                      style="
+                        padding: 12px;
+                        border: 1px solid #353534;
+                        background-color: rgba(255, 255, 255, 0.02);
+                      "
+                    >
+                      Excelente
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px; border: 1px solid #353534">
+                      Grand Theft Auto V
+                    </td>
+                    <td style="padding: 12px; border: 1px solid #353534">
+                      RAGE
+                    </td>
+                    <td style="padding: 12px; border: 1px solid #353534">
+                      85%
+                    </td>
+                    <td style="padding: 12px; border: 1px solid #353534">
+                      Muito Alto
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+        <!-- Rodapé -->
+        <footer
+          style="
+            background-color: #121212;
+            border-top: 4px solid #fcee0a;
+            margin-top: auto;
+          "
+        >
+          <div
+            style="
+              max-width: 1280px;
+              margin: 0 auto;
+              padding: 32px clamp(16px, 4vw, 40px);
+              display: flex;
+              flex-wrap: wrap;
+              align-items: center;
+              justify-content: space-between;
+              gap: 16px;
+              box-sizing: border-box;
+            "
+          >
+            <div
+              style="
+                font-family: &quot;Anton&quot;, sans-serif;
+                font-size: 18px;
+                color: #fcee0a;
+                text-transform: uppercase;
+              "
+            >
+              BenchMetrics
+            </div>
+            <div
+              style="
+                font-family: &quot;Space Mono&quot;, monospace;
+                font-size: 11px;
+                color: #ccc7ab;
+                text-transform: uppercase;
+              "
+            >
+              ©2026 BenchMetrics Corp.
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
 </html>
